@@ -1,0 +1,79 @@
+{
+  "UniProt:P55017": {
+    "nom_drugmechdb": "Solute carrier family 12 member 3",
+    "synonymes": [
+      "Solute carrier family 12 member 3",
+      "Na-Cl cotransporter",
+      "NCC",
+      "Na-Cl symporter",
+      "Thiazide-sensitive sodium-chloride cotransporter",
+      "SLC12A3",
+      "TSC"
+    ]
+  },
+  "UniProt:P31645": {
+    "nom_drugmechdb": "Sodium-dependent serotonin transporter",
+    "synonymes": [
+      "Sodium-dependent serotonin transporter",
+      "SERT",
+      "5HT transporter",
+      "5HTT",
+      "Solute carrier family 6 member 4",
+      "SLC6A4",
+      "HTT"
+    ]
+  },
+  "UniProt:P23975": {
+    "nom_drugmechdb": "Sodium-dependent noradrenaline transporter",
+    "synonymes": [
+      "Sodium-dependent noradrenaline transporter",
+      "Norepinephrine transporter",
+      "NET",
+      "Solute carrier family 6 member 2",
+      "SLC6A2",
+      "NAT1",
+      "NET1",
+      "SLC6A5"
+    ]
+  },
+  "UniProt:Q01959": {
+    "nom_drugmechdb": "Sodium-dependent dopamine transporter",
+    "synonymes": [
+      "Sodium-dependent dopamine transporter",
+      "DA transporter",
+      "DAT",
+      "Solute carrier family 6 member 3",
+      "SLC6A3",
+      "DAT1"
+    ]
+  },
+  "UniProt:P07202": {
+    "nom_drugmechdb": "Thyroid peroxidase",
+    "synonymes": [
+      "Thyroid peroxidase",
+      "TPO"
+    ]
+  },
+  "UniProt:Q99062": {
+    "nom_drugmechdb": "Granulocyte colony-stimulating factor receptor",
+    "synonymes": [
+      "Granulocyte colony-stimulating factor receptor",
+      "G-CSF receptor",
+      "G-CSF-R",
+      "CSF3R",
+      "GCSFR"
+    ]
+  },
+  "UniProt:P43119": {
+    "nom_drugmechdb": "Prostacyclin receptor",
+    "synonymes": [
+      "Prostacyclin receptor",
+      "Prostaglandin I2 receptor",
+      "PGI receptor",
+      "PGI2 receptor",
+      "Prostanoid IP receptor",
+      "PTGIR",
+      "PRIPR"
+    ]
+  }
+}

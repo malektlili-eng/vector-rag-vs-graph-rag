@@ -1,0 +1,218 @@
+[
+  {
+    "pmid": "8521760",
+    "titre": "Alteplase. A reappraisal of its pharmacology and therapeutic use in vascular disorders other than acute myocardial infarction.",
+    "annee": "1995",
+    "journal": "Drugs",
+    "resume": "Alteplase is the product of recombinant DNA technology and is chemically identical to endogenous tissue-type plasminogen activator: Plasminogen is converted to plasmin by alteplase, and fibrinolysis of blood thrombi is subsequently stimulated. Alteplase is now firmly established as a treatment of choice in the management of acute myocardial infarction. The efficacy of intravenous alteplase in the treatment of pulmonary thromboembolism has also been established and appears to be similar to that of streptokinase and urokinase in this indication and in arterial thrombotic occlusion. However, its use in this latter indication and in other vascular disorders has not been as extensively documented. Although trials demonstrating the efficacy of intravenous alteplase in patients with deep vein thrombosis and intra-arterial alteplase in patients with arterial thrombotic occlusion exist, reliable data on the efficacy of the fibrinolytic in ischaemic stroke and intracranial haemorrhage are scarce. Little clinical benefit is apparent in patients with unstable angina, although careful use may be warranted in those with definite pretreatment coronary thrombi. Of concern, there is a suggestion that general use of alteplase in patients with unstable angina may be associated with increased incidence of myocardial infarction. The incidence of major haemorrhage associated with alteplase therapy increases with increasing dose and appears to be similar to that seen with other fibrinolytic agents. Thus, further well-designed studies of the use of alteplase in ischaemic stroke and cerebral haemorrhage are required. However, a small subset of patients with unstable angina and definite pretreatment coronary thrombi may benefit from alteplase therapy. Further, preliminary data suggest efficacy in the therapy of deep vein thrombosis and arterial thrombotic occlusion, and alteplase has a proven place in the fibrinolytic treatment of pulmonary thromboembolism.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00013_MESH_D011655_1",
+        "saut": 3,
+        "source": "fibrinolysis",
+        "relation": "negatively correlated with",
+        "cible": "Pulmonary thromboembolism",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "19169095",
+    "titre": "Finasteride-induced myalgia and HyperCKemia.",
+    "annee": "2008",
+    "journal": "Journal of clinical neuromuscular disease",
+    "resume": "BACKGROUND: Finasteride is an antiandrogen, inhibits type II 5-alpha reductase (enzyme that converts testosterone to more potent form dihydrotestosterone), and is commonly used in the treatment of benign prostatic hyperplasia and male frontal baldness; however, it is not free from side effects, which include sexual dysfunction and, rarely, myopathy. We report a case of finasteride-associated myalgia and hyperCKemia and review similar cases reported in the literature. CASE REPORT: A 30-year-old man who had been taking finasteride 5 mg/d for 10 years to treat frontal baldness developed diffuse muscle aches associated with elevated creatine kinase level to 10,117 IU/L with neither weakness nor pigmenturia. His symptoms resolved and his creatine kinase level dropped down to 256 IU/L 3 weeks after finasteride discontinuation. CONCLUSION: Reversible myalgia associated with significant hyperCKemia is a possible adverse reaction of finasteride therapy.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB01126_MESH_D011470_2",
+        "saut": 1,
+        "source": "Finasteride",
+        "relation": "decreases activity of",
+        "cible": "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB01126_MESH_D011470_2",
+        "saut": 2,
+        "source": "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+        "relation": "increases abundance of",
+        "cible": "Dihydrotestosterone",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "35947166",
+    "titre": "Psychopharmacological properties and therapeutic profile of the antidepressant venlafaxine.",
+    "annee": "2022",
+    "journal": "Psychopharmacology",
+    "resume": "Major depression (MD) is one of the most common psychiatric disorders worldwide. Currently, the first-line treatment for MD targets the serotonin system but these drugs, notably the selective serotonin reuptake inhibitors, usually need 4 to 6 weeks before the benefit is felt and a significant proportion of patients shows an unsatisfactory response. Numerous treatments have been developed to circumvent these issues as venlafaxine, a mixed serotonin-norepinephrine reuptake inhibitor that binds and blocks both the SERT and NET transporters. Despite this pharmacological profile, it is difficult to have a valuable insight into its ability to produce more robust efficacy than single-acting agents. In this review, we provide an in-depth characterization of the pharmacological properties of venlafaxine from in vitro data to preclinical and clinical efficacy in depressed patients and animal models of depression to propose an indirect comparison with the most common antidepressants. Preclinical studies show that the antidepressant effect of venlafaxine is often associated with an enhancement of serotonergic neurotransmission at low doses. High doses of venlafaxine, which elicit a concomitant increase in 5-HT and NE tone, is associated with changes in different forms of plasticity in discrete brain areas. In particular, the hippocampus appears to play a crucial role in venlafaxine-mediated antidepressant effects notably by regulating processes such as adult hippocampal neurogenesis or the excitatory/inhibitory balance. Overall, depending on the dose used, venlafaxine shows a high efficacy on depressive-like symptoms in relevant animal models but to the same extent as common antidepressants. However, these data are counterbalanced by a lower tolerance. In conclusion, venlafaxine appears to be one of the most effective treatments for treatment of major depression. Still, direct comparative studies are warranted to provide definitive conclusions about its superiority.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D016584_2",
+        "saut": 1,
+        "source": "venlafaxine",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D016584_2",
+        "saut": 2,
+        "source": "Sodium-dependent noradrenaline transporter",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D000072861_2",
+        "saut": 1,
+        "source": "venlafaxine",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D000072861_2",
+        "saut": 2,
+        "source": "Sodium-dependent noradrenaline transporter",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D003865_2",
+        "saut": 1,
+        "source": "venlafaxine",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB00285_MESH_D003865_2",
+        "saut": 2,
+        "source": "Sodium-dependent noradrenaline transporter",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "22049464",
+    "titre": "Antiserotonergic properties of terguride in blood vessels, platelets, and valvular interstitial cells.",
+    "annee": "2012",
+    "journal": "The Journal of pharmacology and experimental therapeutics",
+    "resume": "Serotonin (5-hydroxytryptamine; 5-HT) is involved in heart valve tissue fibrosis, pulmonary arterial fibrosis, and pulmonary hypertension. We aimed at characterizing the antiserotonergic properties of the ergot alkaloid derivative terguride [1,1-diethyl-3-(6-methyl-8α-ergolinyl)urea] by using functional receptor assays and valvular interstitial cell culture. Terguride showed no vasoconstrictor effect in porcine coronary arteries (5-HT(2A) receptor bioassay) and no relaxant effect in porcine pulmonary arteries (5-HT(2B) receptor bioassay). Terguride behaved as a potent antagonist at 5-HT(2A) receptors (noncompetitive antagonist parameter pD'₂ 9.43) and 5-HT(2B) receptors (apparent pA₂ 8.87). Metabolites of terguride (N″-monodeethylterguride and 6-norterguride) lacked agonism at both sites. N″-monodeethylterguride and 6-norterguride were surmountable antagonists at 5-HT(2A) receptors (pA₂ 7.82 and 7.85, respectively) and 5-HT(2B) receptors (pA₂ 7.30 and 7.11, respectively). Kinetic studies on the effects of terguride in pulmonary arteries showed that the rate to reach drug-receptor equilibrium for terguride was fast. Washout experiments showed that terguride easily disappeared from the receptor biophase. Pretreatment with terguride inhibited 5-HT-induced amplification of ADP-stimulated human platelet aggregation (IC₅₀ 16 nM). In porcine valvular interstitial cells, 5-HT-induced activation of extracellular signal-regulated kinase (ERK) 1/2, an initiator of cellular proliferation and activity, was blocked by terguride as shown by Western blotting. In these cells, the stimulatory effect of 5-HT on [³H]proline incorporation (index of extracellular matrix collagen) was blocked by terguride. Because of the inhibition of both 5-HT(2A) and 5-HT(2B) receptors, platelet aggregation, and cellular proliferation and activity (ERK1/2 phosphorylation and collagen production) terguride may have therapeutic potential in the treatment of fibrotic disorders.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB13399_MESH_D006976_1",
+        "saut": 1,
+        "source": "terguride",
+        "relation": "decreases activity of",
+        "cible": "5-Hydroxytryptamine receptor 2B",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB13399_MESH_D006976_1",
+        "saut": 2,
+        "source": "5-Hydroxytryptamine receptor 2B",
+        "relation": "positively correlated with",
+        "cible": "Pulmonary hypertension",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "25667920",
+    "titre": "5-HT2B receptor antagonists inhibit fibrosis and protect from RV heart failure.",
+    "annee": "2015",
+    "journal": "BioMed research international",
+    "resume": "OBJECTIVE: The serotonin (5-HT) pathway was shown to play a role in pulmonary hypertension (PH), but its functions in right ventricular failure (RVF) remain poorly understood. The aim of the current study was to investigate the effects of Terguride (5-HT2A and 2B receptor antagonist) or SB204741 (5-HT2B receptor antagonist) on right heart function and structure upon pulmonary artery banding (PAB) in mice. METHODS: Seven days after PAB, mice were treated for 14 days with Terguride (0.2 mg/kg bid) or SB204741 (5 mg/kg day). Right heart function and remodeling were assessed by right heart catheterization, magnetic resonance imaging (MRI), and histomorphometric methods. Total secreted collagen content was determined in mouse cardiac fibroblasts isolated from RV tissues. RESULTS: Chronic treatment with Terguride or SB204741 reduced right ventricular fibrosis and showed improved heart function in mice after PAB. Moreover, 5-HT2B receptor antagonists diminished TGF-beta1 induced collagen synthesis of RV cardiac fibroblasts in vitro. CONCLUSION: 5-HT2B receptor antagonists reduce collagen deposition, thereby inhibiting right ventricular fibrosis. Chronic treatment prevented the development and progression of pressure overload-induced RVF in mice. Thus, 5-HT2B receptor antagonists represent a valuable novel therapeutic approach for RVF.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB13399_MESH_D006976_1",
+        "saut": 1,
+        "source": "terguride",
+        "relation": "decreases activity of",
+        "cible": "5-Hydroxytryptamine receptor 2B",
+        "filtre_mecanistique": true
+      },
+      {
+        "role": "cible",
+        "chaine": "DB13399_MESH_D006976_1",
+        "saut": 2,
+        "source": "5-Hydroxytryptamine receptor 2B",
+        "relation": "positively correlated with",
+        "cible": "Pulmonary hypertension",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "21443098",
+    "titre": "The histamine H2 receptor antagonist lafutidine in Japanese patients with non-erosive reflux disease.",
+    "annee": "2010",
+    "journal": "Hepato-gastroenterology",
+    "resume": "BACKGROUND/AIMS: This study aims to investigate whether histamine H2-receptor antagonists are sufficient to treat nonerosive reflux disease in Japanese patients. The efficacy of lafutidine in Japanese nonerosive reflux disease patients was studied. METHODOLOGY: The subjects were 24 heartburn patients with two or more cases of heartburn in a week before the period of observation, QUEST score of 6 or above and diagnosed as no erosion in esophagus by upper gastrointestinal endoscopy. Following obtained informed consent, gastroesophageal 24-hour pH was monitored after the placebo period (2 weeks) and the completion of the lafitidine period (at the dose of 10 mg twice daily for 4 weeks). RESULTS: Twenty three patients completed the study. The percentage of time that the intraesophageal pH was less than 4 decreased significantly, from 3.07% to 1.17%, after the lafutidine administration. The overall percentage of time that the intragastric pH was above 3 increased significantly from 26.6% to 56.5% after the lafutidine administration, and increased from 22.7% to 51.0% (daytime period) and 34.6% to 67.2% (nighttime period), respectively. Lafutidine markedly improved heartburn and other symptoms, as recorded in patient diaries. CONCLUSIONS: Lafutidine markedly improved the intraesophageal pH and the symptoms of heartburn in Japanese patients with nonerosive reflux disease. Lafutidine also inhibited gastric acid secretion not only during the nighttime but also during the daytime.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB12770_MESH_D005764_1",
+        "saut": 2,
+        "source": "Histamine H2 Receptor",
+        "relation": "positively regulates",
+        "cible": "Gastric acid secretion",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "17914953",
+    "titre": "Effects of a novel histamine H2-receptor antagonist, lafutidine, on the mucus barrier of human gastric mucosa.",
+    "annee": "2007",
+    "journal": "Journal of gastroenterology and hepatology",
+    "resume": "BACKGROUND AND AIM: Lafutidine is a novel histamine H(2)-receptor antagonist used primarily as an antisecretory agent in Japan. Previous human studies have not assessed its gastroprotective effects. The purpose of the present study was to determine the effects of lafutidine on the human gastric mucus layer using both histological and biochemical methods. METHODS: Of the 14 patients scheduled for gastrectomy who consented to participate, seven were given 14 days of lafutidine 20 mg/day (lafutidine group) and the others received no medication (control group). The surface mucus gel layer in Carnoy-fixed tissue sections was examined immunohistochemically. Both the thickness of the mucus layer and its mucin content were measured in gastric corpus mucosa. RESULTS: There was no detectable difference between the groups in the grade of gastritis or the immunohistochemical staining characteristics. The laminated structure of the surface mucus gel layer was retained after administration of lafutidine and it was thicker than the layer in the control group. The surface layer in the lafutidine group had three-fold more mucin than that in the control group. There was no difference between the two groups in the mucin content of the deep mucosa. CONCLUSION: Lafutidine, given at clinical dosages, not only inhibits acid secretion but also strengthens the mucus barrier of the human gastric mucosa.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB12770_MESH_D005764_1",
+        "saut": 1,
+        "source": "lafutidine",
+        "relation": "decreases activity of",
+        "cible": "Histamine H2 Receptor",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "21349265",
+    "titre": "Lafutidine, a unique histamine H2-receptor antagonist, inhibits distention-induced gastric acid secretion through an H2 receptor-independent mechanism.",
+    "annee": "2011",
+    "journal": "European journal of pharmacology",
+    "resume": "Gastric acid secretion during the daytime has been implicated in the pathogenesis of acid-related diseases. Although daytime acid secretion is mainly governed by the parasympathetic vagal nerve, clinical observations have been accumulated that the H(2)-receptor antagonist lafutidine may have a strong effect. Here, we examined the actions of H(2)-receptor antagonists in a rat model of gastric acid secretion induced by stomach distention, a major post-meal stimulus. Indeed, the acid output during a 3h period after the instillation of saline into pylorus-ligated SD rats under urethane anesthesia was dependent on the instilled volume and was strongly suppressed by a vagotomy or the intraduodenal administration of atropine. Interestingly, lafutidine, but not famotidine or cimetidine, administered at a sufficient dose to block histamine-dependent acid secretion was capable of inhibiting distention-induced acid secretion. Moreover, gastric acid secretion induced by the intravenous perfusion of carbachol into SD rats was strongly inhibited by lafutidine but only partially inhibited by famotidine. The antisecretory action of lafutidine under these conditions was partly reversed by the co-administration of the nitric oxide synthase inhibitor L-NMMA, but was hardly affected by denervation with capsaicin or by the administration of the transient receptor potential channel V1 (TRPV1) antagonist capsazepine. Together with the observation that lafutidine increased the amount of intragastric nitric oxide, the present results suggest that lafutidine inhibits daytime gastric acid secretion not only by blocking H(2) receptors, but also through nitric oxide-mediated and histamine-independent indirect actions.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB12770_MESH_D005764_1",
+        "saut": 2,
+        "source": "Histamine H2 Receptor",
+        "relation": "positively regulates",
+        "cible": "Gastric acid secretion",
+        "filtre_mecanistique": true
+      }
+    ]
+  }
+]

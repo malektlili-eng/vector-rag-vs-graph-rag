@@ -1,0 +1,376 @@
+[
+  {
+    "id": "MH01",
+    "type": "pont",
+    "ancres": [
+      "paroxetine"
+    ],
+    "n_aretes": 60,
+    "recuperes": [
+      "18801947",
+      "20678672",
+      "26208982",
+      "12950437",
+      "9400006"
+    ],
+    "attendus": [
+      "24424469",
+      "36178950"
+    ],
+    "rappel": 0.0
+  },
+  {
+    "id": "MH02",
+    "type": "pont",
+    "ancres": [
+      "cangrelor"
+    ],
+    "n_aretes": 14,
+    "recuperes": [
+      "33309519",
+      "26245659",
+      "27628007",
+      "35678974",
+      "30922852"
+    ],
+    "attendus": [
+      "27628007",
+      "33309519"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH03",
+    "type": "pont",
+    "ancres": [
+      "Amiloride"
+    ],
+    "n_aretes": 18,
+    "recuperes": [
+      "28656379",
+      "15574344",
+      "161815",
+      "3225425",
+      "28455924"
+    ],
+    "attendus": [
+      "15574344",
+      "28656379"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH04",
+    "type": "intersection",
+    "ancres": [
+      "ergot derivatives",
+      "5-HT2B receptors",
+      "ergotamine"
+    ],
+    "n_aretes": 27,
+    "recuperes": [
+      "15862804",
+      "25712664",
+      "8736617",
+      "25667920",
+      "10649819"
+    ],
+    "attendus": [
+      "15862804",
+      "25712664"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH05",
+    "type": "intersection",
+    "ancres": [
+      "angiogenesis",
+      "ranibizumab"
+    ],
+    "n_aretes": 71,
+    "recuperes": [
+      "34081204",
+      "28934120",
+      "35105268",
+      "25949073",
+      "35158766"
+    ],
+    "attendus": [
+      "28934120",
+      "35105268",
+      "39453771"
+    ],
+    "rappel": 0.6666666666666666
+  },
+  {
+    "id": "MH06",
+    "type": "intersection",
+    "ancres": [
+      "ejaculation disorder",
+      "escitalopram"
+    ],
+    "n_aretes": 169,
+    "recuperes": [
+      "12387707",
+      "40898405",
+      "29447628",
+      "26208982",
+      "35434055"
+    ],
+    "attendus": [
+      "12387707",
+      "29447628"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH07",
+    "type": "intersection",
+    "ancres": [
+      "norepinephrine reuptake"
+    ],
+    "n_aretes": 96,
+    "recuperes": [
+      "27292786",
+      "11804991",
+      "8221132",
+      "30838456",
+      "14978512"
+    ],
+    "attendus": [
+      "27292786",
+      "8221132"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH08",
+    "type": "intersection",
+    "ancres": [
+      "norepinephrine transporter",
+      "venlafaxine"
+    ],
+    "n_aretes": 195,
+    "recuperes": [
+      "35947166",
+      "27931774",
+      "30838456",
+      "30697747",
+      "18801947"
+    ],
+    "attendus": [
+      "37156838",
+      "8448143"
+    ],
+    "rappel": 0.0
+  },
+  {
+    "id": "MH09",
+    "type": "intersection",
+    "ancres": [
+      "serotonin reuptake",
+      "norepinephrine uptake"
+    ],
+    "n_aretes": 44,
+    "recuperes": [
+      "9393392",
+      "25657584",
+      "2180623",
+      "8059340",
+      "22992375"
+    ],
+    "attendus": [
+      "12359676",
+      "8448143"
+    ],
+    "rappel": 0.0
+  },
+  {
+    "id": "MH10",
+    "type": "intersection",
+    "ancres": [
+      "plasminogen activation"
+    ],
+    "n_aretes": 10,
+    "recuperes": [
+      "24977934",
+      "32662180"
+    ],
+    "attendus": [
+      "24977934",
+      "32662180"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "MH11",
+    "type": "intersection",
+    "ancres": [
+      "serotonin reuptake",
+      "Levomilnacipran"
+    ],
+    "n_aretes": 39,
+    "recuperes": [
+      "9393392",
+      "25657584",
+      "2180623",
+      "22992375",
+      "41238422"
+    ],
+    "attendus": [
+      "2180623",
+      "25657584"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH01",
+    "type": "single-hop",
+    "ancres": [
+      "corticosterone"
+    ],
+    "n_aretes": 15,
+    "recuperes": [
+      "26432838"
+    ],
+    "attendus": [
+      "26432838"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH02",
+    "type": "single-hop",
+    "ancres": [
+      "terguride"
+    ],
+    "n_aretes": 126,
+    "recuperes": [
+      "11175438",
+      "3745401",
+      "32268074",
+      "22049464",
+      "30207074"
+    ],
+    "attendus": [
+      "22049464"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH03",
+    "type": "single-hop",
+    "ancres": [
+      "prasugrel"
+    ],
+    "n_aretes": 14,
+    "recuperes": [
+      "29215418",
+      "26245659",
+      "40383626",
+      "27628007",
+      "36588476"
+    ],
+    "attendus": [
+      "26245659",
+      "40383626"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH04",
+    "type": "single-hop",
+    "ancres": [
+      "β-elemene"
+    ],
+    "n_aretes": 12,
+    "recuperes": [
+      "40866937"
+    ],
+    "attendus": [
+      "40866937"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH05",
+    "type": "single-hop",
+    "ancres": [
+      "nilotinib"
+    ],
+    "n_aretes": 8,
+    "recuperes": [
+      "19108785"
+    ],
+    "attendus": [
+      "19108785"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH06",
+    "type": "single-hop",
+    "ancres": [
+      "SB204741"
+    ],
+    "n_aretes": 16,
+    "recuperes": [
+      "30207074",
+      "25667920",
+      "15862804",
+      "25712664",
+      "22049464"
+    ],
+    "attendus": [
+      "25667920"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH07",
+    "type": "single-hop",
+    "ancres": [
+      "sarpogrelate"
+    ],
+    "n_aretes": 15,
+    "recuperes": [
+      "29649585",
+      "25667920"
+    ],
+    "attendus": [
+      "29649585"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH08",
+    "type": "single-hop",
+    "ancres": [
+      "capsaicin"
+    ],
+    "n_aretes": 4,
+    "recuperes": [
+      "15573930"
+    ],
+    "attendus": [
+      "15573930"
+    ],
+    "rappel": 1.0
+  },
+  {
+    "id": "SH09",
+    "type": "single-hop",
+    "ancres": [
+      "AZD6140"
+    ],
+    "n_aretes": 2,
+    "recuperes": [
+      "17243942"
+    ],
+    "attendus": [
+      "17243942"
+    ],
+    "rappel": 1.0
+  }
+]

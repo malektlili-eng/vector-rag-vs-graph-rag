@@ -1,0 +1,218 @@
+[
+  {
+    "pmid": "40568725",
+    "titre": "Asciminib for Philadelphia chromosome-positive leukemias.",
+    "annee": "2025",
+    "journal": "Haematologica",
+    "resume": "Twenty-five years after the introduction of imatinib, we have entered a new era of therapy for chronic myeloid leukemia (CML). Despite the development of second- and third-generation tyrosine kinase inhibitors (TKI), their impact has been incremental in improving outcomes for CML patients. While frontline use of second-generation TKI has improved molecular response rates and reduced progression to blast phase, there has been no improvement in overall survival compared to that achieved with imatinib, likely due to the higher toxicity and consequent higher non-CML-related mortality. Imatinib remains the most prescribed therapy for CML worldwide, despite it being the least potent TKI and most prone to resistance and progression. Asciminib, the first STAMP (specifically targeting the ABL myristoyl pocket) inhibitor, binds to the myristoyl pocket of BCR::ABL1. Its specificity minimizes off-target toxicity which enabes asciminib to finally break this frustrating link between potency and toxicity. After a decade of clinical trials, both in patients with resistance and intolerance to two or more TKI, and more recently in the frontline setting, asciminib is fulfilling its early promise of a more rapid and reliable pathway to long-term disease control with minimal toxicity. There are, however, some unexpected challenges when using asciminib that require further investigation. In this Spotlight Review we examine the key studies and outline the potential impact and current limitations of this first STAMP inhibitor in the CML setting and in other leukemias in which ABL1 or ABL2 is the key target.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "39696526",
+    "titre": "Asciminib add-on to imatinib demonstrates sustained high rates of ongoing therapy and deep molecular responses with prolonged follow-up in the ASC4MORE study.",
+    "annee": "2024",
+    "journal": "Journal of hematology & oncology",
+    "resume": "BACKGROUND: Up to 65% of patients with chronic myeloid leukemia (CML) who are treated with imatinib do not achieve sustained deep molecular response, which is required to attempt treatment-free remission. Asciminib is the only approved BCR::ABL1 inhibitor that Specifically Targets the ABL Myristoyl Pocket. This unique mechanism of action allows asciminib to be combined with adenosine triphosphate-competitive tyrosine kinase inhibitors to prevent resistance and enhance efficacy. The phase II ASC4MORE trial investigated the strategy of adding asciminib to imatinib in patients who have not achieved deep molecular response with imatinib. METHODS: In ASC4MORE, 84 patients with CML in chronic phase not achieving deep molecular response after ≥ 1 year of imatinib therapy were randomized to asciminib 40 or 60 mg once daily (QD) add-on to imatinib 400 mg QD, continued imatinib 400 mg QD, or switch to nilotinib 300 mg twice daily. RESULTS: More patients in the asciminib 40- and 60-mg QD add-on arms (19.0% and 28.6%, respectively) achieved MR 4.5 (BCR::ABL1 ≤ 0.0032% on the International Scale) at week 48 (primary endpoint) than patients in the continued imatinib (0.0%) and switch to nilotinib (4.8%) arms. Fewer patients discontinued asciminib 40- and 60-mg QD add-on treatment (14.3% and 23.8%, respectively) than imatinib (76.2%, including crossover patients) and nilotinib (47.6%). Asciminib add-on was tolerable, with rates of AEs and AEs leading to discontinuation less than those with nilotinib, although higher than those with continued imatinib (as expected in these patients who had already been tolerating imatinib for ≥ 1 year). No new or worsening safety signals were observed with asciminib add-on vs the known asciminib monotherapy safety profile. CONCLUSIONS: Overall, these results support asciminib add-on as a treatment strategy to help patients with CML in chronic phase stay on therapy to safely achieve rapid and deep response, although further investigation is needed before this strategy is incorporated into clinical practice. TRIAL REGISTRATION: NCT03578367.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "36882601",
+    "titre": "Molecular Mechanisms of Tyrosine Kinase Inhibitor Resistance in Chronic Myeloid Leukemia.",
+    "annee": "2023",
+    "journal": "Handbook of experimental pharmacology",
+    "resume": "The hematopoietic neoplasm chronic myeloid leukemia (CML) is a rare disease caused by chromosomal reciprocal translocation t(9;22)(q34:q11) with subsequent formation of the BCR-ABL1 fusion gene. This fusion gene encodes a constitutively active tyrosine kinase, which results in malignant transformation of the cells. Since 2001, CML can be effectively treated using tyrosine kinase inhibitors (TKIs) such as imatinib, which prevent phosphorylation of downstream targets by blockade of the BCR-ABL kinase. Due to its tremendous success, this treatment became the role model of targeted therapy in precision oncology. Here, we review the mechanisms of TKI resistance focusing on BCR-ABL1-dependent and -independent mechanisms. These include the genomics of the BCR-ABL1, TKI metabolism and transport and alternative signaling pathways.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "26402671",
+    "titre": "Pharmacogenetics of BCR/ABL Inhibitors in Chronic Myeloid Leukemia.",
+    "annee": "2015",
+    "journal": "International journal of molecular sciences",
+    "resume": "Chronic myeloid leukemia was the first haematological neoplasia that benefited from a targeted therapy with imatinib nearly 15 years ago. Since then, several studies have investigated the role of genes, their variants (i.e., polymorphisms) and their encoded proteins in the pharmacokinetics and pharmacodynamics of BCR-ABL1 tyrosine kinase activity inhibitors (TKIs). Transmembrane transporters seem to influence in a significant manner the disposition of TKIs, especially that of imatinib at both cellular and systemic levels. In particular, members of the ATP-binding cassette (ABC) family (namely ABCB1 and ABCG2) together with solute carrier (SLC) transporters (i.e., SLC22A1) are responsible for the differences in drug pharmacokinetics. In the case of the newer TKIs, such as nilotinib and dasatinib, the substrate affinity of these drugs for transporters is variable but lower than that measured for imatinib. In this scenario, the investigation of genetic variants as possible predictive markers has led to some discordant results. With the partial exception of imatinib, these discrepancies seem to limit the application of discovered biomarkers in the clinical settings. In order to overcome these issues, larger prospective confirmative trials are needed.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "34774565",
+    "titre": "Imatinib can act as an Allosteric Activator of Abl Kinase.",
+    "annee": "2022",
+    "journal": "Journal of molecular biology",
+    "resume": "Imatinib is an ATP-competitive inhibitor of Bcr-Abl kinase and the first drug approved for chronic myelogenous leukemia (CML) treatment. Here we show that imatinib binds to a secondary, allosteric site located in the myristoyl pocket of Abl to function as an activator of the kinase activity. Abl transitions between an assembled, inhibited state and an extended, activated state. The equilibrium is regulated by the conformation of the αΙ helix, which is located nearby the allosteric pocket. Imatinib binding to the allosteric pocket elicits an αΙ helix conformation that is not compatible with the assembled state, thereby promoting the extended state and stimulating the kinase activity. Although in wild-type Abl the catalytic pocket has a much higher affinity for imatinib than the allosteric pocket does, the two binding affinities are comparable in Abl variants carrying imatinib-resistant mutations in the catalytic site. A previously isolated imatinib-resistant mutation in patients appears to be mediating its function by increasing the affinity of imatinib for the allosteric pocket, providing a hitherto unknown mechanism of drug resistance. Our results highlight the benefit of combining imatinib with allosteric inhibitors to maximize their inhibitory effect on Bcr-Abl.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "22118744",
+    "titre": "Chronic myeloid leukemia: current perspectives.",
+    "annee": "2011",
+    "journal": "Clinics in laboratory medicine",
+    "resume": "Chronic myeloid leukemia (CML), characterized by the t(9;22) and BCR/ABL1 fusion, is a disease model for studying the mechanisms of genetic abnormalities in leukemogenesis. The detection of the t(9;22), characterization of the BCR/ABL fusion, and the discovery of imatinib have elegantly reflected the success of our research efforts in CML. However, genomic instabilities that lead to the formation of the BCR/ ABL1 fusion are not fully understood. It is important to understand how various genes that are involved in regulating the signaling pathway and epigenetic deregulation cooperate with the BCR/ABL1 fusion in the initiation and progression of CML.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "11680792",
+    "titre": "Tyrosine kinase inhibitor imatinib (STI571) as an anticancer agent for solid tumours.",
+    "annee": "2001",
+    "journal": "Annals of medicine",
+    "resume": "Imatinib mesylate, also known as STI571 or CGP57148, is a competitive inhibitor of a few tyrosine kinases, including BCR-ABL, ABL, KIT, and the platelet-derived growth factor receptors (PDGF-R). It binds to the ATP-binding site of the target kinase and prevents the transfer of phosphate from ATP to the tyrosine residues of various substrates. At oral doses of 300 mg or greater, the vast majority of patients with chronic myeloid leukaemia achieve a haematological response and this is usually associated with limited toxicity. Imatinib also has substantial activity in Philadelphia chromosome-positive acute lymphoblastic leukaemia expressing the BCR-ABL fusion protein. Gastrointestinal stromal tumours (GISTs) have also been evaluated for clinical activity of imatinib. About 90% of malignant GISTs harbour a mutation in c-kit leading to KIT receptor autophosphorylation and ligand-independent activation. According to initial clinical studies, more than 50% of GISTs respond to therapy within a few months, and only about 10-15% progress. The potential for cure and the optimal length of treatment are currently not known. Several other human cancers may over-express KIT or PDGF-R, and clinical trials to evaluate the role of imatinib in the treatment of such cancers are currently ongoing. Imatinib is an example of a specifically designed, highly targeted cancer therapy, which poses novel requirements for both pathology laboratories and clinicians in terms of identifying the major molecular mechanisms involved in tumour growth.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "35388061",
+    "titre": "Imatinib inhibits SARS-CoV-2 infection by an off-target-mechanism.",
+    "annee": "2022",
+    "journal": "Scientific reports",
+    "resume": "The severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) is the causal agent of the COVID-19 pandemic. More than 274 million individuals have suffered from COVID-19 and over five million people have died from this disease so far. Therefore, there is an urgent need for therapeutic drugs. Repurposing FDA approved drugs should be favored since evaluation of safety and efficacy of de-novo drug design are both costly and time consuming. We report that imatinib, an Abl tyrosine kinase inhibitor, robustly decreases SARS-CoV-2 infection and uncover a mechanism of action. We show that imatinib inhibits the infection of SARS-CoV-2 and its surrogate lentivector pseudotype. In latter, imatinib inhibited both routes of viral entry, endocytosis and membrane-fusion. We utilized a system to quantify in real-time cell-cell membrane fusion mediated by the SARS-CoV-2 surface protein, Spike, and its receptor, hACE2, to demonstrate that imatinib inhibits this process in an Abl1 and Abl2 independent manner. Furthermore, cellular thermal shift assay revealed a direct imatinib-Spike interaction that affects Spike susceptibility to trypsin digest. Collectively, our data suggest that imatinib inhibits Spike mediated viral entry by an off-target mechanism. These findings mark imatinib as a promising therapeutic drug in inhibiting the early steps of SARS-CoV-2 infection.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 1,
+        "source": "imatinib",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "19108785",
+    "titre": "Nilotinib: a second-generation tyrosine kinase inhibitor for the treatment of chronic myelogenous leukemia.",
+    "annee": "2008",
+    "journal": "Clinical therapeutics",
+    "resume": "BACKGROUND: Nilotinib, a second-generation tyrosine kinase inhibitor (TKI) formerly known as AMN107, was approved by the US Food and Drug Administration (FDA) on October 29, 2007, for the treatment of adult patients with chronic-phase (CP) and accelerated-phase (AP) Philadelphia chromosome-positive (Ph+) chronic myelogenous leukemia (CML) resistant to or intolerant of prior treatment that included imatinib. OBJECTIVE: The purpose of this review was to evaluate the pharmacology, pharmacokinetic properties, and pharmacodynamic properties of nilotinib; results of clinical trials in patients with CML, Ph+ acute lymphoblastic leukemia (ALL), and gastrointestinal stromal tumors (GISTs); and potential drug interactions. METHODS: Literature was identified and reviewed using searches of MEDLINE (1966-April 1, 2008), the American Society of Hematology and American Society of Clinical Oncology abstracts databases (2002-2008 annual meetings/symposia), the European Hematology Association abstracts database (2006-2007 annual meetings), and the American Association for Cancer Research symposia (2000-2007). Search terms included, but were not limited to, nilotinib, AMN107, chronic myelogenous leukemia, acute lymphoblastic leukemia, bcr-abl, imatinib resistance, adverse events, pharmacology, and clinical trials. RESULTS: Nilotinib is an orally bioavailable derivative of imatinib with improved specificity toward the breakpoint cluster region-Abelson murine leukemia (bcr-abl) viral protooncogene. In preclinical studies, nilotinib was found to have activity against 32 of 33 imatinib-resistant bcr-abl mutations, but not against the T3151 mutation. On pharmacokinetic analysis, T(max) was 3 hours. The calculated t((1/2)) following multiple daily dosing was approximately 17 hours. The main metabolic pathways identified were oxidation and hydroxylation. The parent compound is the circulating component found in serum; the metabolites were not found to contribute to pharmacologic activity. Nilotinib is a competitive inhibitor of cytochrome P450 (CYP) 3A4, CYP2C8, CYP2C9, and CYP2D6. In 2 Phase II, open-label, single-arm clinical studies, nilotinib was found to be beneficial in patients with CML that was imatinib resistant or intolerant. Overall, 58% of patients with CML-CP achieved a major cytogenetic response; 42%, a complete cytogenetic response; and 77%, a complete hematologic response (CHR). At 18 months, the estimated overall survival rate was 91%. Of patients whose disease had progressed to AP, nilotinib was associated with major cytogenetic response in 32%; complete cytogenetic response in 19%; and CHR in 30%. At 12 months, an estimated 56% of patients lacked progression of disease, and the estimated overall survival rate was 82%. Concurrent use of CYP3A4 inhibitors should be avoided. The most common toxicities attributable to nilotinib include rash, pruritus, nausea, fatigue, headache, constipation, diarrhea, and vomiting. Grade 3/4 toxicities (> or = 10%) have included thrombocytopenia, neutropenia, elevated lipase, hyperglycemia, and hypophosphatemia. Nilotinib has been associated with a prolonged QT interval, and sudden death has been reported. The FDA-approved regimen of nilotinib is 400 mg PO BID on an empty stomach. CONCLUSIONS: Nilotinib is an oral second-generation bcr-abl TKI indicated for the treatment of imatinib resistant or -intolerant Ph+ CML-CP and -AP in adults. Positive clinical activity and tolerability have been reported in clinical trials. Clinical data on off-label indications and in patients with Ph+ ALL and GIST continue to emerge.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 2,
+        "source": "BCR/ABL",
+        "relation": "causes",
+        "cible": "CML (ph+)",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "17284091",
+    "titre": "Imatinib: a review of its use in chronic myeloid leukaemia.",
+    "annee": "2007",
+    "journal": "Drugs",
+    "resume": "Imatinib (Gleevec, Glivec) is a synthetic tyrosine kinase inhibitor used in the treatment of chronic myeloid leukaemia (CML). It is specifically designed to inhibit the breakpoint cluster region (BCR)-Abelson (ABL) fusion protein that results from the chromosomal abnormality known as the Philadelphia chromosome. CML is characterised by this abnormality, which leads to abnormalities of the peripheral blood and bone marrow including an increase in the number of granular leukocytes. Imatinib is approved in numerous countries worldwide for the treatment of newly diagnosed Philadelphia chromosome-positive (Ph+) chronic-phase CML, Ph+ accelerated-phase or blast-crisis CML, and in patients with Ph+ chronic-phase CML who have failed to respond to interferon-alpha therapy. It is also indicated in paediatric patients with newly diagnosed Ph+ chronic-phase CML, in accelerated-phase or blast-crisis CML, or in chronic-phase CML after failure of interferon-alpha therapy or when the disease has recurred after haematopoietic stem cell transplantation (HSCT). Approved indications, however, may vary by country. Imatinib is effective and generally well tolerated in patients with Ph+ CML. In patients with newly diagnosed chronic-phase CML, imatinib was more effective than interferon-alpha plus cytarabine in preventing progression of the disease and in achieving haematological and cytogenetic responses. Overall survival rates remain high after 5 years of follow-up, and historical comparisons with other treatments demonstrate improved overall survival with imatinib in the long term. Patients with accelerated-phase or blast-crisis CML, or those who have not responded to prior interferon-alpha therapy also benefit from imatinib treatment. Some patients become resistant or intolerant to imatinib therapy; management strategies to overcome these problems include dosage adjustment, other treatments, or combination therapy with imatinib and other agents. Allogeneic HSCT is currently the only potentially curative treatment, but it is associated with high rates of morbidity and mortality and is not suitable for all patients. The introduction of imatinib has had a marked impact on outcomes in patients with CML. It remains a valuable treatment for all stages of the disease, especially initial treatment of newly diagnosed Ph+ chronic-phase CML, and is endorsed by European and US treatment guidelines as a first-line option.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 2,
+        "source": "BCR/ABL",
+        "relation": "causes",
+        "cible": "CML (ph+)",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "25678499",
+    "titre": "Morgana acts as an oncosuppressor in chronic myeloid leukemia.",
+    "annee": "2015",
+    "journal": "Blood",
+    "resume": "We recently described morgana as an essential protein able to regulate centrosome duplication and genomic stability, by inhibiting ROCK. Here we show that morgana (+/-) mice spontaneously develop a lethal myeloproliferative disease resembling human atypical chronic myeloid leukemia (aCML), preceded by ROCK hyperactivation, centrosome amplification, and cytogenetic abnormalities in the bone marrow (BM). Moreover, we found that morgana is underexpressed in the BM of patients affected by atypical CML, a disorder of poorly understood molecular basis, characterized by nonrecurrent cytogenetic abnormalities. Morgana is also underexpressed in the BM of a portion of patients affected by Philadelphia-positive CML (Ph(+) CML) caused by the BCR-ABL oncogene, and in this condition, morgana underexpression predicts a worse response to imatinib, the standard treatment for Ph(+) CML. Thus, morgana acts as an oncosuppressor with different modalities: (1) Morgana underexpression induces centrosome amplification and cytogenetic abnormalities, and (2) in Ph(+) CML, it synergizes with BCR-ABL signaling, reducing the efficacy of imatinib treatment. Importantly, ROCK inhibition in the BM of patients underexpressing morgana restored the efficacy of imatinib to induce apoptosis, suggesting that ROCK inhibitors, combined with imatinib treatment, can overcome suboptimal responses in patients in which morgana is underexpressed.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 2,
+        "source": "BCR/ABL",
+        "relation": "causes",
+        "cible": "CML (ph+)",
+        "filtre_mecanistique": true
+      }
+    ]
+  },
+  {
+    "pmid": "40486077",
+    "titre": "Tyrosine kinase inhibitor-related factors pre-disposing to post-transplant thrombotic microangiopathy in patients with CML and Ph+ acute leukemias.",
+    "annee": "2025",
+    "journal": "Blood cell therapy",
+    "resume": "INTRODUCTION: We have previously reported that pre-transplant use of tyrosine kinase inhibitors (TKIs) is independently associated with the occurrence of transplant-associated thrombotic microangiopathy (TA-TMA). However, the precise TKI-related factors which predispose to TA-TMA are unknown. In this retrospective analysis, we identify the TKI-related factors that are associated with TA-TMA. METHODS: This was a single center retrospective analysis of all patients with Philadelphia chromosome-positive (Ph+) malignancies who received BCR-ABL TKIs prior to transplant and underwent allogeneic hematopoietic stem cell transplantation (HSCT) between January 2008 and March 2019. Definite TA-TMA was defined as per Blood & Marrow Transplant Clinical Trials Network (BMT CTN) criteria and probable TMA as per Cho criteria. Details about the timing of the start and stop of TKI pre-transplant, the dose of TKIs used, and the number of TKIs exposed to pre-transplant were obtained. Imatinib > 400 mg/day, dasatinib > 100 mg/day, or nilotinib > 800 mg/day were considered as high dose TKI. RESULTS: Seventy-two patients with chronic myeloid leukemia (CML)/Ph+ acute leukemias underwent transplant in the above period. Patient, donor, and transplant characteristics are shown in Table 1 and were well-matched between those with and without TMA. Overall, 13 (18%) had TA-TMA (median day +128), with 9 definite and 4 probable. The only TKI-related factor significantly associated with TA-TMA was the use of high-dose TKI ( p =0.04). Among non-TKI-related factors, acute graft versus host disease (GVHD) was associated with TA-TMA ( p =0.01). On multivariate analysis, high dose TKI did not remain statistically significant (Odds Ratio (OR) 4.6, p =0.16). TA-TMA was associated with significantly worse long-term survival (6-year survival was 30% with TMA versus 62% without TMA, p =0.026). CONCLUSIONS: Pre-transplant use of TKI was associated with risk of TMA in about one-fifth of patients. High-dose TKI and acute GVHD increased the risk of TA-TMA. Prospective studies are warranted to confirm these findings. TA-TMA was associated with significantly worse long-term survival.",
+    "provenance": [
+      {
+        "role": "cible",
+        "chaine": "DB00619_MESH_D015464_1",
+        "saut": 2,
+        "source": "BCR/ABL",
+        "relation": "causes",
+        "cible": "CML (ph+)",
+        "filtre_mecanistique": true
+      }
+    ]
+  }
+]

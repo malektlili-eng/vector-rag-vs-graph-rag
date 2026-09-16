@@ -1,0 +1,57 @@
+{
+  "GO:0055078": {
+    "nom_drugmechdb": "Sodium Ion Homeostasis",
+    "synonymes": [
+      "sodium ion homeostasis"
+    ]
+  },
+  "GO:0051610": {
+    "nom_drugmechdb": "serotonin uptake",
+    "synonymes": [
+      "serotonin uptake",
+      "5-hydroxytryptamine uptake",
+      "5-HT uptake",
+      "5HT uptake",
+      "serotonin import"
+    ]
+  },
+  "GO:0051620": {
+    "nom_drugmechdb": "norepinephrine uptake",
+    "synonymes": [
+      "norepinephrine uptake",
+      "norepinephrine import",
+      "noradrenaline reuptake",
+      "norepinephrine reuptake",
+      "noradrenaline uptake",
+      "levarterenol reuptake",
+      "levarterenol uptake"
+    ]
+  },
+  "GO:0090494": {
+    "nom_drugmechdb": "dopamine uptake",
+    "synonymes": [
+      "dopamine uptake"
+    ]
+  },
+  "GO:0006590": {
+    "nom_drugmechdb": "thyroid hormone generation",
+    "synonymes": [
+      "thyroid hormone generation"
+    ]
+  },
+  "GO:0030223": {
+    "nom_drugmechdb": "Neutrophil differentiation",
+    "synonymes": [
+      "neutrophil differentiation",
+      "neutrophil granulocytopoiesis",
+      "neutrophil cell differentiation",
+      "neutrophil granulocyte differentiation"
+    ]
+  },
+  "GO:0006954": {
+    "nom_drugmechdb": "inflammatory response",
+    "synonymes": [
+      "inflammatory response"
+    ]
+  }
+}

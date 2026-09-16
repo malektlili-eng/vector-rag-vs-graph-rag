@@ -1,0 +1,520 @@
+[
+  {
+    "chaine": "DB13399_MESH_D006976_1",
+    "medicament": "terguride",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "absent",
+    "attendu": "decreases activity of",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB13399_MESH_D006976_1",
+    "medicament": "terguride",
+    "saut": 2,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB12770_MESH_D005764_1",
+    "medicament": "lafutidine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "exact",
+    "attendu": "decreases activity of",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "21443098",
+      "23038658"
+    ]
+  },
+  {
+    "chaine": "DB12770_MESH_D005764_1",
+    "medicament": "lafutidine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB12770_MESH_D005764_1",
+    "medicament": "lafutidine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00758_MESH_D054058_1",
+    "medicament": "Clopidogrel",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "absent",
+    "attendu": "decreases activity of",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00758_MESH_D054058_1",
+    "medicament": "Clopidogrel",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "exact",
+    "attendu": "positively regulates",
+    "trouves": [
+      "positively regulates"
+    ],
+    "pmids": [
+      "27628007"
+    ]
+  },
+  {
+    "chaine": "DB00758_MESH_D054058_1",
+    "medicament": "Clopidogrel",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D016584_2",
+    "medicament": "venlafaxine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "increases activity of"
+    ],
+    "pmids": [
+      "35947166",
+      "37156838",
+      "9400006"
+    ]
+  },
+  {
+    "chaine": "DB00285_MESH_D016584_2",
+    "medicament": "venlafaxine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D016584_2",
+    "medicament": "venlafaxine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D000072861_2",
+    "medicament": "venlafaxine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "increases activity of"
+    ],
+    "pmids": [
+      "35947166",
+      "37156838",
+      "9400006"
+    ]
+  },
+  {
+    "chaine": "DB00285_MESH_D000072861_2",
+    "medicament": "venlafaxine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D000072861_2",
+    "medicament": "venlafaxine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D003865_2",
+    "medicament": "venlafaxine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "increases activity of"
+    ],
+    "pmids": [
+      "35947166",
+      "37156838",
+      "9400006"
+    ]
+  },
+  {
+    "chaine": "DB00285_MESH_D003865_2",
+    "medicament": "venlafaxine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00285_MESH_D003865_2",
+    "medicament": "venlafaxine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB09036_MESH_D005871_1",
+    "medicament": "Siltuximab",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "exact",
+    "attendu": "decreases activity of",
+    "trouves": [
+      "decreases abundance of",
+      "decreases activity of"
+    ],
+    "pmids": [
+      "29157617",
+      "29391839",
+      "31958792",
+      "35969896",
+      "38016855",
+      "39117839",
+      "40457814"
+    ]
+  },
+  {
+    "chaine": "DB09036_MESH_D005871_1",
+    "medicament": "Siltuximab",
+    "saut": 2,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01270_MESH_D003930_1",
+    "medicament": "Ranibizumab",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "exact",
+    "attendu": "decreases activity of",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "17521219",
+      "28324452",
+      "40833326"
+    ]
+  },
+  {
+    "chaine": "DB01270_MESH_D003930_1",
+    "medicament": "Ranibizumab",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "exact",
+    "attendu": "positively regulates",
+    "trouves": [
+      "positively regulates"
+    ],
+    "pmids": [
+      "38522916"
+    ]
+  },
+  {
+    "chaine": "DB01270_MESH_D003930_1",
+    "medicament": "Ranibizumab",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00234_MESH_D003865_1",
+    "medicament": "reboxetine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "14647527"
+    ]
+  },
+  {
+    "chaine": "DB00234_MESH_D003865_1",
+    "medicament": "reboxetine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00234_MESH_D003865_1",
+    "medicament": "reboxetine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01242_MESH_D009771_1",
+    "medicament": "clomipramine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "positively regulates"
+    ],
+    "pmids": [
+      "14643167",
+      "18801947",
+      "22992375"
+    ]
+  },
+  {
+    "chaine": "DB01242_MESH_D009771_1",
+    "medicament": "clomipramine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "entités",
+    "attendu": "positively regulates",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "29894763"
+    ]
+  },
+  {
+    "chaine": "DB01242_MESH_D009771_1",
+    "medicament": "clomipramine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00013_MESH_D011655_1",
+    "medicament": "urokinase",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00013_MESH_D011655_1",
+    "medicament": "urokinase",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB00013_MESH_D011655_1",
+    "medicament": "urokinase",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "negatively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01126_MESH_D011470_2",
+    "medicament": "Finasteride",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "absent",
+    "attendu": "decreases activity of",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01126_MESH_D011470_2",
+    "medicament": "Finasteride",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "increases abundance of",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01126_MESH_D011470_2",
+    "medicament": "Finasteride",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01175_MESH_D003865_1",
+    "medicament": "escitalopram",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "exact",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "negatively regulates"
+    ],
+    "pmids": [
+      "38422917",
+      "38851804",
+      "40898405"
+    ]
+  },
+  {
+    "chaine": "DB01175_MESH_D003865_1",
+    "medicament": "escitalopram",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "entités",
+    "attendu": "positively regulates",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "29894763"
+    ]
+  },
+  {
+    "chaine": "DB01175_MESH_D003865_1",
+    "medicament": "escitalopram",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01151_MESH_D003866_1",
+    "medicament": "desipramine",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "polarité",
+    "attendu": "negatively regulates",
+    "trouves": [
+      "decreases activity of",
+      "positively regulates"
+    ],
+    "pmids": [
+      "17073682",
+      "26432838",
+      "39048818"
+    ]
+  },
+  {
+    "chaine": "DB01151_MESH_D003866_1",
+    "medicament": "desipramine",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB01151_MESH_D003866_1",
+    "medicament": "desipramine",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB05578_MESH_D002289_1",
+    "medicament": "ramucirumab",
+    "saut": 1,
+    "position": "saut 1",
+    "etat": "exact",
+    "attendu": "decreases activity of",
+    "trouves": [
+      "decreases activity of"
+    ],
+    "pmids": [
+      "25378934"
+    ]
+  },
+  {
+    "chaine": "DB05578_MESH_D002289_1",
+    "medicament": "ramucirumab",
+    "saut": 2,
+    "position": "saut 2",
+    "etat": "absent",
+    "attendu": "positively regulates",
+    "trouves": [],
+    "pmids": []
+  },
+  {
+    "chaine": "DB05578_MESH_D002289_1",
+    "medicament": "ramucirumab",
+    "saut": 3,
+    "position": "dernier",
+    "etat": "absent",
+    "attendu": "positively correlated with",
+    "trouves": [],
+    "pmids": []
+  }
+]

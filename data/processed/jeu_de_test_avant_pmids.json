@@ -1,0 +1,144 @@
+[
+  {
+    "id": "MH01", "type": "pont", "categorie": "pharmacocinétique", "n_sauts": 2,
+    "question": "Which pharmacokinetic ratio is altered by variations in the enzyme that paroxetine potently inhibits?",
+    "reponses_acceptables": ["nor-imatinib/imatinib metabolic ratio", "nor-imatinib/imatinib ratio"],
+    "entite_pont": "CYP2D6",
+    "pmids": ["24424469", "36178950"],
+    "chemin": "paroxetine --decreases activity of--> CYP2D6 --affects--> nor-imatinib/imatinib metabolic ratio"
+  },
+  {
+    "id": "MH02", "type": "pont", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which signalling pathway is activated by the platelet receptor that cangrelor antagonizes?",
+    "reponses_acceptables": ["PI3 kinase pathway", "PI3K pathway", "PI3 kinase (PI3K) pathway"],
+    "entite_pont": "P2Y12 receptor",
+    "pmids": ["33309519", "27628007"],
+    "chemin": "cangrelor --decreases activity of--> P2Y12 receptor --positively regulates--> PI3 kinase (PI3K) pathway"
+  },
+  {
+    "id": "MH03", "type": "pont", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which muscle-development process requires the protease whose activation amiloride inhibits?",
+    "reponses_acceptables": ["myogenesis"],
+    "entite_pont": "plasmin",
+    "pmids": ["28656379", "15574344"],
+    "chemin": "Amiloride --decreases activity of--> plasmin --positively regulates--> myogenesis"
+  },
+  {
+    "id": "MH04", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which other ergot derivative acts as an agonist at 5-HT2B receptors, as ergotamine does?",
+    "reponses_acceptables": ["bromocriptine", "pergolide", "cabergoline"],
+    "entite_pont": "5-HT2B receptors",
+    "pmids": ["25712664", "15862804"],
+    "chemin": "ergotamine --positively regulates--> 5-HT2B receptors <-- bromocriptine"
+  },
+  {
+    "id": "MH05", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which other drug inhibits angiogenesis, as ranibizumab does?",
+    "reponses_acceptables": ["ramucirumab", "nintedanib", "bevacizumab"],
+    "entite_pont": "angiogenesis",
+    "pmids": ["35105268", "39453771", "28934120"],
+    "chemin": "ranibizumab --decreases activity of--> angiogenesis <-- ramucirumab / nintedanib"
+  },
+  {
+    "id": "MH06", "type": "intersection", "categorie": "effet indésirable", "n_sauts": 2,
+    "question": "Which other drug is reported to cause ejaculation disorder, as escitalopram is?",
+    "reponses_acceptables": ["finasteride", "dutasteride"],
+    "entite_pont": "ejaculation disorder",
+    "pmids": ["12387707", "29447628"],
+    "chemin": "escitalopram --causes--> ejaculation disorder <-- finasteride / dutasteride"
+  },
+  {
+    "id": "MH07", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which hormone has been shown to inhibit norepinephrine reuptake?",
+    "reponses_acceptables": ["insulin"],
+    "entite_pont": "norepinephrine reuptake",
+    "pmids": ["8221132", "27292786"],
+    "chemin": "insulin --decreases activity of--> norepinephrine reuptake <-- maprotiline / venlafaxine"
+  },
+  {
+    "id": "MH08", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which other compound inhibits the norepinephrine transporter, as venlafaxine does?",
+    "reponses_acceptables": ["nomifensine", "desipramine", "imipramine", "cocaine"],
+    "entite_pont": "norepinephrine transporter",
+    "pmids": ["37156838", "8448143"],
+    "chemin": "venlafaxine --decreases activity of--> norepinephrine transporter <-- nomifensine"
+  },
+  {
+    "id": "MH09", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which drug classified as a selective serotonin reuptake inhibitor has also been shown to inhibit norepinephrine uptake in patients?",
+    "reponses_acceptables": ["paroxetine"],
+    "entite_pont": "norepinephrine transporter",
+    "pmids": ["8448143", "12359676"],
+    "chemin": "nomifensine --decreases activity of--> norepinephrine transporter <-- paroxetine"
+  },
+  {
+    "id": "MH10", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which protease of marine origin promotes plasminogen activation, a function also attributed to Plg-R KT?",
+    "reponses_acceptables": ["Starase"],
+    "entite_pont": "plasminogen activation",
+    "pmids": ["32662180", "24977934"],
+    "chemin": "Plg-R KT --positively regulates--> plasminogen activation <-- Starase"
+  },
+  {
+    "id": "MH11", "type": "intersection", "categorie": "mécanisme", "n_sauts": 2,
+    "question": "Which other antidepressant is described as a potent inhibitor of serotonin reuptake, as levomilnacipran is?",
+    "reponses_acceptables": ["clomipramine", "clomipramine hydrochloride"],
+    "entite_pont": "serotonin reuptake",
+    "pmids": ["25657584", "2180623"],
+    "chemin": "Levomilnacipran --decreases activity of--> serotonin reuptake <-- clomipramine hydrochloride"
+  },
+  {
+    "id": "SH01", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which transporter does corticosterone inhibit?",
+    "reponses_acceptables": ["organic cation transporter 3", "OCT3"],
+    "pmids": []
+  },
+  {
+    "id": "SH02", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which receptor does terguride inhibit?",
+    "reponses_acceptables": ["5-HT2A receptor", "5-HT(2A) receptors", "5-HT2A receptors"],
+    "pmids": []
+  },
+  {
+    "id": "SH03", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which process does prasugrel inhibit?",
+    "reponses_acceptables": ["platelet aggregation"],
+    "pmids": []
+  },
+  {
+    "id": "SH04", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which process does beta-elemene upregulate?",
+    "reponses_acceptables": ["ferroptosis"],
+    "pmids": []
+  },
+  {
+    "id": "SH05", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which cytochrome P450 enzyme does nilotinib inhibit?",
+    "reponses_acceptables": ["CYP3A4", "cytochrome P450 (CYP) 3A4", "CYP 3A4"],
+    "pmids": []
+  },
+  {
+    "id": "SH06", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which receptor does SB204741 inhibit?",
+    "reponses_acceptables": ["5-HT2B receptor", "5-HT2B receptors"],
+    "pmids": []
+  },
+  {
+    "id": "SH07", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which receptor does sarpogrelate inhibit?",
+    "reponses_acceptables": ["5-HT2A receptor", "5-HT 2A receptor"],
+    "pmids": []
+  },
+  {
+    "id": "SH08", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which secretion process does capsaicin activate?",
+    "reponses_acceptables": ["colonic mucus secretion", "mucus secretion"],
+    "pmids": []
+  },
+  {
+    "id": "SH09", "type": "single-hop", "categorie": "contrôle", "n_sauts": 1,
+    "question": "Which receptor does AZD6140 inhibit?",
+    "reponses_acceptables": ["P2Y12 receptor", "P2Y(12) receptor"],
+    "pmids": []
+  }
+]

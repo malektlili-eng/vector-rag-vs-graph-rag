@@ -1,0 +1,721 @@
+[
+  {
+    "id": "DB00619_MESH_D015464_1",
+    "medicament": "imatinib",
+    "maladie": "CML (ph+)",
+    "n_sauts": 2,
+    "motif": "Drug → Protein → Disease",
+    "entites_pont": [
+      "BCR/ABL"
+    ],
+    "etapes": [
+      {
+        "source": "imatinib",
+        "source_id": "MESH:D000068877",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "BCR/ABL",
+        "cible_id": "UniProt:P00519",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "BCR/ABL",
+        "source_id": "UniProt:P00519",
+        "source_type": "Protein",
+        "relation": "causes",
+        "cible": "CML (ph+)",
+        "cible_id": "MESH:D015464",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      4712,
+      4
+    ],
+    "complete": true,
+    "minimum": 4
+  },
+  {
+    "id": "DB13399_MESH_D006976_1",
+    "medicament": "terguride",
+    "maladie": "Pulmonary hypertension",
+    "n_sauts": 2,
+    "motif": "Drug → Protein → Disease",
+    "entites_pont": [
+      "5-Hydroxytryptamine receptor 2B"
+    ],
+    "etapes": [
+      {
+        "source": "terguride",
+        "source_id": "MESH:C006208",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "5-Hydroxytryptamine receptor 2B",
+        "cible_id": "UniProt:P41595",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "5-Hydroxytryptamine receptor 2B",
+        "source_id": "UniProt:P41595",
+        "source_type": "Protein",
+        "relation": "positively correlated with",
+        "cible": "Pulmonary hypertension",
+        "cible_id": "MESH:D006976",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      7,
+      2
+    ],
+    "complete": true,
+    "minimum": 2
+  },
+  {
+    "id": "DB12770_MESH_D005764_1",
+    "medicament": "lafutidine",
+    "maladie": "Gastroesophageal Reflux",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Histamine H2 Receptor",
+      "Gastric acid secretion"
+    ],
+    "etapes": [
+      {
+        "source": "lafutidine",
+        "source_id": "MESH:C076948",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "Histamine H2 Receptor",
+        "cible_id": "UniProt:P25021",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Histamine H2 Receptor",
+        "source_id": "UniProt:P25021",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "Gastric acid secretion",
+        "cible_id": "GO:0001696",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "Gastric acid secretion",
+        "source_id": "GO:0001696",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Gastroesophageal Reflux",
+        "cible_id": "MESH:D005764",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      29,
+      4,
+      2
+    ],
+    "complete": true,
+    "minimum": 2
+  },
+  {
+    "id": "DB00758_MESH_D054058_1",
+    "medicament": "Clopidogrel",
+    "maladie": "Acute Coronary Syndrome",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "P2Y purinoceptor 12",
+      "platelet aggregation"
+    ],
+    "etapes": [
+      {
+        "source": "Clopidogrel",
+        "source_id": "MESH:D000077144",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "P2Y purinoceptor 12",
+        "cible_id": "UniProt:Q9H244",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "P2Y purinoceptor 12",
+        "source_id": "UniProt:Q9H244",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "platelet aggregation",
+        "cible_id": "GO:0070527",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "platelet aggregation",
+        "source_id": "GO:0070527",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Acute Coronary Syndrome",
+        "cible_id": "MESH:D054058",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      2899,
+      600,
+      315
+    ],
+    "complete": true,
+    "minimum": 315
+  },
+  {
+    "id": "DB00285_MESH_D016584_2",
+    "medicament": "venlafaxine",
+    "maladie": "Panic disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent noradrenaline transporter",
+      "norepinephrine uptake"
+    ],
+    "etapes": [
+      {
+        "source": "venlafaxine",
+        "source_id": "MESH:D000069470",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "cible_id": "UniProt:P23975",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent noradrenaline transporter",
+        "source_id": "UniProt:P23975",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "cible_id": "GO:0051620",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "norepinephrine uptake",
+        "source_id": "GO:0051620",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Panic disorder",
+        "cible_id": "MESH:D016584",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      62,
+      22,
+      24
+    ],
+    "complete": true,
+    "minimum": 22
+  },
+  {
+    "id": "DB00285_MESH_D000072861_2",
+    "medicament": "venlafaxine",
+    "maladie": "Social phobia",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent noradrenaline transporter",
+      "norepinephrine uptake"
+    ],
+    "etapes": [
+      {
+        "source": "venlafaxine",
+        "source_id": "MESH:D000069470",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "cible_id": "UniProt:P23975",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent noradrenaline transporter",
+        "source_id": "UniProt:P23975",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "cible_id": "GO:0051620",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "norepinephrine uptake",
+        "source_id": "GO:0051620",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Social phobia",
+        "cible_id": "MESH:D000072861",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      62,
+      22,
+      9
+    ],
+    "complete": true,
+    "minimum": 9
+  },
+  {
+    "id": "DB00285_MESH_D003865_2",
+    "medicament": "venlafaxine",
+    "maladie": "Major depressive disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent noradrenaline transporter",
+      "norepinephrine uptake"
+    ],
+    "etapes": [
+      {
+        "source": "venlafaxine",
+        "source_id": "MESH:D000069470",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "cible_id": "UniProt:P23975",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent noradrenaline transporter",
+        "source_id": "UniProt:P23975",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "cible_id": "GO:0051620",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "norepinephrine uptake",
+        "source_id": "GO:0051620",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Major depressive disorder",
+        "cible_id": "MESH:D003865",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      62,
+      22,
+      146
+    ],
+    "complete": true,
+    "minimum": 22
+  },
+  {
+    "id": "DB09036_MESH_D005871_1",
+    "medicament": "Siltuximab",
+    "maladie": "Angiofollicular lymph node hyperplasia",
+    "n_sauts": 2,
+    "motif": "Drug → Protein → Disease",
+    "entites_pont": [
+      "Interleukin-6"
+    ],
+    "etapes": [
+      {
+        "source": "Siltuximab",
+        "source_id": "MESH:C504234",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "Interleukin-6",
+        "cible_id": "UniProt:P05231",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Interleukin-6",
+        "source_id": "UniProt:P05231",
+        "source_type": "Protein",
+        "relation": "positively correlated with",
+        "cible": "Angiofollicular lymph node hyperplasia",
+        "cible_id": "MESH:D005871",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      207,
+      3
+    ],
+    "complete": true,
+    "minimum": 3
+  },
+  {
+    "id": "DB01270_MESH_D003930_1",
+    "medicament": "Ranibizumab",
+    "maladie": "Diabetic retinopathy",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Vascular endothelial growth factor A",
+      "Angiogenesis"
+    ],
+    "etapes": [
+      {
+        "source": "Ranibizumab",
+        "source_id": "MESH:D000069579",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "Vascular endothelial growth factor A",
+        "cible_id": "UniProt:P15692",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Vascular endothelial growth factor A",
+        "source_id": "UniProt:P15692",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "Angiogenesis",
+        "cible_id": "GO:0001525",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "Angiogenesis",
+        "source_id": "GO:0001525",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Diabetic retinopathy",
+        "cible_id": "MESH:D003930",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      2460,
+      163,
+      46
+    ],
+    "complete": true,
+    "minimum": 46
+  },
+  {
+    "id": "DB00234_MESH_D003865_1",
+    "medicament": "reboxetine",
+    "maladie": "Major depressive disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent noradrenaline transporter",
+      "norepinephrine uptake"
+    ],
+    "etapes": [
+      {
+        "source": "reboxetine",
+        "source_id": "MESH:C074679",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "cible_id": "UniProt:P23975",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent noradrenaline transporter",
+        "source_id": "UniProt:P23975",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "cible_id": "GO:0051620",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "norepinephrine uptake",
+        "source_id": "GO:0051620",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Major depressive disorder",
+        "cible_id": "MESH:D003865",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      86,
+      16,
+      27
+    ],
+    "complete": true,
+    "minimum": 16
+  },
+  {
+    "id": "DB01242_MESH_D009771_1",
+    "medicament": "clomipramine",
+    "maladie": "Obsessive-compulsive disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent serotonin transporter",
+      "serotonin uptake"
+    ],
+    "etapes": [
+      {
+        "source": "clomipramine",
+        "source_id": "MESH:D002997",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent serotonin transporter",
+        "cible_id": "UniProt:P31645",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent serotonin transporter",
+        "source_id": "UniProt:P31645",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "serotonin uptake",
+        "cible_id": "GO:0051610",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "serotonin uptake",
+        "source_id": "GO:0051610",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Obsessive-compulsive disorder",
+        "cible_id": "MESH:D009771",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      31,
+      4,
+      27
+    ],
+    "complete": true,
+    "minimum": 4
+  },
+  {
+    "id": "DB00013_MESH_D011655_1",
+    "medicament": "urokinase",
+    "maladie": "Pulmonary thromboembolism",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Plasminogen",
+      "fibrinolysis"
+    ],
+    "etapes": [
+      {
+        "source": "urokinase",
+        "source_id": "MESH:D014568",
+        "source_type": "Drug",
+        "relation": "positively regulates",
+        "cible": "Plasminogen",
+        "cible_id": "UniProt:P00747",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Plasminogen",
+        "source_id": "UniProt:P00747",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "fibrinolysis",
+        "cible_id": "GO:0042730",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "fibrinolysis",
+        "source_id": "GO:0042730",
+        "source_type": "BiologicalProcess",
+        "relation": "negatively correlated with",
+        "cible": "Pulmonary thromboembolism",
+        "cible_id": "MESH:D011655",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      11224,
+      1066,
+      3
+    ],
+    "complete": true,
+    "minimum": 3
+  },
+  {
+    "id": "DB01126_MESH_D011470_2",
+    "medicament": "Finasteride",
+    "maladie": "Benign prostatic hyperplasia",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → ChemicalSubstance → Disease",
+    "entites_pont": [
+      "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+      "Dihydrotestosterone"
+    ],
+    "etapes": [
+      {
+        "source": "Finasteride",
+        "source_id": "MESH:D018120",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+        "cible_id": "UniProt:P31213",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+        "source_id": "UniProt:P31213",
+        "source_type": "Protein",
+        "relation": "increases abundance of",
+        "cible": "Dihydrotestosterone",
+        "cible_id": "MESH:D013196",
+        "cible_type": "ChemicalSubstance"
+      },
+      {
+        "source": "Dihydrotestosterone",
+        "source_id": "MESH:D013196",
+        "source_type": "ChemicalSubstance",
+        "relation": "positively correlated with",
+        "cible": "Benign prostatic hyperplasia",
+        "cible_id": "MESH:D011470",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      46,
+      26,
+      237
+    ],
+    "complete": true,
+    "minimum": 26
+  },
+  {
+    "id": "DB01175_MESH_D003865_1",
+    "medicament": "escitalopram",
+    "maladie": "Major depressive disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent serotonin transporter",
+      "serotonin uptake"
+    ],
+    "etapes": [
+      {
+        "source": "escitalopram",
+        "source_id": "DB:DB01175",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent serotonin transporter",
+        "cible_id": "UniProt:P31645",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent serotonin transporter",
+        "source_id": "UniProt:P31645",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "serotonin uptake",
+        "cible_id": "GO:0051610",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "serotonin uptake",
+        "source_id": "GO:0051610",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Major depressive disorder",
+        "cible_id": "MESH:D003865",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      138,
+      5,
+      4
+    ],
+    "complete": true,
+    "minimum": 4
+  },
+  {
+    "id": "DB01151_MESH_D003866_1",
+    "medicament": "desipramine",
+    "maladie": "Depressive disorder",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Sodium-dependent noradrenaline transporter",
+      "norepinephrine uptake"
+    ],
+    "etapes": [
+      {
+        "source": "desipramine",
+        "source_id": "MESH:D003891",
+        "source_type": "Drug",
+        "relation": "negatively regulates",
+        "cible": "Sodium-dependent noradrenaline transporter",
+        "cible_id": "UniProt:P23975",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Sodium-dependent noradrenaline transporter",
+        "source_id": "UniProt:P23975",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "norepinephrine uptake",
+        "cible_id": "GO:0051620",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "norepinephrine uptake",
+        "source_id": "GO:0051620",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Depressive disorder",
+        "cible_id": "MESH:D003866",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      245,
+      42,
+      12
+    ],
+    "complete": true,
+    "minimum": 12
+  },
+  {
+    "id": "DB05578_MESH_D002289_1",
+    "medicament": "ramucirumab",
+    "maladie": "Non-small cell lung cancer",
+    "n_sauts": 3,
+    "motif": "Drug → Protein → BiologicalProcess → Disease",
+    "entites_pont": [
+      "Vascular endothelial growth factor receptor 2",
+      "angiogenesis"
+    ],
+    "etapes": [
+      {
+        "source": "ramucirumab",
+        "source_id": "MESH:C543333",
+        "source_type": "Drug",
+        "relation": "decreases activity of",
+        "cible": "Vascular endothelial growth factor receptor 2",
+        "cible_id": "UniProt:P35968",
+        "cible_type": "Protein"
+      },
+      {
+        "source": "Vascular endothelial growth factor receptor 2",
+        "source_id": "UniProt:P35968",
+        "source_type": "Protein",
+        "relation": "positively regulates",
+        "cible": "angiogenesis",
+        "cible_id": "GO:0001525",
+        "cible_type": "BiologicalProcess"
+      },
+      {
+        "source": "angiogenesis",
+        "source_id": "GO:0001525",
+        "source_type": "BiologicalProcess",
+        "relation": "positively correlated with",
+        "cible": "Non-small cell lung cancer",
+        "cible_id": "MESH:D002289",
+        "cible_type": "Disease"
+      }
+    ],
+    "scores": [
+      205,
+      82,
+      47
+    ],
+    "complete": true,
+    "minimum": 47
+  }
+]

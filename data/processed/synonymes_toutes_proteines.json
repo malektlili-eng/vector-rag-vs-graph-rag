@@ -1,0 +1,532 @@
+{
+  "UniProt:P00519": {
+    "nom_drugmechdb": "BCR/ABL",
+    "synonymes": [
+      "Tyrosine-protein kinase ABL1",
+      "Abelson murine leukemia viral oncogene homolog 1",
+      "Abelson tyrosine-protein kinase 1",
+      "Proto-oncogene c-Abl",
+      "p150",
+      "ABL1",
+      "ABL",
+      "JTK7"
+    ]
+  },
+  "UniProt:P35367": {
+    "nom_drugmechdb": "Histamine H1 receptor",
+    "synonymes": [
+      "Histamine H1 receptor",
+      "H1-R",
+      "H1R",
+      "HH1R",
+      "HRH1"
+    ]
+  },
+  "UniProt:P23945": {
+    "nom_drugmechdb": "Human follicle stimulating hormone receptor",
+    "synonymes": [
+      "Follicle-stimulating hormone receptor",
+      "FSH-R",
+      "Follitropin receptor",
+      "FSHR",
+      "LGR1"
+    ]
+  },
+  "UniProt:P31645": {
+    "nom_drugmechdb": "Sodium-dependent serotonin transporter",
+    "synonymes": [
+      "Sodium-dependent serotonin transporter",
+      "SERT",
+      "5HT transporter",
+      "5HTT",
+      "Solute carrier family 6 member 4",
+      "SLC6A4",
+      "HTT"
+    ]
+  },
+  "UniProt:P41595": {
+    "nom_drugmechdb": "5-Hydroxytryptamine receptor 2B",
+    "synonymes": [
+      "5-hydroxytryptamine receptor 2B",
+      "5-HT-2B",
+      "5-HT2B",
+      "Serotonin receptor 2B",
+      "HTR2B"
+    ]
+  },
+  "UniProt:P25021": {
+    "nom_drugmechdb": "Histamine H2 receptor",
+    "synonymes": [
+      "Histamine H2 receptor",
+      "H2R",
+      "HH2R",
+      "Gastric receptor I",
+      "HRH2"
+    ]
+  },
+  "UniProt:P08588": {
+    "nom_drugmechdb": "Beta-1 adrenergic receptor",
+    "synonymes": [
+      "Beta-1 adrenergic receptor",
+      "Beta-1 adrenoreceptor",
+      "Beta-1 adrenoceptor",
+      "ADRB1",
+      "ADRB1R",
+      "B1AR"
+    ]
+  },
+  "UniProt:P55017": {
+    "nom_drugmechdb": "Solute carrier family 12 member 3",
+    "synonymes": [
+      "Solute carrier family 12 member 3",
+      "Na-Cl cotransporter",
+      "NCC",
+      "Na-Cl symporter",
+      "Thiazide-sensitive sodium-chloride cotransporter",
+      "SLC12A3",
+      "TSC"
+    ]
+  },
+  "UniProt:P08908": {
+    "nom_drugmechdb": "5-hydroxytryptamine receptor 1A",
+    "synonymes": [
+      "5-hydroxytryptamine receptor 1A",
+      "5-HT-1A",
+      "5-HT1A",
+      "G-21",
+      "Serotonin receptor 1A",
+      "HTR1A",
+      "ADRB2RL1",
+      "ADRBRL1"
+    ]
+  },
+  "UniProt:P35372": {
+    "nom_drugmechdb": "Mu-type opioid receptor",
+    "synonymes": [
+      "Mu-type opioid receptor",
+      "M-OR-1",
+      "MOR-1",
+      "Mu opiate receptor",
+      "Mu opioid receptor",
+      "MOP",
+      "hMOP",
+      "OPRM1",
+      "MOR1"
+    ]
+  },
+  "UniProt:O43497": {
+    "nom_drugmechdb": "voltage dependent T-type calcium channel subunit alpha-1G",
+    "synonymes": [
+      "Voltage-dependent T-type calcium channel subunit alpha-1G",
+      "Cav3.1c",
+      "NBR13",
+      "Voltage-gated calcium channel subunit alpha Cav3.1",
+      "CACNA1G",
+      "KIAA1123"
+    ]
+  },
+  "UniProt:P35348": {
+    "nom_drugmechdb": "Alpha-1A adrenergic receptor",
+    "synonymes": [
+      "Alpha-1A adrenergic receptor",
+      "Alpha-1A adrenoreceptor",
+      "Alpha-1A adrenoceptor",
+      "Alpha-1C adrenergic receptor",
+      "Alpha-adrenergic receptor 1c",
+      "ADRA1A",
+      "ADRA1C"
+    ]
+  },
+  "UniProt:P35368": {
+    "nom_drugmechdb": "Alpha-1B adrenergic receptor",
+    "synonymes": [
+      "Alpha-1B adrenergic receptor",
+      "Alpha-1B adrenoreceptor",
+      "Alpha-1B adrenoceptor",
+      "ADRA1B"
+    ]
+  },
+  "UniProt:Q9H244": {
+    "nom_drugmechdb": "P2Y purinoceptor 12",
+    "synonymes": [
+      "P2Y purinoceptor 12",
+      "P2Y12",
+      "ADP-glucose receptor",
+      "ADPG-R",
+      "P2T(AC)",
+      "P2Y(AC)",
+      "P2Y(cyc)",
+      "P2Y12 platelet ADP receptor",
+      "P2Y(ADP)",
+      "SP1999",
+      "P2RY12",
+      "HORK3"
+    ]
+  },
+  "UniProt:P10275": {
+    "nom_drugmechdb": "Androgen receptor",
+    "synonymes": [
+      "Androgen receptor",
+      "Dihydrotestosterone receptor",
+      "Nuclear receptor subfamily 3 group C member 4",
+      "AR",
+      "DHTR",
+      "NR3C4"
+    ]
+  },
+  "UniProt:P23975": {
+    "nom_drugmechdb": "Sodium-dependent noradrenaline transporter",
+    "synonymes": [
+      "Sodium-dependent noradrenaline transporter",
+      "Norepinephrine transporter",
+      "NET",
+      "Solute carrier family 6 member 2",
+      "SLC6A2",
+      "NAT1",
+      "NET1",
+      "SLC6A5"
+    ]
+  },
+  "UniProt:Q01959": {
+    "nom_drugmechdb": "Sodium-dependent dopamine transporter",
+    "synonymes": [
+      "Sodium-dependent dopamine transporter",
+      "DA transporter",
+      "DAT",
+      "Solute carrier family 6 member 3",
+      "SLC6A3",
+      "DAT1"
+    ]
+  },
+  "UniProt:P21728": {
+    "nom_drugmechdb": "D(1A) dopamine receptor",
+    "synonymes": [
+      "D(1A) dopamine receptor",
+      "Dopamine D1 receptor",
+      "DRD1"
+    ]
+  },
+  "UniProt:P07202": {
+    "nom_drugmechdb": "Thyroid peroxidase",
+    "synonymes": [
+      "Thyroid peroxidase",
+      "TPO"
+    ]
+  },
+  "UniProt:P03372": {
+    "nom_drugmechdb": "Estrogen receptor alpha",
+    "synonymes": [
+      "Estrogen receptor",
+      "ER",
+      "ER-alpha",
+      "Estradiol receptor",
+      "Nuclear receptor subfamily 3 group A member 1",
+      "ESR1",
+      "ESR",
+      "NR3A1"
+    ]
+  },
+  "UniProt:A9UF02": {
+    "nom_drugmechdb": "BCR/ABL protein-tyrosine kinase",
+    "synonymes": [
+      "Tyrosine-protein kinase ABL1",
+      "Abelson murine leukemia viral oncogene homolog 1",
+      "Abelson tyrosine-protein kinase 1",
+      "Proto-oncogene c-Abl",
+      "p150",
+      "BCR/ABL fusion"
+    ]
+  },
+  "UniProt:P14416": {
+    "nom_drugmechdb": "Dopamine D2 receptor",
+    "synonymes": [
+      "D(2) dopamine receptor",
+      "Dopamine D2 receptor",
+      "DRD2"
+    ]
+  },
+  "UniProt:P04062": {
+    "nom_drugmechdb": "Lysosomal acid glucosylceramidase",
+    "synonymes": [
+      "Lysosomal acid glucosylceramidase",
+      "Lysosomal acid GCase",
+      "Acid beta-glucosidase",
+      "Alglucerase",
+      "Beta-glucocerebrosidase",
+      "Beta-GC",
+      "Beta-glucosylceramidase 1",
+      "Cholesterol glucosyltransferase",
+      "SGTase",
+      "Cholesteryl-beta-glucosidase",
+      "D-glucosyl-N-acylsphingosine glucohydrolase",
+      "Glucosylceramidase beta 1",
+      "Imiglucerase",
+      "Lysosomal cholesterol glycosyltransferase",
+      "Lysosomal galactosylceramidase",
+      "Lysosomal glycosylceramidase",
+      "GBA1",
+      "GBA",
+      "GC",
+      "GLUC"
+    ]
+  },
+  "UniProt:P05231": {
+    "nom_drugmechdb": "Interleukin-6",
+    "synonymes": [
+      "Interleukin-6",
+      "IL-6",
+      "B-cell stimulatory factor 2",
+      "BSF-2",
+      "CTL differentiation factor",
+      "CDF",
+      "Hybridoma growth factor",
+      "Interferon beta-2",
+      "IFN-beta-2",
+      "IL6",
+      "IFNB2"
+    ]
+  },
+  "UniProt:Q96S37": {
+    "nom_drugmechdb": "Solute carrier family 22 member 12",
+    "synonymes": [
+      "Solute carrier family 22 member 12",
+      "Organic anion transporter 4-like protein",
+      "Renal-specific transporter",
+      "RST",
+      "Urate anion exchanger 1",
+      "URAT1",
+      "Urate:anion antiporter SLC22A12",
+      "SLC22A12",
+      "OATL4"
+    ]
+  },
+  "UniProt:Q99062": {
+    "nom_drugmechdb": "Granulocyte colony-stimulating factor receptor",
+    "synonymes": [
+      "Granulocyte colony-stimulating factor receptor",
+      "G-CSF receptor",
+      "G-CSF-R",
+      "CSF3R",
+      "GCSFR"
+    ]
+  },
+  "UniProt:P06401": {
+    "nom_drugmechdb": "Progesterone receptor",
+    "synonymes": [
+      "Progesterone receptor",
+      "PR",
+      "Nuclear receptor subfamily 3 group C member 3",
+      "PGR",
+      "NR3C3"
+    ]
+  },
+  "UniProt:P07550": {
+    "nom_drugmechdb": "Beta-2 adrenergic receptor",
+    "synonymes": [
+      "Beta-2 adrenergic receptor",
+      "Beta-2 adrenoreceptor",
+      "Beta-2 adrenoceptor",
+      "ADRB2",
+      "ADRB2R",
+      "B2AR"
+    ]
+  },
+  "UniProt:P02818": {
+    "nom_drugmechdb": "Osteocalcin",
+    "synonymes": [
+      "Osteocalcin",
+      "Bone Gla protein",
+      "BGP",
+      "Gamma-carboxyglutamic acid-containing protein",
+      "BGLAP"
+    ]
+  },
+  "UniProt:P01241": {
+    "nom_drugmechdb": "Somatotropin",
+    "synonymes": [
+      "Somatotropin",
+      "Growth hormone",
+      "GH",
+      "GH-N",
+      "Growth hormone 1",
+      "Pituitary growth hormone",
+      "GH1"
+    ]
+  },
+  "UniProt:P08172": {
+    "nom_drugmechdb": "Muscarinic acetylcholine receptor M2",
+    "synonymes": [
+      "Muscarinic acetylcholine receptor M2",
+      "CHRM2"
+    ]
+  },
+  "UniProt:P15692": {
+    "nom_drugmechdb": "Vascular endothelial growth factor A",
+    "synonymes": [
+      "Vascular endothelial growth factor A, long form",
+      "L-VEGF",
+      "Vascular permeability factor",
+      "VPF",
+      "VEGFA",
+      "VEGF"
+    ]
+  },
+  "UniProt:P20309": {
+    "nom_drugmechdb": "Muscarinic acetylcholine receptor M3",
+    "synonymes": [
+      "Muscarinic acetylcholine receptor M3",
+      "CHRM3"
+    ]
+  },
+  "UniProt:P43119": {
+    "nom_drugmechdb": "Prostacyclin receptor",
+    "synonymes": [
+      "Prostacyclin receptor",
+      "Prostaglandin I2 receptor",
+      "PGI receptor",
+      "PGI2 receptor",
+      "Prostanoid IP receptor",
+      "PTGIR",
+      "PRIPR"
+    ]
+  },
+  "UniProt:P30531": {
+    "nom_drugmechdb": "Sodium- and chloride-dependent GABA transporter 1",
+    "synonymes": [
+      "Sodium- and chloride-dependent GABA transporter 1",
+      "GAT-1",
+      "Solute carrier family 6 member 1",
+      "SLC6A1",
+      "GABATR",
+      "GABT1",
+      "GAT1"
+    ]
+  },
+  "UniProt:P00747": {
+    "nom_drugmechdb": "Plasminogen",
+    "synonymes": [
+      "Plasminogen",
+      "PLG"
+    ]
+  },
+  "UniProt:P19971": {
+    "nom_drugmechdb": "Thymidine phosphorylase",
+    "synonymes": [
+      "Thymidine phosphorylase",
+      "TP",
+      "Gliostatin",
+      "Platelet-derived endothelial cell growth factor",
+      "PD-ECGF",
+      "TdRPase",
+      "TYMP",
+      "ECGF1"
+    ]
+  },
+  "UniProt:P11836": {
+    "nom_drugmechdb": "B-lymphocyte antigen CD20",
+    "synonymes": [
+      "B-lymphocyte antigen CD20",
+      "B-lymphocyte surface antigen B1",
+      "Bp35",
+      "Leukocyte surface antigen Leu-16",
+      "Membrane-spanning 4-domains subfamily A member 1",
+      "MS4A1",
+      "CD20"
+    ]
+  },
+  "UniProt:P21554": {
+    "nom_drugmechdb": "Cannabinoid receptor 1",
+    "synonymes": [
+      "Cannabinoid receptor 1",
+      "CB-R",
+      "CB1",
+      "CANN6",
+      "CNR1",
+      "CNR"
+    ]
+  },
+  "UniProt:Q9UM73": {
+    "nom_drugmechdb": "ALK tyrosine kinase receptor",
+    "synonymes": [
+      "ALK tyrosine kinase receptor",
+      "Anaplastic lymphoma kinase",
+      "ALK"
+    ]
+  },
+  "UniProt:P38435": {
+    "nom_drugmechdb": "Vitamin K-dependent gamma-carboxylase",
+    "synonymes": [
+      "Vitamin K-dependent gamma-carboxylase",
+      "VKGC",
+      "Gamma-glutamyl carboxylase",
+      "Peptidyl-glutamate 4-carboxylase",
+      "Vitamin K gamma glutamyl carboxylase",
+      "GGCX",
+      "GC"
+    ]
+  },
+  "UniProt:P16234": {
+    "nom_drugmechdb": "Platelet-derived growth factor receptor alpha",
+    "synonymes": [
+      "Platelet-derived growth factor receptor alpha",
+      "PDGF-R-alpha",
+      "PDGFR-alpha",
+      "Alpha platelet-derived growth factor receptor",
+      "Alpha-type platelet-derived growth factor receptor",
+      "CD140 antigen-like family member A",
+      "CD140a antigen",
+      "Platelet-derived growth factor alpha receptor",
+      "Platelet-derived growth factor receptor 2",
+      "PDGFR-2",
+      "PDGFRA",
+      "PDGFR2",
+      "RHEPDGFRA"
+    ]
+  },
+  "UniProt:P31213": {
+    "nom_drugmechdb": "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+    "synonymes": [
+      "3-oxo-5-alpha-steroid 4-dehydrogenase 2",
+      "5 alpha-SR2",
+      "SR type 2",
+      "Steroid 5-alpha-reductase 2",
+      "S5AR 2",
+      "Type II 5-alpha reductase",
+      "SRD5A2"
+    ]
+  },
+  "UniProt:P04150": {
+    "nom_drugmechdb": "Glucocorticoid receptor",
+    "synonymes": [
+      "Glucocorticoid receptor",
+      "GR",
+      "Nuclear receptor subfamily 3 group C member 1",
+      "NR3C1",
+      "GRL"
+    ]
+  },
+  "UniProt:Q15116": {
+    "nom_drugmechdb": "Programmed cell death protein 1",
+    "synonymes": [
+      "Programmed cell death protein 1",
+      "Protein PD-1",
+      "hPD-1",
+      "PDCD1",
+      "PD1"
+    ]
+  },
+  "UniProt:P35968": {
+    "nom_drugmechdb": "Vascular endothelial growth factor receptor 2",
+    "synonymes": [
+      "Vascular endothelial growth factor receptor 2",
+      "VEGFR-2",
+      "Fetal liver kinase 1",
+      "FLK-1",
+      "Kinase insert domain receptor",
+      "KDR",
+      "Protein-tyrosine kinase receptor flk-1",
+      "FLK1",
+      "VEGFR2"
+    ]
+  }
+}

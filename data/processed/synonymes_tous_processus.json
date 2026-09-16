@@ -1,0 +1,548 @@
+{
+  "GO:0034776": {
+    "nom_drugmechdb": "histamine response",
+    "synonymes": [
+      "response to histamine",
+      "response to histamine stimulus"
+    ]
+  },
+  "GO:0030728": {
+    "nom_drugmechdb": "ovulation",
+    "synonymes": [
+      "ovulation"
+    ]
+  },
+  "GO:0099536": {
+    "nom_drugmechdb": "Synaptic Signaling",
+    "synonymes": [
+      "synaptic signaling"
+    ]
+  },
+  "GO:0019233": {
+    "nom_drugmechdb": "sensory perception of pain",
+    "synonymes": [
+      "sensory perception of pain",
+      "perception of physiological pain"
+    ]
+  },
+  "GO:0051610": {
+    "nom_drugmechdb": "serotonin uptake",
+    "synonymes": [
+      "serotonin uptake",
+      "5-hydroxytryptamine uptake",
+      "5-HT uptake",
+      "5HT uptake",
+      "serotonin import"
+    ]
+  },
+  "GO:0019227": {
+    "nom_drugmechdb": "Neuronal Action Potential Transmission",
+    "synonymes": [
+      "neuronal action potential propagation"
+    ]
+  },
+  "GO:0006954": {
+    "nom_drugmechdb": "inflammatory response",
+    "synonymes": [
+      "inflammatory response"
+    ]
+  },
+  "GO:0001696": {
+    "nom_drugmechdb": "Gastric acid secretion",
+    "synonymes": [
+      "gastric acid secretion",
+      "hydrochloric acid secretion"
+    ]
+  },
+  "GO:0045823": {
+    "nom_drugmechdb": "positive regulation of heart contraction",
+    "synonymes": [
+      "positive regulation of heart contraction",
+      "up-regulation of heart contraction",
+      "upregulation of heart contraction",
+      "up regulation of heart contraction",
+      "stimulation of heart contraction",
+      "activation of heart contraction",
+      "positive regulation of cardiac contraction"
+    ]
+  },
+  "GO:0055078": {
+    "nom_drugmechdb": "Sodium Ion Homeostasis",
+    "synonymes": [
+      "sodium ion homeostasis"
+    ]
+  },
+  "GO:0032782": {
+    "nom_drugmechdb": "bile acid secretion",
+    "synonymes": [
+      "bile acid secretion"
+    ]
+  },
+  "GO:0050795": {
+    "nom_drugmechdb": "regulation of behavior",
+    "synonymes": [
+      "regulation of behavior",
+      "regulation of behaviour"
+    ]
+  },
+  "GO:0007268": {
+    "nom_drugmechdb": "corticothalamic transmission",
+    "synonymes": [
+      "chemical synaptic transmission"
+    ]
+  },
+  "GO:0090075": {
+    "nom_drugmechdb": "relaxation of muscle",
+    "synonymes": [
+      "relaxation of muscle"
+    ]
+  },
+  "GO:0070527": {
+    "nom_drugmechdb": "platelet aggregation",
+    "synonymes": [
+      "platelet aggregation",
+      "blood platelet aggregation"
+    ]
+  },
+  "GO:0030432": {
+    "nom_drugmechdb": "peristalsis",
+    "synonymes": [
+      "peristalsis"
+    ]
+  },
+  "GO:0060767": {
+    "nom_drugmechdb": "epithelial cell proliferation involved in prostate gland development",
+    "synonymes": [
+      "epithelial cell proliferation involved in prostate gland development"
+    ]
+  },
+  "GO:0051620": {
+    "nom_drugmechdb": "norepinephrine uptake",
+    "synonymes": [
+      "norepinephrine uptake",
+      "norepinephrine import",
+      "noradrenaline reuptake",
+      "norepinephrine reuptake",
+      "noradrenaline uptake",
+      "levarterenol reuptake",
+      "levarterenol uptake"
+    ]
+  },
+  "GO:0090494": {
+    "nom_drugmechdb": "dopamine uptake",
+    "synonymes": [
+      "dopamine uptake"
+    ]
+  },
+  "GO:0051584": {
+    "nom_drugmechdb": "regulation of dopamine uptake involved in synaptic transmission",
+    "synonymes": [
+      "regulation of dopamine uptake involved in synaptic transmission",
+      "regulation of dopamine import involved in synaptic transmission"
+    ]
+  },
+  "GO:0006590": {
+    "nom_drugmechdb": "thyroid hormone generation",
+    "synonymes": [
+      "thyroid hormone generation"
+    ]
+  },
+  "GO:0004936": {
+    "nom_drugmechdb": "Alpha-adrenergic receptor activity",
+    "synonymes": [
+      "alpha-adrenergic receptor activity",
+      "alpha adrenoceptor"
+    ]
+  },
+  "GO:0032100": {
+    "nom_drugmechdb": "Positive regulation of appetite",
+    "synonymes": [
+      "positive regulation of appetite",
+      "activation of appetite",
+      "upregulation of appetite",
+      "up-regulation of appetite",
+      "up regulation of appetite",
+      "stimulation of appetite"
+    ]
+  },
+  "GO:0030322": {
+    "nom_drugmechdb": "stabilization of membrane potential",
+    "synonymes": [
+      "stabilization of membrane potential"
+    ]
+  },
+  "GO:0035810": {
+    "nom_drugmechdb": "Diuresis",
+    "synonymes": [
+      "positive regulation of urine volume",
+      "increase in urine flow",
+      "elevation of urinary volume"
+    ]
+  },
+  "GO:0060073": {
+    "nom_drugmechdb": "Urination",
+    "synonymes": [
+      "micturition",
+      "urine voiding",
+      "urination"
+    ]
+  },
+  "GO:0042730": {
+    "nom_drugmechdb": "fibrinolysis",
+    "synonymes": [
+      "fibrinolysis"
+    ]
+  },
+  "GO:0097744": {
+    "nom_drugmechdb": "Urate salt excretion",
+    "synonymes": [
+      "renal urate salt excretion"
+    ]
+  },
+  "GO:0120054": {
+    "nom_drugmechdb": "intestinal motility",
+    "synonymes": [
+      "intestinal motility"
+    ]
+  },
+  "GO:0060096": {
+    "nom_drugmechdb": "serotonin secretion, neurotransmission",
+    "synonymes": [
+      "serotonin secretion, neurotransmission"
+    ]
+  },
+  "GO:0035898": {
+    "nom_drugmechdb": "parathyroid hormone secretion",
+    "synonymes": [
+      "parathyroid hormone secretion",
+      "parathyrin secretion",
+      "parathormone secretion",
+      "PTH secretion"
+    ]
+  },
+  "GO:0006979": {
+    "nom_drugmechdb": "Response to oxidative stress",
+    "synonymes": [
+      "response to oxidative stress"
+    ]
+  },
+  "GO:0008219": {
+    "nom_drugmechdb": "Cell death",
+    "synonymes": [
+      "cell death"
+    ]
+  },
+  "GO:0030223": {
+    "nom_drugmechdb": "Neutrophil differentiation",
+    "synonymes": [
+      "neutrophil differentiation",
+      "neutrophil granulocytopoiesis",
+      "neutrophil cell differentiation",
+      "neutrophil granulocyte differentiation"
+    ]
+  },
+  "GO:0061533": {
+    "nom_drugmechdb": "Norepinephrine secretion, neurotransmissions",
+    "synonymes": [
+      "norepinephrine secretion, neurotransmission",
+      "noradrenaline secretion, neurotransmission"
+    ]
+  },
+  "GO:0007596": {
+    "nom_drugmechdb": "Blood coagulation",
+    "synonymes": [
+      "blood coagulation",
+      "blood clotting"
+    ]
+  },
+  "GO:0010669": {
+    "nom_drugmechdb": "Epithelial structure maintenance",
+    "synonymes": [
+      "epithelial structure maintenance"
+    ]
+  },
+  "GO:0050673": {
+    "nom_drugmechdb": "Epithelial cell proliferation",
+    "synonymes": [
+      "epithelial cell proliferation"
+    ]
+  },
+  "GO:0060004": {
+    "nom_drugmechdb": "Reflex",
+    "synonymes": [
+      "reflex"
+    ]
+  },
+  "GO:0072347": {
+    "nom_drugmechdb": "Response to anesthetic",
+    "synonymes": [
+      "response to anesthetic",
+      "response to anaesthetic"
+    ]
+  },
+  "GO:0044558": {
+    "nom_drugmechdb": "uterine smooth muscle relaxation",
+    "synonymes": [
+      "uterine smooth muscle relaxation",
+      "smooth muscle relaxation of the uterus"
+    ]
+  },
+  "GO:0006972": {
+    "nom_drugmechdb": "Hyperosmotic response",
+    "synonymes": [
+      "hyperosmotic response",
+      "hypertonic response",
+      "response to hypertonicity",
+      "HOG response"
+    ]
+  },
+  "GO:0120197": {
+    "nom_drugmechdb": "Mucociliary clearance",
+    "synonymes": [
+      "mucociliary clearance",
+      "mucociliary transport"
+    ]
+  },
+  "GO:0030282": {
+    "nom_drugmechdb": "Bone mineralization",
+    "synonymes": [
+      "bone mineralization",
+      "bone calcification"
+    ]
+  },
+  "GO:0007271": {
+    "nom_drugmechdb": "synaptic transmission, cholinergic",
+    "synonymes": [
+      "synaptic transmission, cholinergic",
+      "cholinergic synaptic transmission"
+    ]
+  },
+  "GO:0038169": {
+    "nom_drugmechdb": "Somatostatin receptor signaling pathway",
+    "synonymes": [
+      "somatostatin receptor signaling pathway",
+      "SST receptor signaling pathway"
+    ]
+  },
+  "GO:0014832": {
+    "nom_drugmechdb": "Urinary bladder smooth muscle contraction",
+    "synonymes": [
+      "urinary bladder smooth muscle contraction"
+    ]
+  },
+  "GO:0001525": {
+    "nom_drugmechdb": "angiogenesis",
+    "synonymes": [
+      "angiogenesis",
+      "blood vessel formation from pre-existing blood vessels"
+    ]
+  },
+  "GO:0097366": {
+    "nom_drugmechdb": "Response to bronchodilator",
+    "synonymes": [
+      "response to bronchodilator",
+      "response to bronchodilator agent"
+    ]
+  },
+  "GO:0005245": {
+    "nom_drugmechdb": "Voltage-gated calcium channel activity",
+    "synonymes": [
+      "voltage-gated calcium channel activity",
+      "dihydropyridine-sensitive calcium channel activity",
+      "depolarization-activated voltage-gated calcium channel",
+      "voltage-sensitive calcium channel",
+      "voltage-gated calcium ion channel activity",
+      "voltage-dependent calcium channel activity",
+      "voltage gated calcium channel activity",
+      "depolarization-activated voltage-gated calcium channel activity",
+      "depolarization-activated voltage gated calcium channel activity"
+    ]
+  },
+  "GO:0061535": {
+    "nom_drugmechdb": "Glutamate secretion, neurotransmission",
+    "synonymes": [
+      "glutamate secretion, neurotransmission"
+    ]
+  },
+  "GO:0034699": {
+    "nom_drugmechdb": "Response to luteinizing hormone",
+    "synonymes": [
+      "response to luteinizing hormone",
+      "response to luteinizing hormone stimulus"
+    ]
+  },
+  "GO:0045136": {
+    "nom_drugmechdb": "Development of secondary sexual characteristics",
+    "synonymes": [
+      "development of animal secondary sexual characteristics",
+      "development of secondary sexual characteristics",
+      "development of secondary sexual characteristics, sensu Metazoa"
+    ]
+  },
+  "GO:0030574": {
+    "nom_drugmechdb": "Collagen catabolic process",
+    "synonymes": [
+      "collagen catabolic process",
+      "collagen breakdown",
+      "collagen degradation",
+      "collagen catabolism"
+    ]
+  },
+  "GO:0046541": {
+    "nom_drugmechdb": "saliva secretion",
+    "synonymes": [
+      "saliva secretion",
+      "salivation"
+    ]
+  },
+  "GO:0004089": {
+    "nom_drugmechdb": "Carbonate dehydratase activity",
+    "synonymes": [
+      "carbonate dehydratase activity",
+      "carbonic anhydrase activity"
+    ]
+  },
+  "GO:0042310": {
+    "nom_drugmechdb": "Vasoconstriction",
+    "synonymes": [
+      "vasoconstriction",
+      "negative regulation of blood vessel size"
+    ]
+  },
+  "GO:0061028": {
+    "nom_drugmechdb": "Establishment of endothelial barrier",
+    "synonymes": [
+      "establishment of endothelial barrier"
+    ]
+  },
+  "GO:0014824": {
+    "nom_drugmechdb": "artery smooth muscle contraction",
+    "synonymes": [
+      "artery smooth muscle contraction"
+    ]
+  },
+  "GO:0051936": {
+    "nom_drugmechdb": "gamma-aminobutyric acid reuptake",
+    "synonymes": [
+      "gamma-aminobutyric acid reuptake",
+      "gamma-aminobutyric acid import into glial cell",
+      "GABA reuptake",
+      "GABA import into glial cell",
+      "GABA import into neuron",
+      "gamma-aminobutyric acid uptake involved in synaptic transmission",
+      "gamma-aminobutyric acid import into neuron"
+    ]
+  },
+  "GO:0006826": {
+    "nom_drugmechdb": "Ferric iron uptake",
+    "synonymes": [
+      "iron ion transport",
+      "ferric iron transport",
+      "ferric iron uptake",
+      "iron transport",
+      "ferric iron import",
+      "ferrous iron transport",
+      "ferrous ion transport",
+      "ferric ion import",
+      "ferric ion transport"
+    ]
+  },
+  "GO:0061436": {
+    "nom_drugmechdb": "Establishment of skin barrier",
+    "synonymes": [
+      "establishment of skin barrier"
+    ]
+  },
+  "GO:0043129": {
+    "nom_drugmechdb": "Surfactant homeostasis",
+    "synonymes": [
+      "surfactant homeostasis"
+    ]
+  },
+  "GO:0003092": {
+    "nom_drugmechdb": "renal water retention",
+    "synonymes": [
+      "renal water retention",
+      "negative regulation of renal water excretion"
+    ]
+  },
+  "GO:0042100": {
+    "nom_drugmechdb": "B cell proliferation",
+    "synonymes": [
+      "B cell proliferation",
+      "B-lymphocyte proliferation",
+      "B-cell proliferation",
+      "B lymphocyte proliferation"
+    ]
+  },
+  "GO:0004972": {
+    "nom_drugmechdb": "NMDA glutamate receptor activity",
+    "synonymes": [
+      "NMDA glutamate receptor activity",
+      "NMDA receptor",
+      "N-methyl-D-aspartate selective glutamate receptor activity"
+    ]
+  },
+  "GO:0035235": {
+    "nom_drugmechdb": "Ionotropic glutamate receptor signaling pathway",
+    "synonymes": [
+      "ionotropic glutamate receptor signaling pathway",
+      "ionotropic glutamate receptor signalling pathway"
+    ]
+  },
+  "GO:0008283": {
+    "nom_drugmechdb": "cell population proliferation",
+    "synonymes": [
+      "cell population proliferation"
+    ]
+  },
+  "GO:0005985": {
+    "nom_drugmechdb": "Sucrose metabolic process",
+    "synonymes": [
+      "sucrose metabolic process",
+      "sucrose metabolism"
+    ]
+  },
+  "GO:0055072": {
+    "nom_drugmechdb": "Iron ion homeostasis",
+    "synonymes": [
+      "obsolete iron ion homeostasis"
+    ]
+  },
+  "GO:0002418": {
+    "nom_drugmechdb": "immune response to tumor cell",
+    "synonymes": [
+      "immune response to tumor cell"
+    ]
+  },
+  "GO:0044557": {
+    "nom_drugmechdb": "relaxation of smooth muscle",
+    "synonymes": [
+      "relaxation of smooth muscle",
+      "smooth muscle relaxation"
+    ]
+  },
+  "GO:0060048": {
+    "nom_drugmechdb": "cardiac muscle contraction",
+    "synonymes": [
+      "cardiac muscle contraction",
+      "heart muscle contraction"
+    ]
+  },
+  "GO:0006702": {
+    "nom_drugmechdb": "androgen biosynthetic process",
+    "synonymes": [
+      "androgen biosynthetic process",
+      "androgen anabolism",
+      "androgen formation",
+      "androgen biosynthesis",
+      "androgen synthesis"
+    ]
+  },
+  "GO:0120178": {
+    "nom_drugmechdb": "steroid hormone biosynthetic process",
+    "synonymes": [
+      "steroid hormone biosynthetic process"
+    ]
+  }
+}
