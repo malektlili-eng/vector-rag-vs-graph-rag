@@ -8,7 +8,7 @@
 
 Ce travail compare deux architectures de génération augmentée par récupération — l'une fondée sur la recherche par similarité vectorielle, l'autre sur la traversée d'un graphe de connaissances — sur des questions exigeant la mise en relation de plusieurs documents. Le dispositif repose sur un corpus de 475 résumés d'articles PubMed, un graphe de 935 relations extraites automatiquement et formant 932 arêtes, et un jeu de vingt questions vérifiées manuellement.
 
-Le pipeline par graphe obtient un rappel au rang 5 de 0,83 contre 0,55 pour le pipeline vectoriel, et une exactitude de réponse de 0,70 contre 0,30. L'écart s'établit à toutes les valeurs du budget documentaire testées : le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante.
+Le pipeline par graphe obtient un rappel au rang 5 de 0,83 contre 0,55 pour le pipeline vectoriel, et une exactitude de réponse de 0,70 contre 0,30. L'écart s'établit à toutes les valeurs du budget documentaire testées : le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante.  Les deux écarts sont statistiquement significatifs sur ce plan apparié (p = 0,039 pour l'exactitude, p = 0,014 pour le rappel). Une ablation établit que 91 % de l'écart provient de l'ancrage seul, sans traversée.
 
 Le travail produit par ailleurs trois résultats méthodologiques distincts de cette comparaison. D'abord, une base de mécanismes curée par des experts n'est pas reconstructible à partir de résumés d'articles : la littérature comprime les chaînes causales et présuppose les liens établis. Ensuite, l'avantage du graphe ne provient pas de sa capacité de traversée, contrairement à ce que l'argument théorique laisse attendre : l'écart est maximal sur les questions qui n'exigent qu'un seul document, et s'explique par l'absence de dilution. Enfin, la métrique de fidélité employée seule récompense le silence : le pipeline le moins performant y obtient le meilleur score, grâce à son taux d'abstention.
 
@@ -463,6 +463,76 @@ En contrepartie, le graphe s'interroge sans accélérateur matériel, là où le
 Sur un système recevant un volume important de requêtes, l'arbitrage bascule nettement en faveur du graphe.
 
 ---
+### 8.7 Significativité statistique des écarts
+
+Les vingt questions traversent les deux pipelines, ce qui constitue un plan apparié :
+chaque observation est un couple, et non deux mesures indépendantes. Les tests employés
+en tiennent compte.
+
+**Exactitude — test exact de McNemar.** L'exactitude étant binaire par question, le test
+porte sur les seules paires discordantes. Le pipeline par graphe répond correctement là
+où le vectoriel échoue dans dix cas, l'inverse se produisant deux fois, soit douze paires
+discordantes. La probabilité d'observer une répartition aussi déséquilibrée sous
+l'hypothèse d'équivalence des deux pipelines est de **p = 0,039**.
+
+**Rappel — test de Wilcoxon sur les rangs signés.** Le rappel étant continu, le test
+porte sur les écarts non nuls, au nombre de dix. La somme des rangs positifs s'établit à
+51,5 contre 3,5 pour les rangs négatifs, soit **p = 0,014** par énumération exacte des
+configurations de signes.
+
+**Intervalles de confiance par bootstrap apparié**, 20 000 rééchantillonnages, graine
+fixée à 42 :
+
+  Écart de rappel@5      +0,28   IC 95 % [+0,11 ; +0,47]
+  Écart d'exactitude     +0,40   IC 95 % [+0,10 ; +0,70]
+
+Les deux écarts sont significatifs au seuil de 5 % et les deux intervalles excluent
+zéro. L'effectif de vingt questions, signalé comme limite en section 10.1, n'empêche donc
+pas de conclure sur l'écart global : il limite la précision de l'estimation, non son
+signe. Les bornes basses des intervalles — onze points de rappel, dix points
+d'exactitude — constituent l'écart minimal que les données soutiennent.
+
+Cette conclusion ne s'étend pas aux analyses par catégorie, dont les effectifs de trois
+à neuf questions demeurent trop faibles pour tout test.
+
+### 8.8 Ablation : la contribution propre de la traversée
+
+La section 8.1 attribue l'écart à l'absence de dilution plutôt qu'à la traversée, sur la
+base de la hiérarchie des écarts par catégorie. Cette attribution demeurait une
+interprétation. Elle est ici mise à l'épreuve directement, en neutralisant la traversée :
+le pipeline par graphe est réexécuté à profondeur 1, c'est-à-dire en ne retenant que les
+arêtes incidentes aux nœuds d'ancrage, sans explorer le voisinage. Un seul paramètre
+change.
+
+                     Vectoriel   Ancrage seul   Ancrage + traversée
+  Global                0,55         0,81              0,83
+  single-hop            0,67         1,00              1,00
+  pont                  0,50         0,33              0,67
+  intersection          0,44         0,77              0,71
+
+**L'ancrage seul produit 91 % de l'écart.** Sur les 0,283 point qui séparent les deux
+pipelines, 0,258 sont obtenus sans aucune traversée. L'hypothèse formulée en section 8.1
+est donc établie par la mesure et non plus seulement par l'analyse des écarts.
+
+Le mécanisme est celui décrit en section 8.2 : le simple fait d'indexer des relations
+plutôt que des documents suffit à retrouver les abstracts où l'entité cherchée n'est pas
+le sujet principal, que la recherche vectorielle manque par dilution.
+
+**La traversée n'est pas pour autant sans effet, et son profil est révélateur.** Elle
+double le rappel sur les questions de type pont, de 0,33 à 0,67 — la seule catégorie où
+un chemin dirigé doit être suivi de bout en bout. Elle dégrade en revanche légèrement les
+intersections, de 0,77 à 0,71, en introduisant dans le classement des documents atteints
+au second saut qui concurrencent les documents pertinents.
+
+La traversée agit donc là où elle est structurellement nécessaire et nuit ailleurs. Son
+apport net de 9 % sur l'ensemble du jeu de test résulte de la compensation de ces deux
+effets opposés, et non d'une contribution uniformément faible. Un pipeline qui
+n'activerait la traversée que sur les questions de type pont surpasserait les deux
+configurations testées ici ; le déterminer automatiquement constitue une piste
+d'amélioration immédiate.
+
+Cette mesure porte sur trois questions de type pont et huit intersections. La direction
+des deux effets est nette, leur amplitude ne l'est pas.
 
 ## 9. Livrable de démonstration
 

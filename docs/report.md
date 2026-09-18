@@ -10,7 +10,7 @@
 
 This work compares two retrieval-augmented generation architectures — one based on vector similarity search, the other on knowledge graph traversal — on questions that require combining several documents. The setup rests on a corpus of 475 PubMed abstracts, a graph of 935 automatically extracted relations forming 932 edges, and a test set of twenty manually verified questions.
 
-The graph pipeline achieves a recall at rank 5 of 0.83 against 0.55 for the vector pipeline, and an answer accuracy of 0.70 against 0.30. The gap holds at every document budget tested: the graph reaches, with five documents, a recall level that vector search does not reach with fifty.
+The graph pipeline achieves a recall at rank 5 of 0.83 against 0.55 for the vector pipeline, and an answer accuracy of 0.70 against 0.30. The gap holds at every document budget tested: the graph reaches, with five documents, a recall level that vector search does not reach with fifty.  Both gaps are statistically significant on this paired design (p = 0.039 for accuracy, p = 0.014 for recall). An ablation establishes that 91 % of the gap comes from anchoring alone, without traversal.
 
 The work also produces three methodological findings distinct from this comparison. First, an expert-curated mechanism database is not reconstructible from article abstracts: the literature compresses causal chains and presupposes established links. Second, the graph's advantage does not come from its traversal capability, contrary to what the theoretical argument leads one to expect: the gap is largest on questions requiring a single document, and is explained by the absence of dilution. Third, the faithfulness metric used in isolation rewards silence: the weaker pipeline scores highest on it, thanks to its abstention rate.
 
@@ -465,6 +465,74 @@ In return, the graph is queried without hardware acceleration, where the vector 
 On a system receiving a high volume of queries, the trade-off tips clearly in favour of the graph.
 
 ---
+### 8.7 Statistical significance of the gaps
+
+The twenty questions pass through both pipelines, which makes this a paired design: each
+observation is a couple, not two independent measurements. The tests used account for
+this.
+
+**Accuracy — McNemar's exact test.** Since accuracy is binary per question, the test
+bears on discordant pairs alone. The graph pipeline answers correctly where the vector
+pipeline fails in ten cases, the reverse occurring twice, giving twelve discordant pairs.
+The probability of observing so unbalanced a split under the hypothesis that the two
+pipelines are equivalent is **p = 0.039**.
+
+**Recall — Wilcoxon signed-rank test.** Since recall is continuous, the test bears on the
+non-zero differences, ten in number. The sum of positive ranks is 51.5 against 3.5 for
+negative ranks, giving **p = 0.014** by exact enumeration of sign configurations.
+
+**Confidence intervals by paired bootstrap**, 20,000 resamples, seed fixed at 42:
+
+  Recall@5 difference     +0.28   95 % CI [+0.11, +0.47]
+  Accuracy difference     +0.40   95 % CI [+0.10, +0.70]
+
+Both gaps are significant at the 5 % level and both intervals exclude zero. The sample
+size of twenty questions, flagged as a limitation in section 10.1, therefore does not
+prevent a conclusion about the overall gap: it limits the precision of the estimate, not
+its sign. The lower bounds of the intervals — eleven points of recall, ten points of
+accuracy — constitute the minimum gap the data support.
+
+This conclusion does not extend to the per-category analyses, whose sample sizes of three
+to nine questions remain too small for any test.
+
+### 8.8 Ablation: the specific contribution of traversal
+
+Section 8.1 attributes the gap to the absence of dilution rather than to traversal, on
+the basis of the hierarchy of per-category gaps. That attribution remained an
+interpretation. It is tested directly here by neutralising traversal: the graph pipeline
+is rerun at depth 1, that is, retaining only the edges incident to the anchor nodes,
+without exploring the neighbourhood. A single parameter changes.
+
+                     Vector    Anchoring only   Anchoring + traversal
+  Overall             0.55          0.81                 0.83
+  single-hop          0.67          1.00                 1.00
+  bridge              0.50          0.33                 0.67
+  intersection        0.44          0.77                 0.71
+
+**Anchoring alone produces 91 % of the gap.** Of the 0.283 points separating the two
+pipelines, 0.258 are obtained with no traversal at all. The hypothesis formulated in
+section 8.1 is therefore established by measurement and no longer merely by analysis of
+the gaps.
+
+The mechanism is the one described in section 8.2: simply indexing relations rather than
+documents suffices to recover the abstracts in which the entity sought is not the main
+topic, which vector search misses through dilution.
+
+**Traversal is not without effect, however, and its profile is revealing.** It doubles
+recall on bridge-type questions, from 0.33 to 0.67 — the only category where a directed
+path must be followed end to end. It slightly degrades intersections, from 0.77 to 0.71,
+by introducing into the ranking documents reached at the second hop that compete with the
+relevant ones.
+
+Traversal therefore acts where it is structurally required and harms elsewhere. Its net
+contribution of 9 % across the test set results from these two opposing effects
+cancelling, and not from a uniformly small contribution. A pipeline activating traversal
+only on bridge-type questions would outperform both configurations tested here;
+determining this automatically constitutes an immediate improvement path.
+
+This measurement bears on three bridge questions and eight intersections. The direction of
+both effects is clear, their magnitude is not.
+
 
 ## 9. Demonstration deliverable
 
