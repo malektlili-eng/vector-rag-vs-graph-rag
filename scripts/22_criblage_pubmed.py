@@ -7,7 +7,7 @@ import re
 import time
 from Bio import Entrez
 
-Entrez.email = "malektlili.eng@gmail.com"      # ← ton adresse réelle
+Entrez.email = "votre.adresse@exemple.org"      # ← ton adresse réelle
 
 CHAINES = "data/processed/chaines_candidates.json"
 SYN_PROT = "data/processed/synonymes_toutes_proteines.json"

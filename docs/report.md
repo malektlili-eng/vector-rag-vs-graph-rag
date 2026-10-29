@@ -12,7 +12,7 @@ This work compares two retrieval-augmented generation architectures — one base
 
 The graph pipeline achieves a recall at rank 5 of 0.83 against 0.55 for the vector pipeline, and an answer accuracy of 0.70 against 0.30. The gap holds at every document budget tested: the graph reaches, with five documents, a recall level that vector search does not reach with fifty.  Both gaps are statistically significant on this paired design (p = 0.039 for accuracy, p = 0.014 for recall). An ablation establishes that 91 % of the gap comes from anchoring alone, without traversal.
 
-The work also produces three methodological findings distinct from this comparison. First, an expert-curated mechanism database is not reconstructible from article abstracts: the literature compresses causal chains and presupposes established links. Second, the graph's advantage does not come from its traversal capability, contrary to what the theoretical argument leads one to expect: the gap is largest on questions requiring a single document, and is explained by the absence of dilution. Third, the faithfulness metric used in isolation rewards silence: the weaker pipeline scores highest on it, thanks to its abstention rate.
+The work also produces three methodological findings distinct from this comparison. First, an expert-curated mechanism database is not reconstructible from article abstracts: the literature compresses causal chains and presupposes established links. Second, the graph's advantage does not come from its traversal capability, contrary to what the theoretical argument leads one to expect: the gap is largest on questions requiring a single document, and is explained by the absence of dilution. Further baselines locate that mechanism: passage splitting recovers only a fifth of the gap, a lexical baseline three quarters of it, and LightRAG's retrieval, run on the same graph, falls back to the vector level as soon as documents are selected by resemblance. Third, the faithfulness metric used in isolation rewards silence: the weaker pipeline scores highest on it, thanks to its abstention rate.
 
 ---
 
@@ -279,7 +279,7 @@ The judging criterion adopted is strict: a relation is counted correct only if a
 
 The three inversions are verifiable from the abstract text alone. "Venlafaxine increases activity of NET" where the article describes it as a reuptake inhibitor. "Selexipag positively regulates pulmonary arterial hypertension" where the drug is approved to treat that pathology. "Lafutidine negatively regulates gastric acid elimination" where the title states that this elimination is enhanced by the molecule.
 
-**Scope of this measurement.** Three inversions out of 28 observations correspond to a 95 % confidence interval extending approximately from 2 % to 28 %. These values give an order of magnitude, not a precise estimate.
+**Scope of this measurement.** Three inversions out of 28 observations correspond to a 95 % confidence interval extending approximately from 2 % to 28 %. The six incorrect statements in the broad sense likewise correspond to an interval extending approximately from 8 % to 41 %. These values give an order of magnitude, not a precise estimate.
 
 A further observation limits the scope of any random sampling: errors cluster by article. Seven of the relations targeting a disease constitute the same inversion, arising from a single article surveying treatments for social phobia, where seven distinct molecules are described as increasing the activity of the pathology they treat. A sample of relations therefore underestimates the true variance, several errors possibly sharing a single source.
 
@@ -309,7 +309,7 @@ The control questions act as a witness. If both architectures succeed on them, t
 
 The biomedical model brings no gain on single-hop questions but a clear gap on multi-hop questions, where specialised vocabulary appears decisive. It was retained for the remainder.
 
-**Acknowledged design choice.** Splitting into shorter passages would likely improve recall, an isolated entity weighing more in a hundred-token segment than in a full abstract. This splitting was not implemented, the baseline aiming at a standard implementation such as a competent practitioner would produce by default. The corresponding gap is flagged as a limitation rather than concealed.
+**Acknowledged design choice.** Splitting into shorter passages could improve recall, an isolated entity weighing more in a hundred-token segment than in a full abstract. The baseline nevertheless keeps the whole abstract, aiming at a standard implementation such as a competent practitioner would produce by default. The splitting was measured separately, after the fact: it raises recall at rank 5 from 0.55 to 0.60 and 0.62 depending on granularity, without closing the gap to the graph (section 8.9).
 
 ### 7.2 Pipeline B — graph traversal
 
@@ -362,9 +362,9 @@ An objection must be dispelled before drawing a conclusion: the three categories
 
 The hierarchy is unchanged under both measures. The conclusion is therefore not a ceiling artefact.
 
-The dominant mechanism is therefore not the traversal capability, but the **absence of dilution**. The graph indexes relations and not documents: an entity cited once in an abstract retains the same weight there as a central entity, whereas a document's vector reflects its overall topic. This mechanism operates across all question categories and suffices to explain most of the measured gap.
+The dominant mechanism is therefore not the traversal capability, but the **absence of dilution**. The graph indexes relations and not documents: an abstract in which the entity sought appears only once remains reachable through it, whereas the document's vector, which reflects its overall topic, relegates that entity to the background. This mechanism operates across all question categories. Sections 8.9 to 8.11 put it to the test and make its scope precise: it lies in the weight of the entity within the document's representation, not in the length of that document.
 
-The **traversal capability** brings no measurable additional gain on this test set. Two readings remain possible. Its contribution may be small relative to that of dilution. Its contribution may also be masked by the intrinsically greater difficulty of multi-hop questions, on which both architectures start from a lower level. The sample size — three bridge questions, eight intersections — does not allow these two readings to be told apart.
+The **traversal capability** brings no measurable additional gain on this test set. Two readings remain possible. Its contribution may be small relative to that of dilution. Its contribution may also be masked by the intrinsically greater difficulty of multi-hop questions, on which both architectures start from a lower level. The sample size — three bridge questions, eight intersections — does not allow these two readings to be told apart.  The ablation carried out in section 8.8 settles this question by measurement.
 
 Attributing the gap to traversal would therefore be an interpretive error that the data do not support.
 
@@ -372,9 +372,9 @@ Attributing the gap to traversal would therefore be an interpretive error that t
 
 The recall of 0.67 initially measured on the control questions remained below what one expects of a witness. Three causes were considered.
 
-The hypothesis of **truncation** of abstracts exceeding the 512-token window of the embedding models was tested and rejected. Documents expected but not retrieved average 358 tokens against 348 for those that are, and 5 % are truncated against 6 %. The two populations are indistinguishable on this criterion.
+The hypothesis of **truncation** of abstracts exceeding the embedding model's reading window was tested and rejected. An initial comparison of lengths, carried out with an assumed 512-token window, is superseded here by the measurement of section 8.9: the encoder's actual window is 350 tokens, and 166 abstracts out of 475 exceed it. Restricting indexing to the portion actually read nevertheless leaves recall at rank 5 unchanged, which rules truncation out by direct intervention rather than by comparison of two populations.
 
-The real cause is **dilution**. The documents missed are those in which the entity sought is not the main topic. Question SH07 concerns sarpogrelate, absent from the title of the expected document and cited once in the body of the abstract among other antagonists. The three documents expected for question MH05 name neither ranibizumab nor ramucirumab in their titles.
+The real cause is **dilution**. The documents missed are those in which the entity sought is not the main topic. Question SH07 concerns sarpogrelate, absent from the title of the expected document and cited twice in the body of the abstract among other antagonists. The three documents expected for question MH05 name neither ranibizumab nor ramucirumab in their titles.
 
 An entity mentioned once in a 350-token text contributes weakly to the vector representing that text. Vector search selects documents whose overall topic resembles the question, not those containing the information sought. This phenomenon is a structural limitation of whole-document indexing, and not an implementation defect.
 
@@ -398,7 +398,7 @@ The graph pipeline dominates at every value of K. The result therefore does not 
 
 This dissociation is instructive. On intersections, neither architecture can succeed with a single document, the question requiring two distinct documents by construction: the equality reflects a shared impossibility. On single-hop questions, by contrast, one document suffices, and the graph ranks it better — not through traversal capability, which is not called upon, but through the absence of dilution.
 
-**On bridge-type questions, the gap remains rigorously constant** at 0.17 points across every value of K tested: the vector pipeline never recovers its lag, whatever number of documents it is granted. This regularity survived the transliteration correction, which makes it less likely to be a measurement artefact. The observation nevertheless bears on three questions and calls for reservation.
+**On bridge-type questions, the gap remains constant** at 0.17 points across every value of K tested: the vector pipeline never recovers its lag, whatever number of documents it is granted. This regularity survived the transliteration correction, which makes it less likely to be a measurement artefact. It does, however, depend on tie-breaking at rank 10, where several documents share the same weight in the graph's ranking: depending on the order retained among them, the graph's recall there ranges from 0.83 to 1.00, that is a gap of between 0.17 and 0.33. The published value corresponds to the case least favourable to the graph. The observation moreover bears on three questions and calls for reservation.
 
 **Practical scope.** The graph's advantage is in part an advantage of efficiency: it obtains with few documents what the vector pipeline obtains only with many, or never. This nuance matters, twenty abstracts of 385 tokens exceeding the usable context window of a seven-billion-parameter model.
 
@@ -482,9 +482,10 @@ non-zero differences, ten in number. The sum of positive ranks is 51.5 against 3
 negative ranks, giving **p = 0.014** by exact enumeration of sign configurations.
 
 **Confidence intervals by paired bootstrap**, 20,000 resamples, seed fixed at 42:
-
-  Recall@5 difference     +0.28   95 % CI [+0.11, +0.47]
-  Accuracy difference     +0.40   95 % CI [+0.10, +0.70]
+| Difference | Value | 95 % CI |
+|---|---|---|
+| Recall at rank 5 | +0.28 | [+0.11, +0.47] |
+| Answer accuracy | +0.40 | [+0.10, +0.70] |
 
 Both gaps are significant at the 5 % level and both intervals exclude zero. The sample
 size of twenty questions, flagged as a limitation in section 10.1, therefore does not
@@ -503,20 +504,31 @@ interpretation. It is tested directly here by neutralising traversal: the graph 
 is rerun at depth 1, that is, retaining only the edges incident to the anchor nodes,
 without exploring the neighbourhood. A single parameter changes.
 
-                     Vector    Anchoring only   Anchoring + traversal
-  Overall             0.55          0.81                 0.83
-  single-hop          0.67          1.00                 1.00
-  bridge              0.50          0.33                 0.67
-  intersection        0.44          0.77                 0.71
+| | Vector | Anchoring only | Anchoring + traversal |
+|---|---|---|---|
+| Overall | 0.55 | 0.81 | 0.83 |
+| single-hop | 0.67 | 1.00 | 1.00 |
+| bridge | 0.50 | 0.33 | 0.67 |
+| intersection | 0.44 | 0.77 | 0.71 |
 
 **Anchoring alone produces 91 % of the gap.** Of the 0.283 points separating the two
-pipelines, 0.258 are obtained with no traversal at all. The hypothesis formulated in
-section 8.1 is therefore established by measurement and no longer merely by analysis of
-the gaps.
+pipelines, 0.258 are obtained with no traversal at all. Half of the hypothesis formulated
+in section 8.1 is thereby established by measurement: traversal is not the principal
+source of the gap.
 
-The mechanism is the one described in section 8.2: simply indexing relations rather than
-documents suffices to recover the abstracts in which the entity sought is not the main
-topic, which vector search misses through dilution.
+This figure nevertheless depends on tie-breaking at depth 1, where several documents share
+the same weight. Depending on the order retained among them, anchoring alone produces from
+82 % to 106 % of the gap, with an expectation of 91 % if ties are broken at random. The
+main measurement, at depth 2 and rank 5, depends on no tie.
+
+The effect of traversal moreover rests on three documents: it brings into the first five
+an expected document of MH02 and one of MH03, and pushes out of them one of MH08.
+
+The other half of the hypothesis — that anchoring owes its gain to the absence of
+dilution — is not established by this ablation, which compares only two depths of a single
+pipeline. It is established by the measurements of sections 8.9 to 8.11, where most of
+that gain is recovered without any graph, by a lexical baseline, and where the same gain
+disappears on our own graph as soon as documents are selected by vector similarity.
 
 **Traversal is not without effect, however, and its profile is revealing.** It doubles
 recall on bridge-type questions, from 0.33 to 0.67 — the only category where a directed
@@ -533,6 +545,81 @@ determining this automatically constitutes an immediate improvement path.
 This measurement bears on three bridge questions and eight intersections. The direction of
 both effects is clear, their magnitude is not.
 
+### 8.9 Two further baselines
+
+Section 8.8 establishes that traversal contributes only 9 % of the gap. The gap therefore comes from what precedes it: indexing by entity rather than by document. Section 8.2 attributed that effect to dilution, but the attribution remained an interpretation. Two further baselines put it to the test, each removing one ingredient from vector search: first the length of the indexed unit, then the global representation itself.
+
+**Passage baseline.** The corpus is split into short overlapping passages, each carrying the document title at its head: three sentences with a step of two, then two sentences with a step of one. Nothing else changes — same encoder, same questions, budget still expressed in distinct documents. The original baseline, recomputed in the same session, reproduces the published values exactly at all five ranks; the run was repeated three days later in another session and produced identical rankings, file for file.
+
+This measurement incidentally corrects a figure given in section 8.2. The embedding model does not read 512 tokens but 350, a limit set in its own configuration. Abstracts average 330 tokens and 166 out of 475, that is 35 %, exceed that limit: truncation is therefore far more frequent than section 8.2 assumed. Its effect is nonetheless nil, and this time by direct intervention rather than by comparison of means. Restricting the passages to the portion the baseline actually read leaves recall at rank 5 identical to the recall obtained with all passages: 0.60 in both cases for the three-sentence splitting, 0.62 for the two-sentence one. The unread portion of the documents contributes nothing.
+
+| Rank | Whole abstract | Passages, 3 sentences | Passages, 2 sentences | Graph |
+|---|---|---|---|---|
+| 1 | 0.38 | 0.33 | 0.43 | 0.45 |
+| 3 | 0.53 | 0.58 | 0.58 | 0.78 |
+| 5 | 0.55 | 0.60 | 0.62 | 0.83 |
+| 10 | 0.60 | 0.73 | 0.73 | 0.88 |
+| 20 | 0.77 | 0.89 | 0.87 | 0.95 |
+
+Splitting raises recall at rank 5 from 0.55 to 0.60 and 0.62 depending on granularity, that is between a fifth and a quarter of the gap to the graph. That gap remains: +0.23 against the three-sentence splitting (p = 0.027) and +0.21 against the two-sentence one (p = 0.059). The length of the indexed unit is therefore not the main cause.
+
+**Lexical baseline.** If length does not explain the gap, the next candidate is the representation itself. A single vector summarises the document and reflects its dominant topic; a secondary entity weighs little in it. BM25 does not summarise: it gives each query term its own weight, the strongest going to the rarest term, that is, most often to the name of the entity sought. The indexed unit remains the whole document, title and abstract: only the representation changes. Scoring follows the standard Lucene form, k1 = 1.2 and b = 0.75, with the Lucene stop-word list and the transliteration of Greek letters already used for the graph, without stemming.
+
+BM25 obtains 0.77 at rank 5, against 0.55 for the vector baseline and 0.83 for the graph: it recovers roughly three quarters of the gap without any graph. On the three single-hop questions the vector baseline misses, it places the expected abstract first for SH01 and SH07, and the two expected abstracts third and fifth for SH03. The gap to the vector baseline is significant, +0.22 with p = 0.031; the one separating the graph from BM25 is not, +0.07 with a 95 % confidence interval of [−0.03, +0.17] and p = 0.375. Twelve settings of k1 and b yield values between 0.72 and 0.77, and no recall depends on tie-breaking.
+
+This result shifts the conclusion. What separates the vector baseline from the graph is not the graph structure: it is retrieving documents by the entity name rather than by overall resemblance. A lexical baseline, simpler than either architecture compared here, obtains most of it.
+
+### 8.10 External reference: LightRAG on the same graph
+
+The project specification mentions the GraphRAG or LightRAG frameworks, and traversal was implemented directly in order to retain control over the parameters (appendix D). A comparison with one of those frameworks remained desirable. It was carried out in three stages.
+
+**Pilot of full LightRAG.** LightRAG 1.5.7 was first run as it comes, with its own extraction and the same local qwen2.5:7b model, on ten abstracts. Five failed on the internal 480-second worker timeout. The run took 17.5 minutes for five documents processed, that is 210 seconds per document, which projects to 27.7 hours for the whole corpus — out of reach of a free-tier Colab session, which is recycled without notice. The graph obtained on those five documents holds 88 entities and 45 relations, several of which take a verb as their target — "Escitalopram → decreases", "Ranibizumab → inhibits" — and three outputs do not respect the expected format. An end-to-end comparison would therefore have measured the quality of a degraded extraction as much as that of a retrieval method.
+
+**LightRAG's retrieval on our graph.** The comparison therefore bore on what is comparable: the retrieval method, on an identical graph. Our extraction is injected at LightRAG's extraction step, and it then builds its index with its own mechanisms. The resulting graph is ours: 792 entities and 856 connected pairs, that is the 932 edges of section 7.2 once multiple edges between the same two entities are merged. The 475 abstracts are processed without failure, in 13.4 minutes. The twenty questions are then asked in both of LightRAG's modes: *mix*, its default, which combines the graph with a direct vector search over passages, and *hybrid*, which uses the graph alone. LightRAG produces no ranking: the order retained is that of the documents in the context it assembles, twenty per question.
+
+The result is clear-cut: 0.55 in *mix* mode and 0.57 in *hybrid* mode at rank 5, the level of the vector baseline. Question by question, at ranks 1, 3 and 5, *mix* obtains exactly the same recall as the vector baseline on all twenty questions; its first document is the baseline's first document twenty times out of twenty; and among the documents the two lists have in common, 94 % of pairs are in the same order.
+
+The explanation lies in one setting. Having retrieved the entities, LightRAG by default ranks the passages attached to them by vector similarity with the question — here with the same encoder and the same text as our baseline. Its own code notes that, final reranking being disabled, this order aligns with that of plain vector retrieval.
+
+**An intervention on that setting alone.** LightRAG documents a second setting, which takes the passages in the order of the retrieved entities instead of reranking them. The twenty questions were asked again changing nothing else: same graph, same keywords — taken from the cache, no call to the language model having occurred — and same encoder. The default setting reproduces the previous rankings exactly, which guarantees that nothing else moved.
+
+| Rank | Default, *mix* | Default, *hybrid* | By entity, *mix* | By entity, *hybrid* | Our retrieval |
+|---|---|---|---|---|---|
+| 1 | 0.38 | 0.40 | 0.38 | 0.55 | 0.45 |
+| 3 | 0.53 | 0.53 | 0.73 | 0.74 | 0.78 |
+| 5 | 0.55 | 0.57 | 0.82 | 0.88 | 0.83 |
+| 10 | 0.59 | 0.68 | 0.93 | 0.93 | 0.88 |
+| 20 | 0.76 | 0.80 | 0.93 | 0.96 | 0.95 |
+
+That single change is worth +0.27 at rank 5 in *mix* mode (p = 0.004) and +0.32 in *hybrid* mode (p = 0.024). The three single-hop questions the vector baseline misses all come back within the first five documents: SH01 and SH07 at the first or second rank depending on the mode, SH03 with both of its documents in *hybrid* mode and one of the two in *mix* mode.
+
+A further reading settles a question left open. The rank of the expected node in the assembled context is the same in all four configurations: first for SH01 and SH03, fifth for SH07. Under the default setting LightRAG had therefore found the right node, and it discarded the only abstract attached to it when selecting the passages. The failure lies in the document selection rule, not in entity retrieval.
+
+**What this comparison says about our pipeline.** With the by-entity setting, LightRAG reaches the level of our own retrieval on our graph: it exceeds it by 0.05 points in *hybrid* mode and falls short by 0.02 in *mix* mode, two gaps indistinguishable from zero (p = 1.00 in both cases). Neither method can therefore claim an advantage over the other: our implementation is not the only way to reach that level, and nothing establishes that LightRAG does better either. That level is not, however, the one its default setting produces, which leaves retrieval at the vector baseline's level: reaching it presupposes knowing what that parameter does and changing it. The two methods fail along different routes: the by-entity setting handles intersections better, 0.96 against 0.71, but misses SH02, where the entity "terguride" is attached to nineteen abstracts and where nothing in that setting indicates which one answers the question — whereas the weighting of retained relations described in section 7.2 does.
+
+**Limitations of this comparison.** LightRAG was evaluated without a reranking model: it provides none by default, and adding one would have introduced a further model absent from both pipelines compared. The order of documents is that of the context it assembles, for want of an explicit ranking; at rank 20, which corresponds to that context in full, the order no longer matters and the gap remains. Finally, five of the eleven multi-hop questions yielded no entity keyword during keyword extraction by qwen2.5:7b, which penalises LightRAG on those questions independently of its retrieval method.
+
+### 8.11 What these measurements establish
+
+| Method | Graph | Documents selected by | Recall at rank 5 |
+|---|---|---|---|
+| Vector baseline | no | vector similarity | 0.55 |
+| LightRAG, default setting | yes | vector similarity | 0.55 and 0.57 |
+| BM25 | no | exact query terms | 0.77 |
+| LightRAG, by-entity setting | yes | retrieved entities | 0.82 and 0.88 |
+| Our retrieval | yes | retrieved entities | 0.83 |
+
+Read across, this table separates two ingredients: having a graph, and selecting documents by entity rather than by a global representation. The first moves nothing on its own — LightRAG, on our own graph, reproduces the vector baseline's results exactly. The second moves everything, with or without a graph.
+
+This reading is a juxtaposition and not a factorial design: the methods compared differ in other respects as well. Only one intervention is clean, the one in section 8.10, where a single setting changes at constant setup; it points the same way.
+
+**What these measurements make precise.** Dilution, invoked in sections 8.1 and 8.2, must be understood as the weight of an entity within a global representation, and not as the length of the document: shortening the indexed unit recovers only a fifth to a quarter of the gap, whereas removing the global representation recovers three quarters of it.
+
+**What they take away from the initial conclusion.** The 0.28-point gap measured in section 8.1 sets the graph against a standard vector baseline. Against a lexical baseline it falls to 0.07 points, and against an existing graph tool set to select by entity it vanishes; in both cases it ceases to be distinguishable from zero on twenty questions. The converse is not established either: the confidence interval of the gap to BM25, [−0.03, +0.17], remains compatible with a real advantage of the graph as well as with its absence. The contribution of this work therefore bears on the retrieval principle — anchoring search on named entities — rather than on the superiority of the implementation retained.
+
+**What they do not say.** These further baselines were measured on retrieval only. The answer comparison of section 8.4 keeps the vector baseline as its reference, and nothing establishes that generation fed with BM25's documents would reach the same accuracy as generation fed by the graph. The sample size of twenty questions finally limits the scope of every comparison reported here: only gaps of some fifteen points or more come out as significant.
+
+These measurements are reproducible independently of one another: the passage splitting and its vector baseline in notebook 61, the lexical baseline and all the paired tests in script 62, the LightRAG reference in notebooks 63, 64 and 66.
 
 ## 9. Demonstration deliverable
 
@@ -552,6 +639,8 @@ The test set comprises twenty questions, of which eleven are multi-hop resting o
 
 This ceiling results from a property of the corpus and not from a lack of effort: since review literature systematically enumerates the members of a therapeutic class, the proportion of paths not solvable by a single retrieval is intrinsically limited on a corpus covering fourteen drugs.
 
+This limit was quantified after the fact. Of the sixteen paths retained after diversification, thirteen correspond to the eleven multi-hop questions built — some intersections admitting two alternative endpoints. The three remaining paths all rest on a pair of abstracts already used by a retained question: none brings a new source. Expanding the multi-hop arm without expanding the corpus would therefore amount to adding questions dependent on the same documents, raising the sample size without raising the information.
+
 ### 10.2 External validity
 
 The corpus is built to contain the chains being tested. The study therefore measures performance on a corpus where the information is present, not the ability to find it across the literature at large.
@@ -562,15 +651,19 @@ This choice is necessary: without carrier articles, both pipelines would fail un
 
 The graph is built entirely by automatic extraction using a language model, whereas the vector index makes no use of one.
 
-The performance of the graph pipeline therefore depends on the quality of this extraction. A random sample of 40 polarity-bearing relations, confronted with the source abstracts, reveals on the order of 10 % characterised inversions and 21 % incorrect statements in the broad sense, over the 28 relations that the extracted sentences allowed to be adjudicated. The confidence interval is wide and these values constitute only an order of magnitude.
+The performance of the graph pipeline therefore depends on the quality of this extraction. A random sample of 40 polarity-bearing relations, confronted with the source abstracts, reveals on the order of 10 % characterised inversions and 21 % incorrect statements in the broad sense, over the 28 relations that the extracted sentences allowed to be adjudicated. The confidence intervals are wide and these values constitute only an order of magnitude.
 
 **Scope of the result.** The comparison bears on an architecture-extractor pair — a graph extracted by a local seven-billion-parameter model, set against a vector index built on S-PubMedBert — and not on the architectures considered independently of their implementation.
 
 **Direction of the bias.** Imperfect extraction degrades the graph by introducing erroneous edges into it, without affecting the vector index. The bias therefore works against the hypothesis under test. The graph pipeline prevails despite this handicap, which makes the measurement conservative: a more reliable extractor would likely widen the gap rather than narrow it.
 
-### 10.4 Unoptimised baseline
+### 10.4 The choice of baselines
 
-The vector pipeline keeps the whole abstract as its retrieval unit. Splitting into shorter passages would likely improve its recall. This optimisation was not implemented, the baseline aiming at a standard implementation.
+The vector pipeline keeps the whole abstract as its retrieval unit and uses no language model. It is a standard implementation, such as a competent practitioner would produce by default, and it is to that baseline that the 0.28-point recall gap and the 0.40-point accuracy gap refer.
+
+Three more demanding baselines were added after the fact and are reported in sections 8.9 to 8.11: a passage splitting, a BM25 lexical baseline, and LightRAG's retrieval run on our own graph. They do not replace the vector baseline in the main comparison, but they bound its scope: the gap measured holds against a standard vector implementation, not against the state of the art in retrieval.
+
+These three baselines were moreover measured on retrieval only. The answer comparison of section 8.4 keeps the vector baseline as its reference: measuring generation fed with BM25's documents would have required a further full run of generation and judging, which was not carried out.
 
 ### 10.5 Scope of the extraction schema
 
@@ -582,9 +675,9 @@ Furthermore, the OrganismTaxon type, reinstated in the extraction schema after m
 
 ## 11. Conclusion
 
-On multi-hop inference questions in the biomedical domain, graph traversal retrieval outperforms vector retrieval on every retrieval and generation metric measured. The graph reaches, with five documents, a recall level that vector search does not reach with fifty, and its advantage holds at every document budget tested.
+On multi-hop inference questions in the biomedical domain, graph traversal retrieval outperforms vector retrieval on every retrieval and generation metric measured. The graph reaches, with five documents, a recall level that vector search does not reach with fifty, and its advantage holds at every document budget tested. This advantage is to be understood against a standard vector baseline: it ceases to be distinguishable from zero against a lexical baseline, as against an existing graph tool set to select its documents by entity (sections 8.9 to 8.11).
 
-The advantage rests principally on a single mechanism, and not on the one expected. The gap is largest on single-hop questions, which require no traversal: it is therefore the absence of dilution that dominates. The graph indexes relations and not documents, so that an entity cited once weighs as much there as a central entity. The traversal capability, presented as the theoretical argument in favour of the graph architecture, produces no measurable additional gain on this test set — without it being possible to determine whether its contribution is small or masked by the greater difficulty of multi-hop questions.
+The advantage rests principally on a single mechanism, and not on the one expected. The gap is largest on single-hop questions, which require no traversal, and the ablation of section 8.8 attributes 91 % of it to anchoring alone: it is the absence of dilution that dominates, not traversal. The graph indexes relations and not documents, so that an abstract in which the entity sought appears only once remains reachable through it. The further baselines of sections 8.9 to 8.11 locate that mechanism more precisely: it holds to the weight of the entity within the document's representation, since a lexical baseline recovers three quarters of the gap without any graph, whereas an existing graph tool loses it on our own graph as soon as it ranks documents by vector similarity.
 
 **On the research question.** The graph's overhead is real — roughly two orders of magnitude more compute at construction — but it is paid in full once. In operation, the graph is the cheaper of the two: it is queried without hardware acceleration where the vector pipeline requires it for every question, and generation latencies are equivalent. The trade-off therefore resolves in favour of the graph for a stable, frequently queried corpus, and against it for a continuously renewed corpus.
 
@@ -606,7 +699,7 @@ Three directions would naturally extend this work.
 
 **Strengthening the extractor.** The polarity inversion rate, on the order of 10 % on the sample measured, constitutes the main handicap of the graph pipeline. A larger model, or an automatic polarity verification mechanism, would likely widen the measured gap.
 
-**Addressing anchoring.** The failure mode specific to the graph architecture — a question comprising only concepts and no salient named entity — calls for a more robust anchoring mechanism, for instance based on vector search applied to the graph's nodes rather than on exact string matching. Such a hybridisation would combine the strengths of both architectures.
+**Addressing anchoring.** The failure mode specific to the graph architecture — a question comprising only concepts and no salient named entity — calls for a more robust anchoring mechanism, for instance based on vector search applied to the graph's nodes rather than on exact string matching. Such a hybridisation would combine the strengths of both architectures. Section 8.10 gives a first indication of this: LightRAG, which retrieves its entities by vector similarity on their names, obtains a recall of 1.00 on question MH09 — the one where our anchoring fails — against 0.00 for our pipeline.
 
 ---
 
@@ -675,7 +768,7 @@ A fourth measurement, answer accuracy, was added. Deterministic and requiring no
 
 Three substitutions were made relative to the tools mentioned in the project specification. They are stated here rather than passed over in silence.
 
-**Graph architecture.** The specification mentions Microsoft's GraphRAG framework or LightRAG. The traversal was implemented directly. This choice guarantees control over the parameters of the setup — hop weighting, anchoring method, depth — which are made explicit in this report and would have been concealed by a framework. It further removes a heavy dependency in a compute environment rebuilt at each session.
+**Graph architecture.** The specification mentions Microsoft's GraphRAG framework or LightRAG. The traversal was implemented directly. This choice guarantees control over the parameters of the setup — hop weighting, anchoring method, depth — which are made explicit in this report and would have been concealed by a framework. It further removes a heavy dependency in a compute environment rebuilt at each session. A comparison with LightRAG was nevertheless carried out after the fact, on a graph identical to ours: it appears in section 8.10.
 
 **Vector store.** The specification mentions ChromaDB or FAISS. Vectors are kept as normalised tensors and search is performed by dot product. On 475 documents, an approximate index brings no gain: exhaustive search runs in a few milliseconds and avoids the approximation introduced by neighbourhood structures.
 

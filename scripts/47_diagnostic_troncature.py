@@ -1,6 +1,14 @@
 # scripts/47_diagnostic_troncature.py
 # Objectif : déterminer si les échecs de récupération portent préférentiellement
 # sur des abstracts tronqués par la fenêtre de 512 tokens.
+#
+# Révision ultérieure : la fenêtre de 512 tokens retenue ici est erronée. La
+# configuration du modèle d'encodage fixe max_seq_length à 350 ; mesurée à cette
+# limite, la proportion d'abstracts tronqués passe de 5 à 6 % à 35 %. La réfutation
+# de l'hypothèse de troncature a été refaite par intervention dans le notebook 61,
+# en n'indexant que la partie que la baseline lisait réellement : le rappel au rang 5
+# ne bouge pas. C'est cette mesure qui fait référence. Ce script est conservé comme
+# trace de l'état des connaissances à cette étape.
 
 import json
 from transformers import AutoTokenizer

@@ -21,11 +21,13 @@ On a corpus of 475 PubMed abstracts and a test set of 20 manually verified quest
 
 **The graph reaches, with five documents, a recall level that vector search does not reach with fifty.** The gap holds at every document budget tested.
 
+These figures set the graph against a standard vector baseline. Three more demanding baselines were added afterwards — a passage splitting, a BM25 lexical baseline, and LightRAG's retrieval run on our own graph. They locate the origin of the gap and bound its scope: sections 8.9 to 8.11 of the report set them out.
+
 Three findings distinct from the comparison itself:
 
 **A curated mechanism database is not reconstructible from article abstracts.** None of the fifteen DrugMechDB chains retained could be recovered from the extracted graph. The literature compresses causal chains and presupposes established links: out of 935 extracted relations, only 36 have a disease as their target.
 
-**The graph's advantage does not come from traversal.** The gap is largest on single-hop questions, which require none. The dominant mechanism is the absence of dilution: the graph indexes relations rather than documents.
+**The graph's advantage does not come from traversal.** The gap is largest on single-hop questions, which require none, and an ablation attributes 91 % of it to anchoring alone. The dominant mechanism is the absence of dilution: what counts is retrieving documents by the entity rather than by a global vector. A lexical baseline recovers three quarters of the gap without any graph, and LightRAG, on our own graph, falls back to the vector level as soon as it ranks documents by resemblance.
 
 **The faithfulness metric, taken in isolation, rewards silence.** The weaker pipeline scores highest on it, thanks to its 50 % abstention rate.
 
@@ -64,7 +66,7 @@ Pipeline A   Vector index (S-PubMedBert)             Pipeline B   Knowledge grap
 Python 3.12, about 2 GB of disk space. No paid service, no API key.
 
 ```bash
-git clone https://github.com/<your-account>/stage-graphrag.git
+git clone https://github.com/malektlili-eng/stage-graphrag.git
 cd stage-graphrag
 python -m venv venv
 venv\Scripts\activate          # Windows
@@ -89,6 +91,8 @@ The graph pipeline runs without hardware acceleration:
 ```bash
 python scripts/48_pipeline_graphe.py      # Pipeline B recall
 python scripts/49_courbe_rappel.py        # recall by document budget
+python scripts/62_comparaison_baselines.py  # all baselines and the paired tests
+python scripts/65_robustesse_egalites.py    # sensitivity of recall to score ties
 ```
 
 The GPU-dependent steps — relation extraction, vector encoding, generation, judging — are in `notebooks/`, ready to run on Google Colab's free tier.
@@ -104,6 +108,7 @@ The GPU-dependent steps — relation extraction, vector encoding, generation, ju
 | `data/raw/indication_paths.yaml` | DrugMechDB, 4,846 mechanistic paths (CC0), downloaded 7 August 2026 |
 | `data/raw/pubmed_corpus.json` | 475 PubMed abstracts collected 16 August 2026 |
 | `data/processed/relations_nettoyees.json` | 935 extracted and normalised relations |
+| `data/processed/baseline_*.json` | rankings of the further baselines (notebooks 61, 64 and 66, script 62) |
 | `data/processed/jeu_de_test.json` | 20 questions with expected answers and source documents |
 
 ### Provenance and rights
@@ -138,7 +143,7 @@ The test set is reusable independently of this work.
 
 ## Decision journals
 
-The `docs/` folder holds the journals kept throughout the internship, **written in French**. They record the decisions, the measurements that grounded them, and those that overturned them. The analytical report is available in both languages.
+The `docs/` folder holds the journals kept throughout the internship. They record the decisions, the measurements that grounded them, and those that overturned them. The analytical report is available in both languages, as are two of the journals; **the remaining journals are in French**.
 
 | File | Subject |
 |---|---|
@@ -147,10 +152,12 @@ The `docs/` folder holds the journals kept throughout the internship, **written 
 | `exploration-datasets.md` | choice of the structured reference, rejected candidates |
 | `structures-observees.md` | derivation of the extraction schema |
 | `journal-pilote.md` | five-drug pilot and its refutation |
+| `pilot-journal.md` | English version of the pilot journal |
 | `dry-run.md` | three iterations of extraction prompt tuning |
 | `contraintes-jeu-de-test.md` | ground truth construction constraints |
 | `environnement.md` | technical environment and detailed results |
 | `points-soutenance.md` | methodological findings retained for the defence |
+| `defence-points.md` | English version of the findings retained for the defence |
 
 These journals also record what did not work: a pilot in which four estimates out of five proved wrong, a truncation hypothesis refuted by measurement, a filter rendered ineffective by a typing defect located elsewhere.
 
@@ -164,7 +171,7 @@ The corpus is built to contain the chains being tested. The study measures perfo
 
 The graph is built entirely by automatic extraction, whereas the vector index uses no language model. A random sample of 40 relations reveals on the order of 10 % polarity inversions. This bias works against the hypothesis under test, the graph prevailing despite the handicap.
 
-The vector baseline keeps the whole abstract as its retrieval unit. Splitting into shorter passages would likely improve its recall; this was not implemented, the baseline aiming at a standard implementation.
+The vector baseline keeps the whole abstract as its retrieval unit: a standard implementation, not an optimised opponent. Three more demanding baselines were measured after the fact. They change none of the figures above, but they bound their scope, and they were measured on retrieval only, never on answers.
 
 These limitations and several others are set out in detail in section 10 of the report.
 

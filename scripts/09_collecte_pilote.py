@@ -5,7 +5,7 @@ import json
 import time
 from Bio import Entrez
 
-Entrez.email = "malektlili.eng@gmail.com"   
+Entrez.email = "votre.adresse@exemple.org"  
 
 N_PAR_MEDICAMENT = 30
 SORTIE = "data/raw/pubmed_pilote.json"

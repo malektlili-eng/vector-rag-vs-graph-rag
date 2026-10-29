@@ -438,15 +438,31 @@ troncature à l'indexation, en dénombre environ 10 %. La proportion pertinente 
 pipeline vectoriel est donc cette dernière ; chaque modèle segmente le texte selon son
 propre vocabulaire.
 
+Révision ultérieure (notebook 61) : la fenêtre du modèle d'encodage retenu n'est pas de
+512 tokens mais de 350, valeur inscrite dans sa configuration. Mesurée avec son propre
+tokeniseur, la longueur moyenne des résumés est de 330 tokens, et 166 d'entre eux sur
+475 — soit 35 % — dépassent la limite. Les chiffres ci-dessus, 385 tokens en moyenne et
+82 abstracts au-delà de 512, relèvent du tokeniseur de Qwen et d'une fenêtre supposée ;
+ils sont conservés comme trace de l'état des connaissances à cette étape.
+
 ## Diagnostic des échecs de récupération
 
 L'hypothèse d'une troncature à 512 tokens est écartée. Les documents attendus mais non
 récupérés comptent 358 tokens en moyenne contre 348 pour ceux qui le sont, et 5 % sont
 tronqués contre 6 %. Les deux populations sont indiscernables sur ce critère.
 
+Révision ultérieure : cette comparaison repose sur une fenêtre supposée de 512 tokens,
+qui est erronée : la configuration du modèle d'encodage fixe max_seq_length à 350. Le
+tokeniseur employé est en revanche le bon — le script 47 compte avec celui de
+l'encodage, et c'est le script 46 qui compte avec celui de Qwen. La réfutation a été
+refaite par intervention
+directe (notebook 61) : en restreignant l'indexation à la partie que la baseline lisait
+réellement, le rappel au rang 5 demeure inchangé. La conclusion tient ; son fondement a
+changé.
+
 La lecture des cas d'échec fait apparaître une autre cause. Les documents manqués sont
 ceux dont l'entité recherchée n'est pas le sujet principal : la question SH07 porte sur
-le sarpogrelate, absent du titre du document attendu et cité une seule fois dans le
+le sarpogrelate, absent du titre du document attendu et cité deux fois dans le
 corps du résumé parmi d'autres antagonistes. Les trois documents attendus de la question
 MH05 ne nomment ni le ranibizumab ni le ramucirumab dans leur titre.
 
@@ -462,6 +478,11 @@ rappel, une entité isolée pesant davantage dans un segment de cent tokens que 
 abstract complet. Ce découpage n'est pas mis en œuvre, la baseline visant une
 implémentation standard telle qu'un praticien la réaliserait par défaut ; l'écart
 correspondant est signalé comme limite plutôt que dissimulé.
+
+Révision ultérieure : ce découpage a été mis en œuvre après coup, comme mesure séparée
+(notebook 61). Il porte le rappel au rang 5 de 0,55 à 0,60 et 0,62 selon la granularité,
+sans combler l'écart au graphe. La baseline de la comparaison principale demeure
+l'abstract entier.
 
 ## Pipeline B — Graph RAG
 
@@ -510,6 +531,14 @@ entité citée une seule fois dans un résumé conserve le même poids qu'une en
 centrale. La capacité de traversée joue spécifiquement sur les questions multi-hop et
 explique que l'écart y soit plus marqué. Attribuer l'intégralité de l'écart à la
 traversée constituerait une erreur d'interprétation.
+
+Révision ultérieure : deux points de ce paragraphe ont été corrigés depuis. L'écart
+maximal n'est pas celui des intersections mais celui des questions à un saut (+0,33),
+la mesure ci-dessus étant antérieure à la correction de la translittération. Et une
+entité citée une fois ne conserve pas « le même poids » qu'une entité centrale : elle
+reste atteignable par son nom, ce qui suffit à expliquer l'écart. L'ablation rapportée
+en section 8.8 du rapport attribue 91 % de l'écart à l'ancrage seul, là où ce paragraphe
+proposait une attribution partagée entre dilution et traversée.
 
 Modes d'échec propres à chaque architecture :
 - Le pipeline vectoriel échoue lorsque l'entité recherchée n'est pas le sujet
@@ -566,6 +595,11 @@ retard, quel que soit le nombre de documents qu'on lui accorde. Cette régularit
 survécu à la correction de la translittération, ce qui la rend moins susceptible d'être
 un artefact de mesure. L'observation porte néanmoins sur trois questions et appelle
 réserve.
+
+Révision ultérieure (script 65) : au rang 10, cette constance dépend du départage des
+égalités. Selon l'ordre retenu entre documents de même poids, le rappel du graphe y vaut
+de 0,83 à 1,00, soit un écart compris entre 0,17 et 0,33. La valeur publiée est celle du
+cas le moins favorable au graphe.
 
 Portée pratique : l'avantage du graphe est pour une part un avantage d'efficacité. Il
 obtient avec peu de documents ce que le pipeline vectoriel n'obtient qu'avec beaucoup,

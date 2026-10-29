@@ -1,5 +1,7 @@
 # Points à formuler en soutenance
 
+*[English version](defence-points.md)*
+
 ## Sur la révision du schéma
 La mesure a révélé le problème, la révision l'a corrigé, une seconde mesure l'a confirmé.
 → montre que la méthode est auto-correctrice, pas hésitante.
@@ -54,15 +56,21 @@ reste à zéro et suggère à tort que le cas n'existe pas.
 
 ## Sur le diagnostic des échecs de la baseline
 Le rappel de 0,67 sur les questions de contrôle a d'abord été attribué à une troncature
-des abstracts longs. La comparaison des longueurs entre documents retrouvés et manqués
-a réfuté cette hypothèse. La cause réelle est la dilution : les documents manqués sont
-ceux où l'entité recherchée n'est pas le sujet principal.
-→ montre qu'une hypothèse plausible doit être testée avant d'orienter une correction.
+des abstracts longs. Une comparaison de longueurs a semblé la réfuter, mais elle reposait
+sur une fenêtre de 512 tokens jamais vérifiée : la fenêtre
+réelle de l'encodeur est de 350 tokens, et 35 % des résumés la dépassent. La réfutation a
+donc été refaite par intervention — en n'indexant que la partie que la baseline lisait
+réellement, le rappel ne bouge pas. La cause est bien la dilution, et elle tient au poids
+de l'entité dans la représentation, non à la longueur du document.
+→ montre qu'une hypothèse plausible doit être testée, et qu'un test peut lui-même être
+  faux sans être absurde.
 
 ## Le chiffre à retenir
 Le graphe atteint 0,83 de rappel avec 5 documents — un niveau que la recherche
 vectorielle n'atteint pas avec 50. Les documents manqués ne sont pas mal classés :
 ils sont absents du classement.
+Ce chiffre s'oppose à une baseline vectorielle standard ; voir plus bas ce qu'une
+baseline plus forte lui retire.
 
 ## Sur le coût
 L'énoncé demande « à quel coût en latence et en calcul ». La réponse est double : le
@@ -96,6 +104,11 @@ cette description : le filtre rebrasse 12 % du corpus sans trier selon le critè
 Trois outils prescrits n'ont pas été employés : GraphRAG/LightRAG, ChromaDB/FAISS, et
 le poste GPU du département. Chaque substitution est justifiée dans l'annexe D du
 rapport. Les énoncer explicitement vaut mieux que laisser un correcteur les découvrir.
+LightRAG a fini par être employé, non comme pipeline mais comme référence : sa recherche
+a été exécutée sur notre propre graphe, ce qui compare deux méthodes de recherche à
+graphe identique. Son exécution complète, avec sa propre extraction, s'est révélée hors
+de portée du matériel disponible — 27,7 heures projetées, la moitié des documents en
+échec au pilote.
 
 ## Sur la définition d'une mesure
 Trois chiffres de conformité au schéma coexistaient dans les journaux : 829, 822 et
@@ -108,7 +121,29 @@ une définition restée implicite.
 L'argument théorique en faveur du Graph RAG est la traversée. La mesure montre que
 l'écart est maximal sur les questions à un saut (+0,33), qui n'en requièrent aucune,
 et moindre sur le multi-hop (+0,27 et +0,17). La hiérarchie est identique en proportion
-d'erreur comblée, ce qui écarte l'objection d'un effet de plafond. Le mécanisme
-dominant est donc l'absence de dilution, non la traversée.
+d'erreur comblée, ce qui écarte l'objection d'un effet de plafond. Une ablation le
+confirme par la mesure : à profondeur 1, sans aucune traversée, 91 % de l'écart subsiste.
+Deux baselines supplémentaires localisent ensuite le mécanisme : BM25, sans aucun graphe,
+récupère les trois quarts de l'écart, et LightRAG, sur notre propre graphe, retombe au
+niveau vectoriel dès qu'il classe les documents par ressemblance. Le mécanisme dominant
+est donc l'absence de dilution, non la traversée.
 → montre qu'un résultat conforme à l'hypothèse globale peut infirmer le mécanisme
 qu'on lui prêtait, et qu'il faut vérifier les deux séparément.
+
+## Sur ce qu'une baseline plus forte retire
+L'écart de 0,28 point oppose le graphe à une baseline vectorielle standard. Face à BM25
+il tombe à 0,07, et face à LightRAG réglé pour choisir ses documents par entité il
+s'annule ; dans les deux cas il cesse d'être distinguable de zéro sur vingt questions.
+Le résultat n'est donc pas « le graphe gagne » mais « ancrer la recherche sur les entités
+gagne » — ce que le graphe fait, et que BM25 obtient autrement.
+→ énoncer soi-même la limite d'un résultat vaut mieux que la laisser découvrir.
+
+## Sur la prédiction posée avant la mesure
+Le dernier test — changer la règle de sélection des passages de LightRAG — a été lancé
+après avoir écrit ce qu'il devait produire si l'explication était juste : les trois
+questions à un saut ratées devaient revenir dans les cinq premiers documents. Elles y
+sont revenues. La prédiction figure dans le texte du notebook, avant les cellules de
+calcul.
+→ une prédiction écrite avant l'exécution transforme une confirmation en test ; écrite
+  après, elle ne vaut rien.
+

@@ -10,7 +10,7 @@ Ce travail compare deux architectures de génération augmentée par récupérat
 
 Le pipeline par graphe obtient un rappel au rang 5 de 0,83 contre 0,55 pour le pipeline vectoriel, et une exactitude de réponse de 0,70 contre 0,30. L'écart s'établit à toutes les valeurs du budget documentaire testées : le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante.  Les deux écarts sont statistiquement significatifs sur ce plan apparié (p = 0,039 pour l'exactitude, p = 0,014 pour le rappel). Une ablation établit que 91 % de l'écart provient de l'ancrage seul, sans traversée.
 
-Le travail produit par ailleurs trois résultats méthodologiques distincts de cette comparaison. D'abord, une base de mécanismes curée par des experts n'est pas reconstructible à partir de résumés d'articles : la littérature comprime les chaînes causales et présuppose les liens établis. Ensuite, l'avantage du graphe ne provient pas de sa capacité de traversée, contrairement à ce que l'argument théorique laisse attendre : l'écart est maximal sur les questions qui n'exigent qu'un seul document, et s'explique par l'absence de dilution. Enfin, la métrique de fidélité employée seule récompense le silence : le pipeline le moins performant y obtient le meilleur score, grâce à son taux d'abstention.
+Le travail produit par ailleurs trois résultats méthodologiques distincts de cette comparaison. D'abord, une base de mécanismes curée par des experts n'est pas reconstructible à partir de résumés d'articles : la littérature comprime les chaînes causales et présuppose les liens établis. Ensuite, l'avantage du graphe ne provient pas de sa capacité de traversée, contrairement à ce que l'argument théorique laisse attendre : l'écart est maximal sur les questions qui n'exigent qu'un seul document, et s'explique par l'absence de dilution. Des baselines supplémentaires situent ce mécanisme : le découpage en passages n'en récupère qu'un cinquième, une baseline lexicale les trois quarts, et la recherche de LightRAG, conduite sur le même graphe, retombe au niveau vectoriel dès que les documents sont choisis par ressemblance. Enfin, la métrique de fidélité employée seule récompense le silence : le pipeline le moins performant y obtient le meilleur score, grâce à son taux d'abstention.
 
 ---
 
@@ -277,7 +277,7 @@ Le critère de jugement retenu est strict : une relation n'est comptée correcte
 
 Les trois inversions sont vérifiables sur le seul texte de l'abstract. « Venlafaxine increases activity of NET » là où l'article la décrit comme un inhibiteur de recapture. « Selexipag positively regulates pulmonary arterial hypertension » là où le médicament est approuvé pour traiter cette pathologie. « Lafutidine negatively regulates gastric acid elimination » là où le titre indique que cette élimination est accrue par la molécule.
 
-**Portée de cette mesure.** Trois inversions sur 28 observations correspondent à un intervalle de confiance à 95 % s'étendant approximativement de 2 % à 28 %. Ces valeurs donnent un ordre de grandeur, non une estimation précise.
+**Portée de cette mesure.** Trois inversions sur 28 observations correspondent à un intervalle de confiance à 95 % s'étendant approximativement de 2 % à 28 %. Les six énoncés incorrects au sens large correspondent de même à un intervalle s'étendant approximativement de 8 % à 41 %. Ces valeurs donnent un ordre de grandeur, non une estimation précise.
 
 Une observation complémentaire limite en outre la portée de tout échantillonnage aléatoire : les erreurs se regroupent par article. Sept des relations ciblant une maladie constituent la même inversion, issue d'un seul article recensant les traitements de la phobie sociale, où sept molécules distinctes sont décrites comme augmentant l'activité de la pathologie qu'elles traitent. Un échantillon de relations sous-estime donc la variance réelle, plusieurs erreurs pouvant partager une source unique.
 
@@ -307,7 +307,7 @@ Les questions de contrôle jouent le rôle de témoin. Si les deux architectures
 
 Le modèle biomédical n'apporte aucun gain sur les questions à un saut mais un écart net sur les questions multi-hop, où le vocabulaire spécialisé paraît déterminant. Il a été retenu pour la suite.
 
-**Choix de conception assumé.** Un découpage en passages plus courts améliorerait vraisemblablement le rappel, une entité isolée pesant davantage dans un segment de cent tokens que dans un abstract complet. Ce découpage n'a pas été mis en œuvre, la baseline visant une implémentation standard telle qu'un praticien la réaliserait par défaut. L'écart correspondant est signalé comme limite plutôt que dissimulé.
+**Choix de conception assumé.** Un découpage en passages plus courts pourrait améliorer le rappel, une entité isolée pesant davantage dans un segment de cent tokens que dans un abstract complet. La baseline conserve néanmoins l'abstract entier, visant une implémentation standard telle qu'un praticien la réaliserait par défaut. Le découpage a été mesuré séparément, après coup : il porte le rappel au rang 5 de 0,55 à 0,60 et 0,62 selon la granularité, sans combler l'écart au graphe (section 8.9).
 
 ### 7.2 Pipeline B — traversée de graphe
 
@@ -360,9 +360,9 @@ Une objection doit être levée avant d'en tirer une conclusion : les trois cat�
 
 La hiérarchie est inchangée sous les deux mesures. La conclusion ne relève donc pas d'un artefact de plafond.
 
-Le mécanisme dominant n'est donc pas la capacité de traversée, mais l'**absence de dilution**. Le graphe indexe des relations et non des documents : une entité citée une seule fois dans un résumé y conserve le même poids qu'une entité centrale, là où le vecteur d'un document reflète son sujet global. Ce mécanisme joue sur toutes les catégories de questions et suffit à expliquer l'essentiel de l'écart mesuré.
+Le mécanisme dominant n'est donc pas la capacité de traversée, mais l'**absence de dilution**. Le graphe indexe des relations et non des documents : un résumé où l'entité cherchée n'apparaît qu'une fois reste atteignable par elle, là où le vecteur du document, qui reflète son sujet global, la relègue au second plan. Ce mécanisme joue sur toutes les catégories de questions. Les sections 8.9 à 8.11 le mettent à l'épreuve et en précisent la portée : il tient au poids de l'entité dans la représentation du document, et non à la longueur de celui-ci.
 
-La **capacité de traversée** n'apporte pas de gain supplémentaire mesurable sur ce jeu de test. Deux lectures demeurent possibles. Sa contribution peut être faible en regard de celle de la dilution. Son apport peut aussi être masqué par la difficulté intrinsèquement plus grande des questions multi-hop, sur lesquelles les deux architectures partent d'un niveau inférieur. L'effectif — trois questions de type pont, huit intersections — ne permet pas de trancher entre ces deux lectures.
+La **capacité de traversée** n'apporte pas de gain supplémentaire mesurable sur ce jeu de test. Deux lectures demeurent possibles. Sa contribution peut être faible en regard de celle de la dilution. Son apport peut aussi être masqué par la difficulté intrinsèquement plus grande des questions multi-hop, sur lesquelles les deux architectures partent d'un niveau inférieur. L'effectif — trois questions de type pont, huit intersections — ne permet pas de trancher entre ces deux lectures.  L'ablation conduite en section 8.8 tranche cette question par la mesure.
 
 Attribuer l'écart à la traversée constituerait donc une erreur d'interprétation que les données ne soutiennent pas.
 
@@ -370,9 +370,9 @@ Attribuer l'écart à la traversée constituerait donc une erreur d'interprétat
 
 Le rappel de 0,67 initialement mesuré sur les questions de contrôle demeurait inférieur à ce qu'on attend d'un témoin. Trois causes ont été envisagées.
 
-L'hypothèse d'une **troncature** des abstracts dépassant la fenêtre de 512 tokens des modèles d'embedding a été testée et écartée. Les documents attendus mais non récupérés comptent 358 tokens en moyenne contre 348 pour ceux qui le sont, et 5 % sont tronqués contre 6 %. Les deux populations sont indiscernables sur ce critère.
+L'hypothèse d'une **troncature** des abstracts dépassant la fenêtre de lecture du modèle d'encodage a été testée et écartée. Une première comparaison de longueurs, conduite avec une fenêtre supposée de 512 tokens, est remplacée ici par la mesure de la section 8.9 : la fenêtre réelle de l'encodeur est de 350 tokens, et 166 résumés sur 475 la dépassent. Restreindre l'indexation à la partie effectivement lue laisse pourtant le rappel au rang 5 inchangé, ce qui écarte la troncature par intervention directe et non plus par comparaison de deux populations.
 
-La cause réelle est la **dilution**. Les documents manqués sont ceux dont l'entité recherchée n'est pas le sujet principal. La question SH07 porte sur le sarpogrelate, absent du titre du document attendu et cité une seule fois dans le corps du résumé parmi d'autres antagonistes. Les trois documents attendus de la question MH05 ne nomment ni le ranibizumab ni le ramucirumab dans leur titre.
+La cause réelle est la **dilution**. Les documents manqués sont ceux dont l'entité recherchée n'est pas le sujet principal. La question SH07 porte sur le sarpogrelate, absent du titre du document attendu et cité deux fois dans le corps du résumé parmi d'autres antagonistes. Les trois documents attendus de la question MH05 ne nomment ni le ranibizumab ni le ramucirumab dans leur titre.
 
 Une entité mentionnée une fois dans un texte de 350 tokens contribue faiblement au vecteur qui représente ce texte. La recherche vectorielle sélectionne les documents dont le sujet global ressemble à la question, non ceux qui contiennent l'information cherchée. Ce phénomène constitue une limite structurelle de l'indexation par document entier, et non un défaut d'implémentation.
 
@@ -396,7 +396,7 @@ Le pipeline par graphe domine à toutes les valeurs de K. Le résultat ne dépen
 
 Cette dissociation est instructive. Sur les intersections, aucune des deux architectures ne peut réussir avec un document unique, la question exigeant par construction deux documents distincts : l'égalité y traduit une impossibilité commune. Sur les questions à un saut, en revanche, un document suffit, et le graphe le place mieux — non par capacité de traversée, qui n'est pas sollicitée, mais par absence de dilution.
 
-**Sur les questions de type pont, l'écart demeure rigoureusement constant** à 0,17 point pour toutes les valeurs de K testées : le pipeline vectoriel ne rattrape jamais son retard, quel que soit le nombre de documents qu'on lui accorde. Cette régularité a survécu à la correction de la translittération, ce qui la rend moins susceptible d'être un artefact de mesure. L'observation porte néanmoins sur trois questions et appelle réserve.
+**Sur les questions de type pont, l'écart demeure constant** à 0,17 point pour toutes les valeurs de K testées : le pipeline vectoriel ne rattrape jamais son retard, quel que soit le nombre de documents qu'on lui accorde. Cette régularité a survécu à la correction de la translittération, ce qui la rend moins susceptible d'être un artefact de mesure. Elle dépend en revanche du départage des égalités au rang 10, où plusieurs documents partagent le même poids dans le classement du graphe : selon l'ordre retenu entre eux, le rappel du graphe y vaut de 0,83 à 1,00, soit un écart compris entre 0,17 et 0,33. La valeur publiée correspond au cas le moins favorable au graphe. L'observation porte en outre sur trois questions et appelle réserve.
 
 **Portée pratique.** L'avantage du graphe est pour une part un avantage d'efficacité : il obtient avec peu de documents ce que le pipeline vectoriel n'obtient qu'avec beaucoup, voire jamais. Cette nuance importe, vingt abstracts de 385 tokens excédant la fenêtre exploitable d'un modèle de sept milliards de paramètres.
 
@@ -482,9 +482,10 @@ configurations de signes.
 
 **Intervalles de confiance par bootstrap apparié**, 20 000 rééchantillonnages, graine
 fixée à 42 :
-
-  Écart de rappel@5      +0,28   IC 95 % [+0,11 ; +0,47]
-  Écart d'exactitude     +0,40   IC 95 % [+0,10 ; +0,70]
+| Écart | Valeur | IC 95 % |
+|---|---|---|
+| Rappel au rang 5 | +0,28 | [+0,11 ; +0,47] |
+| Exactitude de la réponse | +0,40 | [+0,10 ; +0,70] |
 
 Les deux écarts sont significatifs au seuil de 5 % et les deux intervalles excluent
 zéro. L'effectif de vingt questions, signalé comme limite en section 10.1, n'empêche donc
@@ -504,19 +505,31 @@ le pipeline par graphe est réexécuté à profondeur 1, c'est-à-dire en ne ret
 arêtes incidentes aux nœuds d'ancrage, sans explorer le voisinage. Un seul paramètre
 change.
 
-                     Vectoriel   Ancrage seul   Ancrage + traversée
-  Global                0,55         0,81              0,83
-  single-hop            0,67         1,00              1,00
-  pont                  0,50         0,33              0,67
-  intersection          0,44         0,77              0,71
+| | Vectoriel | Ancrage seul | Ancrage + traversée |
+|---|---|---|---|
+| Global | 0,55 | 0,81 | 0,83 |
+| single-hop | 0,67 | 1,00 | 1,00 |
+| pont | 0,50 | 0,33 | 0,67 |
+| intersection | 0,44 | 0,77 | 0,71 |
 
 **L'ancrage seul produit 91 % de l'écart.** Sur les 0,283 point qui séparent les deux
-pipelines, 0,258 sont obtenus sans aucune traversée. L'hypothèse formulée en section 8.1
-est donc établie par la mesure et non plus seulement par l'analyse des écarts.
+pipelines, 0,258 sont obtenus sans aucune traversée. La moitié de l'hypothèse formulée en
+section 8.1 est ainsi établie par la mesure : la traversée n'est pas la source principale
+de l'écart.
 
-Le mécanisme est celui décrit en section 8.2 : le simple fait d'indexer des relations
-plutôt que des documents suffit à retrouver les abstracts où l'entité cherchée n'est pas
-le sujet principal, que la recherche vectorielle manque par dilution.
+Ce chiffre dépend toutefois du départage des égalités à profondeur 1, où plusieurs
+documents partagent le même poids. Selon l'ordre retenu entre eux, l'ancrage seul produit
+de 82 % à 106 % de l'écart, pour une espérance de 91 % si les égalités sont départagées au
+hasard. La mesure principale, à profondeur 2 et au rang 5, ne dépend d'aucune égalité.
+
+L'effet de la traversée repose en outre sur trois documents : elle fait entrer dans les
+cinq premiers un document attendu de MH02 et un de MH03, et en fait sortir un de MH08.
+
+L'autre moitié de l'hypothèse — que le gain de l'ancrage tienne à l'absence de dilution —
+n'est pas établie par cette ablation, qui ne compare que deux profondeurs d'un même
+pipeline. Elle l'est par les mesures des sections 8.9 à 8.11, où l'essentiel de ce gain
+est retrouvé sans aucun graphe, par une baseline lexicale, et où ce même gain disparaît
+sur notre propre graphe dès que les documents sont choisis par ressemblance vectorielle.
 
 **La traversée n'est pas pour autant sans effet, et son profil est révélateur.** Elle
 double le rappel sur les questions de type pont, de 0,33 à 0,67 — la seule catégorie où
@@ -533,6 +546,82 @@ d'amélioration immédiate.
 
 Cette mesure porte sur trois questions de type pont et huit intersections. La direction
 des deux effets est nette, leur amplitude ne l'est pas.
+
+### 8.9 Deux baselines supplémentaires
+
+La section 8.8 établit que la traversée n'apporte que 9 % de l'écart. Celui-ci provient donc de ce qui la précède : l'indexation par entité plutôt que par document. La section 8.2 attribuait cet effet à la dilution, mais cette attribution demeurait une interprétation. Deux baselines supplémentaires la mettent à l'épreuve, chacune retirant un ingrédient à la recherche vectorielle : d'abord la longueur de l'unité indexée, ensuite la représentation globale elle-même.
+
+**Baseline par passages.** Le corpus est découpé en passages courts et chevauchants, le titre du document en tête de chacun : trois phrases avec un pas de deux, puis deux phrases avec un pas d'une. Le reste du dispositif ne change pas — même encodeur, mêmes questions, budget toujours exprimé en documents distincts. La baseline d'origine, recalculée dans la même session, retrouve exactement les valeurs publiées aux cinq rangs ; l'exécution a été répétée trois jours plus tard dans une autre session et a produit des classements identiques, fichier pour fichier.
+
+Cette mesure corrige au passage un chiffre de la section 8.2. Le modèle d'encodage ne lit pas 512 jetons mais 350, limite inscrite dans sa configuration. Les résumés font en moyenne 330 jetons et 166 sur 475, soit 35 %, dépassent cette limite : la troncature est donc bien plus fréquente que la section 8.2 ne le supposait. Son effet reste pourtant nul, et cette fois par intervention directe plutôt que par comparaison de moyennes. En restreignant les passages à la partie que la baseline lisait réellement, le rappel au rang 5 est identique à celui obtenu avec tous les passages : 0,60 dans les deux cas pour le découpage en trois phrases, 0,62 pour celui en deux. La partie non lue des documents n'apporte rien.
+
+| Rang | Résumé entier | Passages, 3 phrases | Passages, 2 phrases | Graphe |
+|---|---|---|---|---|
+| 1 | 0,38 | 0,33 | 0,43 | 0,45 |
+| 3 | 0,53 | 0,58 | 0,58 | 0,78 |
+| 5 | 0,55 | 0,60 | 0,62 | 0,83 |
+| 10 | 0,60 | 0,73 | 0,73 | 0,88 |
+| 20 | 0,77 | 0,89 | 0,87 | 0,95 |
+
+Le découpage fait passer le rappel au rang 5 de 0,55 à 0,60 et 0,62 selon la granularité, soit entre un cinquième et un quart de l'écart au graphe. Cet écart subsiste : +0,23 contre le découpage en trois phrases (p = 0,027) et +0,21 contre celui en deux (p = 0,059). La longueur de l'unité indexée n'est donc pas la cause principale.
+
+**Baseline lexicale.** Si la longueur n'explique pas l'écart, le candidat suivant est la représentation elle-même. Un vecteur unique résume le document et reflète son sujet dominant ; une entité secondaire y pèse peu. BM25 ne résume pas : il attribue à chaque terme de la question son propre poids, le plus fort revenant au terme le plus rare, c'est-à-dire le plus souvent au nom de l'entité cherchée. L'unité indexée reste le document entier, titre et résumé : seule la représentation change. Le score suit la forme standard de Lucene, k1 = 1,2 et b = 0,75, avec la liste de mots vides de Lucene et la translittération des lettres grecques déjà employée pour le graphe, sans racinisation.
+
+BM25 obtient 0,77 au rang 5, contre 0,55 pour la baseline vectorielle et 0,83 pour le graphe : il récupère environ les trois quarts de l'écart sans aucun graphe. Sur les trois questions à un saut que la baseline vectorielle manque, il place le bon résumé au premier rang pour SH01 et SH07, et les deux résumés attendus aux troisième et cinquième rangs pour SH03. L'écart à la baseline vectorielle est significatif, +0,22 avec p = 0,031 ; celui qui sépare le graphe de BM25 ne l'est pas, +0,07 avec un intervalle de confiance à 95 % de [−0,03 ; +0,17] et p = 0,375. Douze réglages de k1 et b donnent des valeurs comprises entre 0,72 et 0,77, et aucun rappel ne dépend du départage des égalités.
+
+Ce résultat déplace la conclusion. Ce qui sépare la baseline vectorielle du graphe n'est pas la structure de graphe : c'est le fait d'aller chercher les documents par le nom de l'entité plutôt que par la ressemblance d'ensemble. Une baseline lexicale, plus simple que les deux architectures comparées, en obtient l'essentiel.
+
+### 8.10 Référence externe : LightRAG sur le même graphe
+
+Le cahier des charges mentionnait les cadres GraphRAG ou LightRAG, et la traversée a été implémentée directement pour garder le contrôle des paramètres (annexe D). Une comparaison avec l'un de ces cadres restait souhaitable. Elle a été conduite en trois temps.
+
+**Pilote de LightRAG complet.** LightRAG 1.5.7 a d'abord été exécuté tel quel, avec sa propre extraction et le même modèle local qwen2.5:7b, sur dix résumés. Cinq ont échoué sur le délai d'attente interne de 480 secondes. L'exécution a duré 17,5 minutes pour cinq documents traités, soit 210 secondes par document, ce qui projette 27,7 heures pour le corpus entier — hors de portée d'une session Colab gratuite, recyclée sans préavis. Le graphe obtenu sur ces cinq documents compte 88 entités et 45 relations, dont plusieurs ont un verbe pour cible — « Escitalopram → decreases », « Ranibizumab → inhibits » —, et trois sorties ne respectent pas le format attendu. Une comparaison de bout en bout aurait donc mesuré la qualité d'une extraction dégradée autant que celle d'une méthode de recherche.
+
+**La recherche de LightRAG sur notre graphe.** La comparaison a donc porté sur ce qui est comparable : la méthode de recherche, à graphe identique. Notre extraction est injectée à l'étape d'extraction de LightRAG, qui construit ensuite son index avec ses propres mécanismes. Le graphe obtenu est le nôtre : 792 entités et 856 paires reliées, soit les 932 arêtes de la section 7.2 une fois fusionnées les arêtes multiples entre deux mêmes entités. Les 475 résumés sont traités sans échec, en 13,4 minutes. Les vingt questions sont ensuite posées dans les deux modes de LightRAG : *mix*, son mode par défaut, qui combine le graphe et une recherche vectorielle directe des passages, et *hybrid*, qui n'emploie que le graphe. LightRAG ne produit pas de classement : l'ordre retenu est celui des documents dans le contexte qu'il assemble, vingt par question.
+
+Le résultat est net : 0,55 en mode *mix* et 0,57 en mode *hybrid* au rang 5, soit le niveau de la baseline vectorielle. Question par question, aux rangs 1, 3 et 5, le mode *mix* obtient exactement le même rappel que la baseline vectorielle sur les vingt questions ; son premier document est celui de la baseline vingt fois sur vingt ; et parmi les documents que les deux listes ont en commun, 94 % des paires sont dans le même ordre.
+
+L'explication tient à un réglage. Après avoir retrouvé les entités, LightRAG classe par défaut les passages qui leur sont rattachés par ressemblance vectorielle avec la question — ici avec le même encodeur et le même texte que notre baseline. Son code signale d'ailleurs que, le reclassement final étant désactivé, cet ordre s'aligne sur celui de la recherche vectorielle simple.
+
+**Une intervention sur ce seul réglage.** LightRAG documente un second réglage, qui prend les passages dans l'ordre des entités retrouvées au lieu de les reclasser. Les vingt questions ont été reposées en ne changeant que lui : même graphe, mêmes mots-clés — repris du cache, aucun appel au modèle de langue n'ayant eu lieu —, même encodeur. Le réglage par défaut reproduit à l'identique les classements de la mesure précédente, ce qui garantit que rien d'autre n'a bougé.
+
+| Rang | Défaut, *mix* | Défaut, *hybrid* | Par entités, *mix* | Par entités, *hybrid* | Notre recherche |
+|---|---|---|---|---|---|
+| 1 | 0,38 | 0,40 | 0,38 | 0,55 | 0,45 |
+| 3 | 0,53 | 0,53 | 0,73 | 0,74 | 0,78 |
+| 5 | 0,55 | 0,57 | 0,82 | 0,88 | 0,83 |
+| 10 | 0,59 | 0,68 | 0,93 | 0,93 | 0,88 |
+| 20 | 0,76 | 0,80 | 0,93 | 0,96 | 0,95 |
+
+Ce seul changement vaut +0,27 au rang 5 en mode *mix* (p = 0,004) et +0,32 en mode *hybrid* (p = 0,024). Les trois questions à un saut que la baseline vectorielle manque reviennent toutes dans les cinq premiers documents : SH01 et SH07 aux premier ou deuxième rangs selon le mode, SH03 avec ses deux documents en mode *hybrid* et l'un des deux en mode *mix*.
+
+Un relevé complémentaire tranche une question restée ouverte. Le rang du nœud attendu dans le contexte assemblé est le même dans les quatre configurations : premier pour SH01 et SH03, cinquième pour SH07. Sous le réglage par défaut, LightRAG avait donc bien retrouvé le bon nœud, et c'est en choisissant les passages qu'il a écarté le seul résumé qui y est rattaché. L'échec porte sur la règle de sélection des documents, non sur la recherche d'entité.
+
+**Ce que cette comparaison dit de notre pipeline.** Avec le réglage par entités, LightRAG atteint sur notre graphe le niveau de notre propre recherche : il la dépasse de 0,05 point en mode *hybrid* et lui reste inférieur de 0,02 en mode *mix*, deux écarts indistinguables de zéro (p = 1,00 dans les deux cas). Aucune des deux méthodes ne peut donc se prévaloir d'un avantage sur l'autre : notre implémentation n'est pas le seul moyen d'atteindre ce niveau, et rien n'établit non plus que LightRAG fasse mieux. Il reste que ce niveau n'est pas celui de son réglage par défaut, qui laisse la recherche au niveau de la baseline vectorielle : l'atteindre suppose de connaître le rôle de ce paramètre et de le modifier. Les deux méthodes échouent par des voies différentes : le réglage par entités réussit mieux les intersections, 0,96 contre 0,71, mais manque SH02, où l'entité « terguride » est rattachée à dix-neuf résumés et où rien, dans ce réglage, n'indique lequel répond à la question — le classement par le poids des relations retenues, décrit en section 7.2, l'indique.
+
+**Limites de cette comparaison.** LightRAG a été évalué sans modèle de reclassement : il n'en fournit aucun par défaut, et en ajouter un aurait introduit un modèle supplémentaire absent des deux pipelines comparés. L'ordre des documents est celui du contexte qu'il assemble, faute de classement explicite ; au rang 20, qui correspond à la totalité de ce contexte, cet ordre ne joue plus et l'écart demeure. Enfin, cinq des onze questions multi-hop n'ont donné aucun mot-clé d'entité lors de l'extraction des mots-clés par qwen2.5:7b, ce qui pénalise LightRAG sur ces questions indépendamment de sa méthode de recherche.
+
+### 8.11 Ce que ces mesures établissent
+
+| Méthode | Graphe | Documents choisis par | Rappel au rang 5 |
+|---|---|---|---|
+| Baseline vectorielle | non | ressemblance vectorielle | 0,55 |
+| LightRAG, réglage par défaut | oui | ressemblance vectorielle | 0,55 et 0,57 |
+| BM25 | non | mots exacts de la question | 0,77 |
+| LightRAG, réglage par entités | oui | entités retrouvées | 0,82 et 0,88 |
+| Notre recherche | oui | entités retrouvées | 0,83 |
+
+Lu en croix, ce tableau sépare deux ingrédients : disposer d'un graphe, et choisir les documents par l'entité plutôt que par une représentation globale. Le premier ne déplace rien à lui seul — LightRAG, sur notre propre graphe, redonne exactement les résultats de la baseline vectorielle. Le second déplace tout, avec ou sans graphe.
+
+Cette lecture est une mise en regard et non un plan factoriel : les méthodes comparées diffèrent aussi par d'autres aspects. Une seule intervention est propre, celle de la section 8.10, où un unique réglage change à dispositif constant ; elle va dans le même sens.
+
+**Ce que ces mesures précisent.** La dilution, invoquée aux sections 8.1 et 8.2, doit s'entendre du poids d'une entité dans une représentation globale, et non de la longueur du document : raccourcir l'unité indexée ne récupère qu'un cinquième à un quart de l'écart, supprimer la représentation globale en récupère les trois quarts.
+
+**Ce qu'elles retirent à la conclusion initiale.** L'écart de 0,28 point mesuré en section 8.1 oppose le graphe à une baseline vectorielle standard. Face à une baseline lexicale il tombe à 0,07 point, et face à un outil de graphe existant réglé par entités il s'annule ; dans les deux cas il cesse d'être distinguable de zéro sur vingt questions. L'inverse n'est pas établi pour autant : l'intervalle de confiance de l'écart à BM25, [−0,03 ; +0,17], reste compatible avec un avantage réel du graphe comme avec son absence. La contribution de ce travail porte donc sur le principe de récupération — ancrer la recherche sur les entités nommées — plutôt que sur la supériorité de l'implémentation retenue.
+
+**Ce qu'elles ne disent pas.** Ces baselines supplémentaires n'ont été mesurées qu'en récupération. La comparaison des réponses de la section 8.4 conserve la baseline vectorielle comme point de référence, et rien n'établit qu'une génération alimentée par les documents de BM25 obtiendrait la même exactitude que celle alimentée par le graphe. L'effectif de vingt questions limite enfin la portée de toutes les comparaisons rapportées ici : seuls les écarts d'une quinzaine de points ou plus en ressortent comme significatifs.
+
+Ces mesures sont reproductibles indépendamment les unes des autres : le découpage en passages et la baseline vectorielle correspondante dans le notebook 61, la baseline lexicale et l'ensemble des tests appariés dans le script 62, la référence LightRAG dans les notebooks 63, 64 et 66.
 
 ## 9. Livrable de démonstration
 
@@ -552,6 +641,8 @@ Le jeu de test compte vingt questions, dont onze multi-hop reposant sur dix enti
 
 Ce plafond résulte d'une propriété du corpus et non d'un manque d'effort : la littérature de synthèse énumérant systématiquement les membres d'une classe thérapeutique, la proportion de chemins non résolubles par une unique récupération est intrinsèquement limitée sur un corpus portant sur quatorze médicaments.
 
+Cette limite a été quantifiée après coup. Sur les seize chemins retenus après diversification, treize correspondent aux onze questions multi-hop construites — certaines intersections admettant deux extrémités alternatives. Les trois chemins restants reposent tous sur un couple de résumés déjà mobilisé par une question retenue : aucun n'apporte de source nouvelle. Élargir le bras multi-hop sans élargir le corpus reviendrait donc à ajouter des questions dépendantes des mêmes documents, augmentant l'effectif sans augmenter l'information.
+
 ### 10.2 Validité externe
 
 Le corpus est construit pour contenir les chaînes testées. L'étude mesure donc la performance sur un corpus où l'information est présente, non la capacité à la retrouver dans l'ensemble de la littérature.
@@ -562,15 +653,19 @@ Ce choix est nécessaire : sans articles porteurs, les deux pipelines échouerai
 
 Le graphe est intégralement construit par extraction automatique au moyen d'un modèle de langue, tandis que l'index vectoriel n'en fait aucun usage.
 
-La performance du pipeline par graphe dépend donc de la qualité de cette extraction. Un échantillon aléatoire de 40 relations porteuses de polarité, confronté aux abstracts sources, fait apparaître de l'ordre de 10 % d'inversions caractérisées et 21 % d'énoncés incorrects au sens large, sur les 28 relations que les phrases extraites permettaient de trancher. L'intervalle de confiance est large et ces valeurs ne constituent qu'un ordre de grandeur.
+La performance du pipeline par graphe dépend donc de la qualité de cette extraction. Un échantillon aléatoire de 40 relations porteuses de polarité, confronté aux abstracts sources, fait apparaître de l'ordre de 10 % d'inversions caractérisées et 21 % d'énoncés incorrects au sens large, sur les 28 relations que les phrases extraites permettaient de trancher. Les intervalles de confiance sont larges et ces valeurs ne constituent qu'un ordre de grandeur.
 
 **Portée du résultat.** La comparaison porte sur un couple architecture-extracteur — un graphe extrait par un modèle local de sept milliards de paramètres, opposé à un index vectoriel construit sur S-PubMedBert — et non sur les architectures considérées indépendamment de leur mise en œuvre.
 
 **Sens du biais.** Une extraction imparfaite dégrade le graphe en y introduisant des arêtes erronées, sans affecter l'index vectoriel. Le biais joue donc contre l'hypothèse testée. Le pipeline par graphe l'emporte malgré ce handicap, ce qui rend la mesure conservatrice : un extracteur plus fiable creuserait vraisemblablement l'écart plutôt qu'il ne le réduirait.
 
-### 10.4 Baseline non optimisée
+### 10.4 Le choix des baselines
 
-Le pipeline vectoriel conserve l'abstract entier comme unité de récupération. Un découpage en passages plus courts améliorerait vraisemblablement son rappel. Cette optimisation n'a pas été mise en œuvre, la baseline visant une implémentation standard.
+Le pipeline vectoriel conserve l'abstract entier comme unité de récupération et n'emploie aucun modèle de langue. C'est une implémentation standard, telle qu'un praticien la réaliserait par défaut, et c'est à elle que se rapportent l'écart de 0,28 point de rappel et celui de 0,40 point d'exactitude.
+
+Trois baselines plus exigeantes ont été ajoutées après coup et sont rapportées aux sections 8.9 à 8.11 : un découpage en passages, une baseline lexicale BM25, et la recherche de LightRAG conduite sur notre propre graphe. Elles ne remplacent pas la baseline vectorielle dans la comparaison principale, mais elles en bornent la portée : l'écart mesuré vaut face à une implémentation vectorielle standard, non face à l'état de l'art de la récupération.
+
+Ces trois baselines n'ont par ailleurs été mesurées qu'en récupération. La comparaison des réponses de la section 8.4 conserve la baseline vectorielle comme point de référence : mesurer une génération alimentée par les documents de BM25 aurait demandé une nouvelle exécution complète de la génération et du juge, qui n'a pas été conduite.
 
 ### 10.5 Périmètre du schéma d'extraction
 
@@ -582,9 +677,9 @@ Par ailleurs, le type OrganismTaxon, rétabli dans le schéma d'extraction aprè
 
 ## 11. Conclusion
 
-Sur les questions d'inférence multi-hop en domaine biomédical, la recherche par traversée de graphe surpasse la recherche vectorielle sur l'ensemble des métriques de récupération et de génération mesurées. Le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante, et son avantage se maintient à toutes les valeurs du budget documentaire testées.
+Sur les questions d'inférence multi-hop en domaine biomédical, la recherche par traversée de graphe surpasse la recherche vectorielle sur l'ensemble des métriques de récupération et de génération mesurées. Le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante, et son avantage se maintient à toutes les valeurs du budget documentaire testées. Cet avantage s'entend face à une baseline vectorielle standard : il cesse d'être distinguable de zéro face à une baseline lexicale comme face à un outil de graphe existant réglé pour choisir ses documents par entité (sections 8.9 à 8.11).
 
-L'avantage tient principalement à un mécanisme unique, et non à celui que l'on attendait. L'écart est maximal sur les questions à un saut, qui n'exigent aucune traversée : c'est donc l'absence de dilution qui domine. Le graphe indexe des relations et non des documents, de sorte qu'une entité citée une seule fois y pèse autant qu'une entité centrale. La capacité de traversée, présentée comme l'argument théorique en faveur de l'architecture par graphe, ne produit pas de gain supplémentaire mesurable sur ce jeu de test — sans qu'il soit possible de déterminer si sa contribution est faible ou masquée par la difficulté supérieure des questions multi-hop.
+L'avantage tient principalement à un mécanisme unique, et non à celui que l'on attendait. L'écart est maximal sur les questions à un saut, qui n'exigent aucune traversée, et l'ablation de la section 8.8 attribue 91 % de cet écart à l'ancrage seul : c'est l'absence de dilution qui domine, et non la traversée. Le graphe indexe des relations et non des documents, de sorte qu'un résumé où l'entité cherchée n'apparaît qu'une fois reste atteignable par elle. Les baselines supplémentaires des sections 8.9 à 8.11 situent ce mécanisme plus précisément : il tient au poids de l'entité dans la représentation du document, puisqu'une baseline lexicale en récupère les trois quarts sans aucun graphe, tandis qu'un outil de graphe existant le perd sur notre propre graphe dès qu'il classe les documents par ressemblance vectorielle.
 
 **Sur la question de recherche.** Le surcoût du graphe est réel — environ deux ordres de grandeur de calcul supplémentaire à la construction — mais il est intégralement payé une fois. À l'exploitation, le graphe est le moins coûteux des deux : il s'interroge sans accélérateur matériel là où le pipeline vectoriel en exige un pour chaque question, et les latences de génération sont équivalentes. L'arbitrage se résout donc en faveur du graphe pour un corpus stable et fréquemment interrogé, et en sa défaveur pour un corpus renouvelé en permanence.
 
@@ -606,7 +701,7 @@ Trois directions prolongeraient naturellement ce travail.
 
 **Renforcer l'extracteur.** Le taux d'inversion de polarité, de l'ordre de 10 % sur l'échantillon mesuré, constitue le principal handicap du pipeline par graphe. Un modèle plus grand, ou un dispositif de vérification automatique de la polarité, creuserait vraisemblablement l'écart mesuré.
 
-**Traiter l'ancrage.** Le mode d'échec propre à l'architecture par graphe — une question ne comportant que des concepts et aucune entité nommée saillante — appelle un mécanisme d'ancrage plus robuste, par exemple fondé sur une recherche vectorielle appliquée aux nœuds du graphe plutôt que sur un appariement exact de chaînes de caractères. Une telle hybridation combinerait les forces des deux architectures.
+**Traiter l'ancrage.** Le mode d'échec propre à l'architecture par graphe — une question ne comportant que des concepts et aucune entité nommée saillante — appelle un mécanisme d'ancrage plus robuste, par exemple fondé sur une recherche vectorielle appliquée aux nœuds du graphe plutôt que sur un appariement exact de chaînes de caractères. Une telle hybridation combinerait les forces des deux architectures. La section 8.10 en donne une première indication : LightRAG, qui retrouve ses entités par similarité vectorielle sur leurs noms, obtient un rappel de 1,00 sur la question MH09 — celle où notre ancrage échoue — contre 0,00 pour notre pipeline.
 
 ---
 
@@ -675,7 +770,7 @@ Une quatrième mesure, l'exactitude de la réponse, a été ajoutée. Détermini
 
 Trois substitutions ont été opérées par rapport aux outils mentionnés dans le cahier des charges. Elles sont énoncées ici plutôt que passées sous silence.
 
-**Architecture par graphe.** Le cahier des charges mentionne les cadriciels GraphRAG de Microsoft ou LightRAG. La traversée a été implémentée directement. Ce choix garantit le contrôle des paramètres du dispositif — pondération des sauts, méthode d'ancrage, profondeur — qui sont explicités dans ce rapport et auraient été masqués par un cadriciel. Il supprime en outre une dépendance lourde dans un environnement de calcul reconstruit à chaque session.
+**Architecture par graphe.** Le cahier des charges mentionne les cadriciels GraphRAG de Microsoft ou LightRAG. La traversée a été implémentée directement. Ce choix garantit le contrôle des paramètres du dispositif — pondération des sauts, méthode d'ancrage, profondeur — qui sont explicités dans ce rapport et auraient été masqués par un cadriciel. Il supprime en outre une dépendance lourde dans un environnement de calcul reconstruit à chaque session. Une comparaison avec LightRAG a néanmoins été conduite après coup, sur un graphe identique au nôtre : elle figure en section 8.10.
 
 **Base vectorielle.** Le cahier des charges mentionne ChromaDB ou FAISS. Les vecteurs sont conservés sous forme de tenseurs normalisés et la recherche s'effectue par produit scalaire. Sur 475 documents, un index approché n'apporte aucun gain : la recherche exhaustive s'exécute en quelques millisecondes et évite l'approximation introduite par les structures de voisinage.
 

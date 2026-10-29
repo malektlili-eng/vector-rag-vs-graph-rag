@@ -5,7 +5,7 @@
 import time
 from Bio import Entrez
 
-Entrez.email = "malektlili.eng@gmail.com"  
+Entrez.email = "votre.adresse@exemple.org"  
 
 MEDICAMENTS = [
     "venlafaxine",

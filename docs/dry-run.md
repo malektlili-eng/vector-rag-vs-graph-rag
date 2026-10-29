@@ -407,6 +407,15 @@ caractérisées et trois énoncés à direction non soutenue, soit de l'ordre de
 d'inversions et 20 % d'énoncés incorrects au sens large. L'intervalle de confiance à
 95 % pour les inversions s'étend approximativement de 2 % à 27 %.
 
+Révision ultérieure : lors de la rédaction du rapport, une relation initialement comptée
+comme tranchée a été reclassée en non tranchée. Le dépouillement y est donc de douze
+relations non tranchées et vingt-huit jugeables, et c'est sur vingt-huit que sont calculés
+les intervalles publiés en section 6.3 — 2 % à 28 % pour les inversions, 8 % à 41 % pour
+les énoncés incorrects au sens large. Les chiffres ci-dessus relèvent de l'étape du dry
+run et sont conservés à ce titre. Les erreurs relevées sont les mêmes dans les deux
+dépouillements, trois inversions et trois énoncés à direction non soutenue : seul le
+dénominateur change, et aucune conclusion n'en dépend.
+
 Les trois inversions, vérifiables sur le seul texte des abstracts :
   venlafaxine increases activity of NET (l'article la décrit comme un inhibiteur)
   Selexipag positively regulates pulmonary arterial hypertension (il la traite)
@@ -538,3 +547,10 @@ médicaments dont plusieurs relèvent de mêmes classes thérapeutiques, et la l
 de synthèse énumérant systématiquement les membres d'une classe, la proportion de
 chemins non résolubles par une unique récupération est intrinsèquement limitée. Ce
 plafond constitue une propriété du domaine documentaire et non un défaut de méthode.
+
+Quantification postérieure (scripts 59 et 60) : sur les seize chemins retenus après
+diversification, treize correspondent aux onze questions multi-hop construites, certaines
+intersections admettant deux extrémités alternatives. Les trois chemins restants reposent
+tous sur un couple de résumés déjà mobilisé par une question retenue : aucun n'apporte de
+source nouvelle. Élargir le bras multi-hop sans élargir le corpus reviendrait donc à
+ajouter des questions dépendantes des mêmes documents.

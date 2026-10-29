@@ -1,5 +1,7 @@
 # Journal du pilote — semaine 1
 
+*[English version](pilot-journal.md)*
+
 ## Test de couverture, appariement exact (scripts/12_test_couverture.py)
 
 Corpus : 144 abstracts, 5 médicaments. Chaînes DrugMechDB concernées : 16.

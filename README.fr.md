@@ -20,11 +20,13 @@ Sur un corpus de 475 résumés PubMed et un jeu de 20 questions vérifiées manu
 
 **Le graphe atteint avec cinq documents un niveau de rappel que la recherche vectorielle n'atteint pas avec cinquante.** L'écart se maintient à toutes les valeurs du budget documentaire testées.
 
+Ces chiffres opposent le graphe à une baseline vectorielle standard. Trois baselines plus exigeantes ont été ajoutées ensuite — un découpage en passages, une baseline lexicale BM25, et la recherche de LightRAG conduite sur notre propre graphe. Elles situent l'origine de l'écart et en bornent la portée : les sections 8.9 à 8.11 du rapport les détaillent.
+
 Trois résultats distincts de cette comparaison :
 
 **Une base de mécanismes curée n'est pas reconstructible à partir de résumés d'articles.** Aucune des quinze chaînes de DrugMechDB retenues n'a pu être retrouvée dans le graphe extrait. La littérature comprime les chaînes causales et présuppose les liens établis : sur 935 relations extraites, 36 seulement ont une maladie pour cible.
 
-**L'avantage du graphe ne vient pas de la traversée.** L'écart est maximal sur les questions à un saut, qui n'en requièrent aucune. Le mécanisme dominant est l'absence de dilution : le graphe indexe des relations et non des documents.
+**L'avantage du graphe ne vient pas de la traversée.** L'écart est maximal sur les questions à un saut, qui n'en requièrent aucune, et une ablation attribue 91 % de cet écart à l'ancrage seul. Le mécanisme dominant est l'absence de dilution : ce qui compte est d'aller chercher les documents par l'entité plutôt que par un vecteur global. Une baseline lexicale en récupère les trois quarts sans aucun graphe, et LightRAG, sur notre propre graphe, retombe au niveau vectoriel dès qu'il classe les documents par ressemblance.
 
 **La métrique de fidélité, employée seule, récompense le silence.** Le pipeline le moins performant y obtient le meilleur score, grâce à son taux d'abstention de 50 %.
 
@@ -88,6 +90,8 @@ Le pipeline par graphe s'exécute sans accélérateur matériel :
 ```bash
 python scripts/48_pipeline_graphe.py      # rappel du Pipeline B
 python scripts/49_courbe_rappel.py        # rappel selon le budget documentaire
+python scripts/62_comparaison_baselines.py  # toutes les baselines et les tests appariés
+python scripts/65_robustesse_egalites.py    # sensibilité des rappels aux égalités de score
 ```
 
 Les étapes exigeant un GPU — extraction des relations, encodage vectoriel, génération, jugement — se trouvent dans `notebooks/`, prêtes à être exécutées sur Google Colab en offre gratuite.
@@ -103,6 +107,7 @@ Les étapes exigeant un GPU — extraction des relations, encodage vectoriel, g�
 | `data/raw/indication_paths.yaml` | DrugMechDB, 4 846 chemins mécanistiques (CC0), téléchargé le 7 août 2026 |
 | `data/raw/pubmed_corpus.json` | 475 résumés PubMed collectés le 16 août 2026 |
 | `data/processed/relations_nettoyees.json` | 935 relations extraites et normalisées |
+| `data/processed/baseline_*.json` | classements des baselines supplémentaires (notebooks 61, 64 et 66, script 62) |
 | `data/processed/jeu_de_test.json` | 20 questions avec réponses attendues et documents sources |
 
 ### Provenance et droits
@@ -137,7 +142,7 @@ Le jeu de test est réutilisable indépendamment de ce travail.
 
 ## Journaux de décision
 
-Le dossier `docs/` contient les journaux tenus au fil du stage, rédigés en français. Ils documentent les décisions, les mesures qui les ont fondées, et celles qui les ont infirmées. Le rapport analytique est disponible dans les deux langues.
+Le dossier `docs/` contient les journaux tenus au fil du stage. Ils documentent les décisions, les mesures qui les ont fondées, et celles qui les ont infirmées. Le rapport analytique est disponible dans les deux langues, ainsi que deux des journaux ; les autres sont en français.
 
 | Fichier | Objet |
 |---|---|
@@ -146,10 +151,12 @@ Le dossier `docs/` contient les journaux tenus au fil du stage, rédigés en fra
 | `exploration-datasets.md` | choix de la référence structurée, candidats écartés |
 | `structures-observees.md` | dérivation du schéma d'extraction |
 | `journal-pilote.md` | pilote sur cinq médicaments et sa réfutation |
+| `pilot-journal.md` | version anglaise du journal du pilote |
 | `dry-run.md` | trois itérations d'ajustement du prompt d'extraction |
 | `contraintes-jeu-de-test.md` | contraintes de construction de la vérité terrain |
 | `environnement.md` | environnement technique et résultats détaillés |
 | `points-soutenance.md` | constats méthodologiques retenus pour l'oral |
+| `defence-points.md` | version anglaise des constats retenus pour l'oral |
 
 Ces journaux consignent aussi ce qui n'a pas fonctionné : un pilote dont quatre estimations sur cinq se sont révélées fausses, une hypothèse de troncature réfutée par la mesure, un filtre rendu inopérant par un défaut de typage situé ailleurs.
 
@@ -163,7 +170,7 @@ Le corpus est construit pour contenir les chaînes testées. L'étude mesure la 
 
 Le graphe est intégralement construit par extraction automatique, tandis que l'index vectoriel n'emploie aucun modèle de langue. Un échantillon aléatoire de 40 relations révèle de l'ordre de 10 % d'inversions de polarité. Ce biais joue contre l'hypothèse testée, le graphe l'emportant malgré ce handicap.
 
-La baseline vectorielle conserve l'abstract entier comme unité de récupération. Un découpage en passages plus courts améliorerait vraisemblablement son rappel ; il n'a pas été mis en œuvre, la baseline visant une implémentation standard.
+La baseline vectorielle conserve l'abstract entier comme unité de récupération : c'est une implémentation standard, et non un adversaire optimisé. Trois baselines plus exigeantes ont été mesurées après coup. Elles ne changent aucun des chiffres ci-dessus, mais elles en bornent la portée, et elles n'ont été mesurées qu'en récupération, jamais en réponses.
 
 Ces limites et plusieurs autres sont exposées en détail dans la section 10 du rapport.
 
