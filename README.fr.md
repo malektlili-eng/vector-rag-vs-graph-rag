@@ -1,6 +1,8 @@
 *[English version](README.md)*
 # Vector RAG vs Graph RAG — inférence multi-hop sur corpus biomédical
 
+**[Démonstration en ligne](https://vector-rag-vs-graph-rag.streamlit.app)** — le tableau de bord comparatif, sans installation. Hébergé sur Streamlit Community Cloud ; l'application s'endort après quelques jours sans visite et met quelques secondes à se réveiller.
+
 Comparaison contrôlée de deux architectures de génération augmentée par récupération sur des questions exigeant la mise en relation de plusieurs documents, avec le pipeline d'ingénierie de données qui les alimente.
 
 Stage de recherche — Laboratoire d'Intelligence Artificielle, Ingénierie des Données et Applications (LR21ES23), Faculté des Sciences de Bizerte, Université de Carthage.

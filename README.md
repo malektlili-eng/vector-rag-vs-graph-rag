@@ -2,6 +2,8 @@
 
 # Vector RAG vs Graph RAG — multi-hop inference on a biomedical corpus
 
+**[Live demo](https://vector-rag-vs-graph-rag.streamlit.app)** — the comparison dashboard, no installation required. Hosted on Streamlit Community Cloud; the app sleeps after a few days without visitors and takes a few seconds to wake.
+
 A controlled comparison of two retrieval-augmented generation architectures on questions that require combining several documents, together with the data engineering pipeline that feeds them.
 
 Research internship — Artificial Intelligence, Data Engineering and Applications Laboratory (LR21ES23), Faculty of Sciences of Bizerte, University of Carthage.
